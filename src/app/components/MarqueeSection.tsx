@@ -22,10 +22,10 @@ export default function MarqueeSection() {
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className="mx-auto flex max-w-[1200px] flex-col items-center px-6 text-center"
       >
-        <p className="text-[22px] font-medium tracking-[0px] text-black/40">Connect to your bank in seconds</p>
+        <p className="text-[18px] md:text-[22px] font-medium tracking-[0px] text-black/40">Connect to your bank in seconds</p>
       </motion.div>
 
-      <div className="relative mt-5 overflow-hidden">
+      <div className="relative mt-4 overflow-hidden">
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white via-white/90 to-transparent sm:w-24 md:w-32" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white via-white/90 to-transparent sm:w-24 md:w-32" />
 
@@ -33,25 +33,33 @@ export default function MarqueeSection() {
           className="flex w-max items-center"
           style={{ animation: "marquee 34s linear infinite", willChange: "transform" }}
         >
-          <div className="flex shrink-0 items-center gap-10 px-6 md:gap-12 md:px-10">
+          <div className="flex shrink-0 items-center gap-4 px-3 md:gap-12 md:px-10">
             {logos.map((logo) => (
-              <div
+              <motion.div
                 key={logo.alt}
-                className="flex min-w-[180px] shrink-0 items-center justify-center py-3 opacity-90 transition-opacity duration-300 hover:opacity-100"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 + Math.random() * 0.4, ease: "easeOut" }}
+                whileHover={{ scale: 1.05 }}
+                className="flex min-w-[160px] shrink-0 items-center justify-center py-3 opacity-90 transition-opacity duration-300 hover:opacity-100"
               >
-                <img src={logo.src} alt={logo.alt} className="h-[40px] object-contain md:h-[48px]" />
-              </div>
+                <img src={logo.src} alt={logo.alt} className="h-[32px] sm:h-[36px] md:h-[48px] object-contain" />
+              </motion.div>
             ))}
           </div>
 
-          <div className="flex shrink-0 items-center gap-10 px-6 md:gap-12 md:px-10" aria-hidden="true">
+          <div className="flex shrink-0 items-center gap-4 px-3 md:gap-12 md:px-10" aria-hidden="true">
             {logos.map((logo) => (
-              <div
+              <motion.div
                 key={`${logo.alt}-duplicate`}
-                className="flex min-w-[180px] shrink-0 items-center justify-center py-3 opacity-90 transition-opacity duration-300 hover:opacity-100"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 + Math.random() * 0.4, ease: "easeOut" }}
+                whileHover={{ scale: 1.05 }}
+                className="flex min-w-[160px] shrink-0 items-center justify-center py-3 opacity-90 transition-opacity duration-300 hover:opacity-100"
               >
-                <img src={logo.src} alt="" className="h-[40px] object-contain md:h-[48px]" />
-              </div>
+                <img src={logo.src} alt="" className="h-[32px] sm:h-[36px] md:h-[48px] object-contain" />
+              </motion.div>
             ))}
           </div>
         </div>

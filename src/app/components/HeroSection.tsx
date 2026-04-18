@@ -38,7 +38,7 @@ function Badge() {
 function Header() {
   return (
     <div
-      className="content-stretch flex flex-col items-center lg:items-start relative shrink-0 text-[30px] sm:text-[24px] md:text-[30px] lg:text-[48px] tracking-[-0.8px] md:tracking-[-1px] lg:tracking-[-1.5px] w-full text-center lg:text-left max-w-[320px] sm:max-w-[380px] md:max-w-[560px] lg:max-w-none"
+      className="content-stretch flex flex-col items-center lg:items-start relative shrink-0 text-[30px] sm:text-[30px] md:text-[36px] lg:text-[48px] tracking-[-0.8px] md:tracking-[-1px] lg:tracking-[-1.5px] w-full text-center lg:text-left max-w-[320px] sm:max-w-[380px] md:max-w-[560px] lg:max-w-none"
       data-name="Header"
     >
       <motion.div
@@ -97,7 +97,7 @@ function EmailInput({
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6, delay: 0.8, ease }}
-      className="bg-[#f7f7f7] content-stretch flex flex-col h-[48px] items-start overflow-clip pl-[18px] pr-[16px] py-[14px] relative rounded-[80px] shrink-0 w-full max-w-[320px] sm:max-w-[380px] md:max-w-[460px] lg:w-[459px] lg:min-w-[304px]"
+      className="bg-[#f7f7f7] content-stretch flex flex-col h-[48px] items-start overflow-clip pl-[18px] pr-[16px] py-[14px] relative rounded-[80px] shrink-0 w-full lg:w-[459px] lg:min-w-[304px]"
       data-name="Input"
     >
       <input
@@ -130,16 +130,14 @@ function SubmitButton({
       whileTap={!disabled ? { scale: 0.98 } : {}}
       onClick={onClick}
       disabled={disabled}
-      className="bg-[#2a2a91] relative rounded-[80px] shrink-0 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed w-auto self-center lg:self-stretch"
+      className="bg-[#2a2a91] relative rounded-[80px] shrink-0 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed w-full h-[40px] lg:w-auto lg:h-auto lg:self-stretch"
       data-name="Background"
     >
-      <div className="flex flex-row items-center size-full">
-        <div className="content-stretch flex items-center justify-center px-[20px] py-[16px] relative size-full">
-          <div className="flex flex-col font-['Satoshi:Medium',sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-white whitespace-nowrap">
-            <p className="leading-[16px]">
-              {isLoading ? "Joining..." : "Join the waitlist"}
-            </p>
-          </div>
+      <div className="flex flex-row items-center justify-center size-full px-[20px] py-[12px] lg:py-[16px]">
+        <div className="flex flex-col font-['Satoshi:Medium',sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-white whitespace-nowrap">
+          <p className="leading-[16px]">
+            {isLoading ? "Joining..." : "Join the waitlist"}
+          </p>
         </div>
       </div>
     </motion.button>
@@ -162,7 +160,7 @@ function EmailForm({
       className="relative shrink-0 w-full flex justify-center"
       data-name="Email form"
     >
-      <div className="content-stretch flex flex-col lg:flex-row gap-[12px] items-center lg:items-start relative w-full max-w-[640px]">
+      <div className="content-stretch flex flex-col gap-[12px] items-stretch w-full max-w-[640px] lg:flex-row lg:items-start">
         <EmailInput
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -330,7 +328,7 @@ function TextContent({
 }) {
   return (
     <div
-      className="lg:absolute content-stretch flex flex-col gap-[18px] sm:gap-[20px] items-center lg:items-start px-[16px] sm:px-[20px] pt-[88px] sm:pt-[96px] md:px-[32px] md:pt-[108px] lg:left-[80px] lg:top-[120px] lg:w-[48%] lg:max-w-[600px] lg:pr-[0px] lg:p-0 z-[10] w-full"
+      className="lg:absolute content-stretch flex flex-col gap-[18px] sm:gap-[20px] items-center lg:items-start px-[16px] sm:px-[20px] pt-[120px] sm:pt-[128px] md:px-[32px] md:pt-[136px] lg:left-[80px] lg:top-[120px] lg:w-[48%] lg:max-w-[600px] lg:pr-[0px] lg:p-0 z-[10] w-full"
       data-name="Text content"
     >
       <Badge />
@@ -618,29 +616,36 @@ function PhonesDesktop() {
 function PhonesMobile() {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.7, ease }}
-      className="relative w-full flex items-center justify-center mt-[16px] sm:mt-[22px] md:mt-[28px] mb-[88px] sm:mb-[108px] md:mb-[132px] px-[16px] sm:px-[20px] lg:hidden z-[2]"
+      className="relative w-full lg:hidden z-[2] overflow-hidden mb-[16px]"
       data-name="phones-mobile"
     >
-      <div className="relative w-full max-w-[280px] sm:max-w-[330px] md:max-w-[400px] h-auto flex items-center justify-center">
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[1]">
-          <img
-            src={bgEllipse}
-            alt="blue ellipse background"
-            className="w-[160%] sm:w-[170%] md:w-[180%] h-auto object-contain opacity-68"
-          />
-        </div>
-
+      <div className="relative mx-auto w-[92%] sm:w-[80%] md:w-[68%]">
+        {/* Ellipse glow behind phones */}
         <img
-          src={phonesImage}
-          alt="nēro app mockups"
-          className="relative z-[2] w-full h-auto object-contain drop-shadow-lg"
+          src={bgEllipse}
+          alt=""
+          aria-hidden="true"
+          className="absolute w-[160%] sm:w-[140%] h-auto object-contain opacity-75 pointer-events-none"
+          style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
         />
-
-        <div className="absolute left-[-48px] right-[-48px] bottom-[-18px] h-[220px] sm:h-[260px] md:h-[320px] bg-gradient-to-t from-white via-white/98 to-transparent pointer-events-none z-[3]" />
+        {/* Phone mockup */}
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          className="relative z-[2] w-full h-auto"
+        >
+          <img
+            src={phonesImage}
+            alt="nēro app mockups"
+            className="block mx-auto w-full h-auto object-contain drop-shadow-2xl"
+          />
+        </motion.div>
       </div>
+      {/* Bottom fade into next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-[36px] sm:h-[42px] bg-gradient-to-t from-white via-white/90 to-transparent pointer-events-none z-[3]" />
     </motion.div>
   );
 }
@@ -778,7 +783,7 @@ function Navigation() {
 function Navbar() {
   return (
     <div
-      className="absolute content-stretch flex flex-col items-start justify-center left-0 px-[16px] sm:px-[20px] md:px-[32px] lg:px-[80px] py-[16px] md:py-[20px] top-0 w-full z-[20]"
+      className="absolute content-stretch flex flex-col items-start justify-center left-0 px-[12px] sm:px-[16px] md:px-[32px] lg:px-[80px] py-[16px] md:py-[20px] top-0 w-full z-[20]"
       data-name="Navbar"
     >
       <Navigation />
@@ -831,7 +836,7 @@ export default function HeroSection() {
 
   return (
     <div
-      className="bg-white relative w-full h-auto min-h-[980px] sm:min-h-[1100px] md:min-h-[1240px] lg:min-h-0 lg:h-[920px] max-w-[1440px] mx-auto lg:overflow-hidden"
+      className="bg-white relative w-full h-auto min-h-[760px] sm:min-h-[860px] md:min-h-[980px] lg:min-h-0 lg:h-[920px] max-w-[1440px] mx-auto lg:overflow-hidden"
       data-name="Hero"
     >
       <div className="hidden lg:block relative w-full h-full">
@@ -868,11 +873,6 @@ export default function HeroSection() {
 
         <div className="absolute left-0 right-0 bottom-0 h-[340px] bg-gradient-to-t from-white via-white/98 to-transparent pointer-events-none z-[30]" />
         <div className="absolute right-[2%] bottom-[0px] w-[500px] h-[230px] rounded-full bg-white/90 blur-[108px] pointer-events-none z-[6]" />
-      </div>
-
-      <div className="lg:hidden relative w-full">
-        <div className="absolute top-0 left-0 right-0 h-[110px] sm:h-[130px] md:h-[150px] bg-gradient-to-b from-white via-white/82 to-transparent pointer-events-none z-[10]" />
-        <div className="absolute bottom-0 left-0 right-0 h-[260px] sm:h-[320px] md:h-[380px] bg-gradient-to-t from-white via-white/98 to-transparent pointer-events-none z-[6]" />
       </div>
 
       <TextContent
