@@ -5,7 +5,7 @@ import phonesImage from "../../imports/phones.png";
 import bgEllipse from "../../assets/bg-ellipse.svg";
 import circleVectors from "../../assets/circle-vectors.svg";
 
-const ease = [0.22, 1, 0.36, 1];
+const ease = [0.22, 1, 0.36, 1] as const;
 
 function Badge() {
   return (
@@ -380,14 +380,7 @@ function Vectors() {
                   y="-1152.25"
                 >
                   <div
-                    style={{
-                      background:
-                        "conic-gradient(from 90deg,rgba(222, 221, 255, 1) 0deg,rgba(104, 104, 220, 1) 45deg,rgba(255, 255, 255, 1) 104.4deg,rgba(23, 0, 168, 1) 203.4deg,rgba(108, 108, 255, 1) 268.2deg,rgba(255, 255, 255, 1) 322.2deg,rgba(222, 221, 255, 1) 360deg)",
-                      height: "100%",
-                      width: "100%",
-                      opacity: "1",
-                    }}
-                    xmlns="http://www.w3.org/1999/xhtml"
+                    className="h-full w-full opacity-100 bg-[conic-gradient(from_90deg,rgba(222,221,255,1)_0deg,rgba(104,104,220,1)_45deg,rgba(255,255,255,1)_104.4deg,rgba(23,0,168,1)_203.4deg,rgba(108,108,255,1)_268.2deg,rgba(255,255,255,1)_322.2deg,rgba(222,221,255,1)_360deg)]"
                   />
                 </foreignObject>
               </g>
@@ -415,14 +408,7 @@ function Vectors() {
                   y="-1064.52"
                 >
                   <div
-                    style={{
-                      background:
-                        "conic-gradient(from 90deg,rgba(222, 221, 255, 1) 0deg,rgba(104, 104, 220, 1) 45deg,rgba(255, 255, 255, 1) 104.4deg,rgba(23, 0, 168, 1) 203.4deg,rgba(108, 108, 255, 1) 268.2deg,rgba(255, 255, 255, 1) 322.2deg,rgba(222, 221, 255, 1) 360deg)",
-                      height: "100%",
-                      width: "100%",
-                      opacity: "1",
-                    }}
-                    xmlns="http://www.w3.org/1999/xhtml"
+                    className="h-full w-full opacity-100 bg-[conic-gradient(from_90deg,rgba(222,221,255,1)_0deg,rgba(104,104,220,1)_45deg,rgba(255,255,255,1)_104.4deg,rgba(23,0,168,1)_203.4deg,rgba(108,108,255,1)_268.2deg,rgba(255,255,255,1)_322.2deg,rgba(222,221,255,1)_360deg)]"
                   />
                 </foreignObject>
               </g>
@@ -450,14 +436,7 @@ function Vectors() {
                   y="-1042.04"
                 >
                   <div
-                    style={{
-                      background:
-                        "conic-gradient(from 90deg,rgba(221, 219, 255, 1) 0deg,rgba(104, 104, 220, 1) 45deg,rgba(234, 230, 255, 1) 104.4deg,rgba(23, 0, 168, 1) 203.4deg,rgba(108, 108, 255, 1) 268.2deg,rgba(255, 255, 255, 1) 322.2deg,rgba(221, 219, 255, 1) 360deg)",
-                      height: "100%",
-                      width: "100%",
-                      opacity: "1",
-                    }}
-                    xmlns="http://www.w3.org/1999/xhtml"
+                    className="h-full w-full opacity-100 bg-[conic-gradient(from_90deg,rgba(221,219,255,1)_0deg,rgba(104,104,220,1)_45deg,rgba(234,230,255,1)_104.4deg,rgba(23,0,168,1)_203.4deg,rgba(108,108,255,1)_268.2deg,rgba(255,255,255,1)_322.2deg,rgba(221,219,255,1)_360deg)]"
                   />
                 </foreignObject>
               </g>
@@ -628,8 +607,7 @@ function PhonesMobile() {
           src={bgEllipse}
           alt=""
           aria-hidden="true"
-          className="absolute w-[160%] sm:w-[140%] h-auto object-contain opacity-75 pointer-events-none"
-          style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
+          className="absolute left-1/2 top-1/2 w-[160%] sm:w-[140%] h-auto -translate-x-1/2 -translate-y-1/2 object-contain opacity-75 pointer-events-none"
         />
         {/* Phone mockup */}
         <motion.div

@@ -1,1 +1,8 @@
 node_modules
+dist
+.vercel
+
+# environment secrets — never commit these
+.env
+.env.local
+.env.*.local

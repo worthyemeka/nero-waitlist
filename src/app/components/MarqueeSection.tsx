@@ -29,10 +29,7 @@ export default function MarqueeSection() {
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white via-white/90 to-transparent sm:w-24 md:w-32" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white via-white/90 to-transparent sm:w-24 md:w-32" />
 
-        <div
-          className="flex w-max items-center"
-          style={{ animation: "marquee 34s linear infinite", willChange: "transform" }}
-        >
+        <div className="flex w-max items-center [animation:marquee_34s_linear_infinite] [will-change:transform]">
           <div className="flex shrink-0 items-center gap-4 px-3 md:gap-12 md:px-10">
             {logos.map((logo) => (
               <motion.div
