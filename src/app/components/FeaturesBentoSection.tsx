@@ -37,7 +37,7 @@ export default function FeaturesBentoSection() {
                     transition={revealTransition}
                     className="flex flex-col items-start text-left xl:mx-auto xl:max-w-[520px] xl:items-center xl:text-center"
                 >
-                    <h2 className="max-w-[260px] text-[28px] font-semibold leading-[1.08] tracking-[-0.02em] text-[#12123D] sm:max-w-[360px] sm:text-[36px] md:max-w-[440px] md:text-[46px] xl:max-w-[520px] xl:text-[56px]">
+                    <h2 className="max-w-[260px] text-[28px] font-semibold leading-[1.08] tracking-[-0.02em] text-[#12123D] sm:max-w-[360px] sm:text-[36px] md:max-w-[1040px] md:text-[46px] xl:max-w-[520px] xl:text-[56px]">
                         One simple idea that changes everything
                     </h2>
                     <p className="mt-3 text-[14px] leading-6 text-[#8A8A8A] sm:mt-4 sm:text-[16px] sm:leading-7 md:text-[24px] xl:mt-5 xl:text-[20px] xl:leading-[30px]">
@@ -74,7 +74,7 @@ export default function FeaturesBentoSection() {
                         {/* Mockup — bottom-right always */}
                         <motion.div
                             style={{ y: phoneParallaxY }}
-                            className="pointer-events-none absolute z-[2] bottom-[-160px] right-[-60px] sm:bottom-[-180px] sm:right-[-70px] md:bottom-[-450px] md:right-[-150px] xl:bottom-0 xl:top-0 xl:right-[-80px]"
+                            className="pointer-events-none absolute z-[2] bottom-[-260px] right-[-100px] sm:bottom-[-480px] sm:right-[-170px] md:bottom-[-450px] md:right-[-150px] xl:bottom-0 xl:top-0 xl:right-[-80px]"
                         >
                             <motion.img
                                 src={bento1Composed}
@@ -107,7 +107,7 @@ export default function FeaturesBentoSection() {
                     >
                         {/* Phone mockup */}
                         <div
-                            className="pointer-events-none absolute z-[1] top-[-21%] xl:top-[-35%] w-[500px] sm:w-[420px] md:w-[800px] xl:w-[820px]"
+                            className="pointer-events-none absolute z-[3] top-[-28%] sm:top-[-5%] md:top-[-21%] xl:top-[-35%] w-[580px] sm:w-[620px] md:w-[800px] xl:w-[820px]"
                             style={{
                                 left: "50%",
                                 transform: "translateX(-50%)",
@@ -124,9 +124,8 @@ export default function FeaturesBentoSection() {
                         <motion.img
                             src={b2Card1}
                             alt="Debit alert card"
-                            className="pointer-events-none absolute z-[4]"
+                            className="pointer-events-none absolute z-[4] top-[20%] sm:top-[10%] md:top-[6%] xl:top-[6%]"
                             style={{
-                                top: "18%",
                                 right: "-8%",
                                 width: "78%",
                             }}
@@ -142,9 +141,8 @@ export default function FeaturesBentoSection() {
                         <motion.img
                             src={b2Card2}
                             alt="Debit alert card"
-                            className="pointer-events-none absolute z-[4]"
+                            className="pointer-events-none absolute z-[4] top-[38%] sm:top-[22%] md:top-[26%] xl:top-[26%]"
                             style={{
-                                top: "35%",
                                 left: "-8%",
                                 width: "78%",
                             }}
@@ -169,10 +167,10 @@ export default function FeaturesBentoSection() {
 
                         {/* Text — bottom */}
                         <div className="absolute bottom-6 left-6 right-6 z-[6] sm:bottom-7 sm:left-7 sm:right-7 xl:bottom-10 xl:left-10 xl:right-10">
-                            <h3 className="text-[17px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] sm:text-[19px] xl:text-[22px]">
+                            <h3 className="text-[17px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] sm:text-[19px] md:text-[24px] xl:text-[22px]">
                                 Automatic Tracking
                             </h3>
-                            <p className="mt-2 text-[13px] font-normal leading-[1.4] text-[#797C86] sm:text-[14px] md:text-[15px] xl:text-[17px]">
+                            <p className="mt-2 text-[13px] font-normal leading-[1.4] text-[#797C86] sm:text-[14px] md:text-[15px] md:text-[18px] xl:text-[17px]">
                                 nēro reads your bank debit alerts and tracks every transaction for you. No manual entry. No receipts.
                             </p>
                         </div>
