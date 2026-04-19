@@ -1,3 +1,4 @@
+// MarqueeSection.tsx
 import { motion } from "motion/react";
 import accessLogo from "../../assets/Access_Bank_PLC_Logo.png";
 import kudaLogo from "../../assets/Kuda_Bank_Logo.png";
@@ -15,14 +16,16 @@ const logos = [
 
 export default function MarqueeSection() {
   return (
-    <section className="w-full overflow-hidden bg-white pt-4 pb-10 md:pt-6 md:pb-10">
+    <section className="w-full overflow-hidden bg-white pb-8 pt-3 md:pb-10 md:pt-4">
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className="mx-auto flex max-w-[1200px] flex-col items-center px-6 text-center"
       >
-        <p className="text-[18px] md:text-[22px] font-medium tracking-[0px] text-black/40">Connect to your bank in seconds</p>
+        <p className="text-[15px] font-medium tracking-[0px] text-black/40 md:text-[22px]">
+          Connect to your bank in seconds
+        </p>
       </motion.div>
 
       <div className="relative mt-4 overflow-hidden">
@@ -38,9 +41,9 @@ export default function MarqueeSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 + Math.random() * 0.4, ease: "easeOut" }}
                 whileHover={{ scale: 1.05 }}
-                className="flex min-w-[160px] shrink-0 items-center justify-center py-3 opacity-90 transition-opacity duration-300 hover:opacity-100"
+                className="flex min-w-[120px] shrink-0 items-center justify-center py-3 opacity-90 transition-opacity duration-300 hover:opacity-100 md:min-w-[160px]"
               >
-                <img src={logo.src} alt={logo.alt} className="h-[32px] sm:h-[36px] md:h-[48px] object-contain" />
+                <img src={logo.src} alt={logo.alt} className="h-[26px] object-contain sm:h-[32px] md:h-[48px]" />
               </motion.div>
             ))}
           </div>
@@ -53,9 +56,9 @@ export default function MarqueeSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 + Math.random() * 0.4, ease: "easeOut" }}
                 whileHover={{ scale: 1.05 }}
-                className="flex min-w-[160px] shrink-0 items-center justify-center py-3 opacity-90 transition-opacity duration-300 hover:opacity-100"
+                className="flex min-w-[120px] shrink-0 items-center justify-center py-3 opacity-90 transition-opacity duration-300 hover:opacity-100 md:min-w-[160px]"
               >
-                <img src={logo.src} alt="" className="h-[32px] sm:h-[36px] md:h-[48px] object-contain" />
+                <img src={logo.src} alt="" className="h-[26px] object-contain sm:h-[32px] md:h-[48px]" />
               </motion.div>
             ))}
           </div>

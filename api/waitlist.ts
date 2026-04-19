@@ -15,6 +15,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
+    // Send confirmation email
     await resend.emails.send({
       from: process.env.FROM_EMAIL ?? "nēro <onboarding@resend.dev>",
       to: email,
@@ -70,6 +71,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           </body>
         </html>
       `,
+    });
+
+    // Track waitlist signup event in Resend
+    await resend.events.send({
+      event: "Signs up for waitlist",
+      email,
+      payload: {
+        email,
+        signedUpAt: new Date().toISOString(),
+      },
     });
 
     return res.status(200).json({ message: "You're on the waitlist! Check your inbox." });
