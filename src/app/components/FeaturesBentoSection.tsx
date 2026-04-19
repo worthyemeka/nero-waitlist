@@ -61,7 +61,7 @@ export default function FeaturesBentoSection() {
                         }}
                     >
                         {/* Text — top-left always */}
-                        <div className="relative z-[6] max-w-[220px] pl-6 pt-7 sm:max-w-[280px] sm:pl-7 sm:pt-9 md:max-w-[400px] md:pl-8 xl:max-w-[420px] xl:pt-10">
+                        <div className="relative z-[6] max-w-[220px] pl-6 pt-7 sm:max-w-[280px] sm:pl-7 sm:pt-9 md:max-w-[400px] md:pl-8 xl:max-w-[360px] xl:pt-10">
                             <h3 className="text-[17px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] sm:text-[16px] md:text-[24px] xl:text-[22px]">
                                 Spend without running out
                             </h3>
@@ -107,9 +107,8 @@ export default function FeaturesBentoSection() {
                     >
                         {/* Phone mockup */}
                         <div
-                            className="pointer-events-none absolute z-[1] w-[500px] sm:w-[420px] md:w-[800px] xl:w-[840px]"
+                            className="pointer-events-none absolute z-[1] top-[-21%] xl:top-[-35%] w-[500px] sm:w-[420px] md:w-[800px] xl:w-[820px]"
                             style={{
-                                top: "-21%",
                                 left: "50%",
                                 transform: "translateX(-50%)",
                             }}
