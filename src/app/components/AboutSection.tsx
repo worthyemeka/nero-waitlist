@@ -29,13 +29,20 @@ const cards = [
 export default function AboutSection() {
   return (
     <motion.section
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 24, filter: "blur(10px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
       className="w-full bg-white px-6 py-16 md:px-8 md:py-20 lg:px-20"
     >
       <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-12">
-        <div className="grid w-full gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start lg:gap-16">
+        <motion.div
+          initial={{ opacity: 0, y: 18, filter: "blur(10px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="grid w-full gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start lg:gap-16"
+        >
           <div className="flex flex-col items-start text-left lg:pr-8">
             <h2 className="w-full text-[36px] font-semibold leading-[1.2] tracking-[-2px] text-[#12123D] sm:text-[40px] md:text-[44px] lg:text-[44px]">
               Because handling money shouldn’t feel this confusing
@@ -46,7 +53,7 @@ export default function AboutSection() {
             We’ve all been there… checking your balance, spending beyond your limits, and somehow hoping it lasts.
             That’s why nēro was built: to give you clarity when budgeting, not stress.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid gap-6 md:grid-cols-3 md:gap-5">
           {cards.map((card, index) => {
@@ -55,15 +62,17 @@ export default function AboutSection() {
             return (
               <motion.article
                 key={card.title}
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: "easeOut" }}
+                initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{ duration: 0.7, delay: index * 0.1, ease: "easeOut" }}
                 className="w-full rounded-[24px] border border-black/10 bg-white p-6 md:min-h-[224px]"
               >
                 <motion.div
-                  initial={{ opacity: 0, y: 10, scale: 0.96 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+                  initial={{ opacity: 0, y: 10, scale: 0.96, filter: "blur(6px)" }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+                  viewport={{ once: true, amount: 0.45 }}
+                  transition={{ duration: 0.6, delay: 0.1 + index * 0.1, ease: "easeOut" }}
                   className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-[18px] bg-[#F2F2F2]"
                 >
                   <Icon className="h-7 w-7 text-[#12123D]" />

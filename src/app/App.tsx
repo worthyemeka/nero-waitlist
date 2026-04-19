@@ -1,6 +1,7 @@
 import HeroSection from "./components/HeroSection";
 import MarqueeSection from "./components/MarqueeSection";
 import AboutSection from "./components/AboutSection";
+import FeaturesBentoSection from "./components/FeaturesBentoSection";
 
 export default function App() {
   return (
@@ -8,6 +9,7 @@ export default function App() {
       <HeroSection />
       <MarqueeSection />
       <AboutSection />
+      <FeaturesBentoSection />
     </div>
   );
 }

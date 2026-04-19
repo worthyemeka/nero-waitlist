@@ -644,6 +644,7 @@ function PhonesMobile() {
           />
         </motion.div>
       </div>
+
       {/* Bottom fade into next section */}
       <div className="absolute bottom-0 left-0 right-0 h-[36px] sm:h-[42px] bg-gradient-to-t from-white via-white/90 to-transparent pointer-events-none z-[3]" />
     </motion.div>
