@@ -1,6 +1,6 @@
 import HeroSection from "./components/HeroSection";
 import MarqueeSection from "./components/MarqueeSection";
-import AboutSection from "./components/AboutSection";
+//import AboutSection from "./components/AboutSection";
 import FeaturesBentoSection from "./components/FeaturesBentoSection";
 
 export default function App() {
@@ -8,7 +8,7 @@ export default function App() {
     <div className="w-full bg-white">
       <HeroSection />
       <MarqueeSection />
-      <AboutSection />
+     {/* <AboutSection /> */}
       <FeaturesBentoSection />
     </div>
   );

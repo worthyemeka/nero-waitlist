@@ -1,7 +1,8 @@
 // FeaturesBentoSection.tsx
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import bento1Composed from "../../assets/bento1-composed.png";
+import bento1Phone from "../../assets/bento1-phone.jpg";
+import cardBento1 from "../../assets/card-bento1.png";
 import b2Mockup from "../../assets/b2-mockup.png";
 import b2Card1 from "../../assets/Card 1.png";
 import b2Card2 from "../../assets/Card 2.png";
@@ -35,13 +36,13 @@ export default function FeaturesBentoSection() {
                     whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                     viewport={{ once: true, amount: 0.25 }}
                     transition={revealTransition}
-                    className="flex flex-col items-start text-left xl:mx-auto xl:max-w-[520px] xl:items-center xl:text-center"
+                    className="flex flex-col items-center text-center xl:mx-auto xl:max-w-[520px]"
                 >
-                    <h2 className="max-w-[260px] text-[28px] font-semibold leading-[1.08] tracking-[-0.02em] text-[#12123D] sm:max-w-[360px] sm:text-[36px] md:max-w-[1040px] md:text-[46px] xl:max-w-[520px] xl:text-[56px]">
-                        One simple idea that changes everything
+                    <h2 className="max-w-[800px] text-[28px] font-semibold leading-[1.08] tracking-[-0.02em] text-[#12123D] sm:text-[36px] md:max-w-[1040px] md:text-[46px] xl:max-w-[520px] xl:text-[56px]">
+                        Here's how we help<br /> you stay on track
                     </h2>
                     <p className="mt-3 text-[14px] leading-6 text-[#8A8A8A] sm:mt-4 sm:text-[16px] sm:leading-7 md:text-[24px] xl:mt-5 xl:text-[20px] xl:leading-[30px]">
-                        Set your spending once. nēro handles the rest.
+                        Set your budget once. nēro handles the rest — daily.
                     </p>
                 </motion.div>
 
@@ -54,44 +55,50 @@ export default function FeaturesBentoSection() {
                         viewport={{ once: true, amount: 0.2 }}
                         transition={revealTransition}
                         whileHover={{ y: -3 }}
-                        className="relative h-[380px] overflow-hidden rounded-[24px] sm:h-[440px] md:h-[460px] xl:col-[1/2] xl:row-[1/2] xl:h-[480px]"
+                        className="relative h-[380px] overflow-hidden rounded-[24px] sm:h-[440px] md:h-[460px] xl:col-[1/2] xl:row-[1/2] xl:h-[480px] xl:w-[730px]"
                         style={{
                             background:
                                 "linear-gradient(90deg, rgba(242,242,242,0.37), rgba(242,242,242,0.37)), #ffffff",
                         }}
                     >
-                        {/* Text — top-left always */}
-                        <div className="relative z-[6] max-w-[220px] pl-6 pt-7 sm:max-w-[280px] sm:pl-7 sm:pt-9 md:max-w-[400px] md:pl-8 xl:max-w-[360px] xl:pt-10">
-                            <h3 className="text-[17px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] sm:text-[16px] md:text-[24px] xl:text-[22px]">
-                                Spend without running out
+                        {/* Text — top-left */}
+                        <div className="relative z-[6] max-w-[384px] pl-8 pt-10 xl:max-w-[384px] xl:pl-10 xl:pt-12">
+                            <h3 className="text-[20px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] xl:text-[22px]">
+                                Know what you can spend today
                             </h3>
-                            <p className="mt-2 text-[12px] font-normal leading-[1.4] text-[#797C86] sm:text-[15px] sm:text-[18px] xl:text-[17px]">
-                                nēro shows how much you can spend today based on what you have
-                                left so your money lasts the month.
+                            <p className="mt-0 text-[15px] font-[400] leading-[1.5] text-[#797C86] xl:mt-4 xl:text-[17px]">
+                                nēro shows you exactly what you can spend today — so your money lasts the full cycle.
                             </p>
                         </div>
 
-                        {/* Mockup — bottom-right always */}
+                        {/* Phone mockup — right side, blurred */}
                         <motion.div
                             style={{ y: phoneParallaxY }}
-                            className="pointer-events-none absolute z-[2] bottom-[-260px] right-[-100px] sm:bottom-[-480px] sm:right-[-170px] md:bottom-[-450px] md:right-[-150px] xl:bottom-0 xl:top-0 xl:right-[-80px]"
+                            className="pointer-events-none absolute right-[-60px] top-[20px] z-[2] xl:right-[-40px] xl:top-[74.93px]"
                         >
-                            <motion.img
-                                src={bento1Composed}
-                                alt="nēro spend-without-running-out feature"
-                                className="max-w-none w-[420px] sm:w-[500px] md:w-[660px] xl:w-[780px] xl:absolute xl:right-[-100px] xl:top-[-10px]"
-                                style={{ height: "auto" }}
-                                animate={{ y: [0, -7, 0, 7, 0] }}
-                                transition={{
-                                    duration: 9.5,
-                                    repeat: Infinity,
-                                    ease: "easeInOut",
-                                }}
+                            <img
+                                src={bento1Phone}
+                                alt="nēro app screen"
+                                className="h-auto w-[420px] rounded-[20px] opacity-60 blur-[3px] xl:w-[302px]"
                             />
                         </motion.div>
 
+                        {/* Spending target card — bottom-left */}
+                        <motion.img
+                            src={cardBento1}
+                            alt="Today's spending target card"
+                            className="pointer-events-none absolute bottom-[40px] left-[-4px] z-[4] w-[340px] drop-shadow-xl xl:bottom-[10px] xl:left-[-12px] xl:w-[700px]"
+                            animate={{ y: [0, -6, 0, 6, 0] }}
+                            transition={{
+                                duration: 8,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                            }}
+                        />
+
                         {/* Bottom fade */}
-                        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[4] h-[160px] bg-gradient-to-t from-[#F2F3F2] via-[#F2F3F2]/85 to-transparent sm:h-[170px] sm:via-[#F2F3F2]/75 md:h-[180px] xl:h-[200px] xl:via-[#F2F3F2]/60" /></motion.article>
+                        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[3] h-[120px] bg-gradient-to-t from-[#F2F3F2] via-[#F2F3F2]/50 to-transparent xl:h-[140px]" />
+                    </motion.article>
 
                     {/* Bento 2 */}
                     <motion.article
@@ -107,7 +114,7 @@ export default function FeaturesBentoSection() {
                     >
                         {/* Phone mockup */}
                         <div
-                            className="pointer-events-none absolute z-[3] top-[-28%] sm:top-[-5%] md:top-[-21%] xl:top-[-35%] w-[580px] sm:w-[620px] md:w-[800px] xl:w-[820px]"
+                            className="pointer-events-none absolute z-[3] top-[-28%] sm:top-[-5%] md:top-[-21%] xl:top-[-26%] w-[580px] sm:w-[620px] md:w-[800px] xl:w-[760px]"
                             style={{
                                 left: "50%",
                                 transform: "translateX(-50%)",
@@ -124,7 +131,7 @@ export default function FeaturesBentoSection() {
                         <motion.img
                             src={b2Card1}
                             alt="Debit alert card"
-                            className="pointer-events-none absolute z-[4] top-[20%] sm:top-[10%] md:top-[6%] xl:top-[6%]"
+                            className="pointer-events-none absolute z-[4] top-[20%] sm:top-[10%] md:top-[6%] xl:top-[20%]"
                             style={{
                                 right: "-8%",
                                 width: "78%",
@@ -141,7 +148,7 @@ export default function FeaturesBentoSection() {
                         <motion.img
                             src={b2Card2}
                             alt="Debit alert card"
-                            className="pointer-events-none absolute z-[4] top-[38%] sm:top-[22%] md:top-[26%] xl:top-[26%]"
+                            className="pointer-events-none absolute z-[4] top-[38%] sm:top-[22%] md:top-[26%] xl:top-[36%]"
                             style={{
                                 left: "-8%",
                                 width: "78%",
