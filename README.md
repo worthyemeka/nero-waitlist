@@ -15,7 +15,7 @@ A premium, minimal fintech landing page for nēro, a mobile app that helps users
   - Breathing badge dot with pulse effect
   - Scroll-based parallax for depth
   - Smooth form interactions with spring physics
-- 📧 **Functional Waitlist Form** - Production-ready with Resend integration
+- 📧 **Functional Waitlist Form** - SMTP + Supabase backend
 - 🎯 **State Management** - Loading, success, error states with animations
 - 🔒 **Security First** - Environment-based configuration, no exposed secrets
 - ⚡ **Performance Optimized** - GPU-accelerated, 60fps animations
@@ -26,13 +26,13 @@ A premium, minimal fintech landing page for nēro, a mobile app that helps users
 - **Styling:** Tailwind CSS v4
 - **Animations:** Motion (motion/react) - subtle, production-ready animations
 - **Typography:** Satoshi (Fontshare) - used throughout from Figma design
-- **Backend Integration:** Resend (email service)
+- **Backend Integration:** Nodemailer (Zoho SMTP) + Supabase
 - **Design:** Imported from Figma with pixel-perfect implementation
 
 ## Documentation
 
 - **[ANIMATIONS.md](./ANIMATIONS.md)** - Complete animation system documentation
-- **[BACKEND_INTEGRATION.md](./BACKEND_INTEGRATION.md)** - Resend email setup guide
+- **[BACKEND_INTEGRATION.md](./BACKEND_INTEGRATION.md)** - Minimal backend setup
 
 ## Getting Started
 
@@ -44,16 +44,17 @@ pnpm install
 
 ### 2. Configure Environment
 
-Copy `.env.example` to `.env`:
-
-```bash
-cp .env.example .env
-```
-
-Update `VITE_API_URL` with your backend URL:
+Set backend env vars (see `BACKEND_INTEGRATION.md` for exact values):
 
 ```env
-VITE_API_URL=https://api.yourdomain.com
+SUPABASE_URL=...
+SUPABASE_SERVICE_ROLE_KEY=...
+SMTP_HOST=...
+SMTP_PORT=465
+SMTP_SECURE=true
+SMTP_USER=...
+SMTP_PASS=...
+FROM_EMAIL=...
 ```
 
 ### 3. Run Development Server
@@ -66,24 +67,11 @@ The app will be available at the preview URL shown in your terminal.
 
 ## Backend Integration
 
-The waitlist form is designed to work with a separate backend service that handles Resend email integration.
+Use `POST /api/waitlist` to:
 
-### Quick Setup
-
-1. See `BACKEND_INTEGRATION.md` for detailed backend setup instructions
-2. Create a Resend account at [resend.com](https://resend.com)
-3. Set up your welcome email template in Resend
-4. Deploy your backend with the `/api/waitlist` endpoint
-5. Update `VITE_API_URL` in your `.env` file
-
-### API Endpoint Requirements
-
-Your backend should provide a `POST /api/waitlist` endpoint that:
-
-- Accepts `{ email: string }` in request body
-- Validates email format
-- Sends welcome email via Resend
-- Returns `{ success: true }` or `{ error: string }`
+- Accept `{ email: string }`
+- Save email to Supabase
+- Send welcome email via SMTP
 
 ## Project Structure
 

@@ -1,153 +1,37 @@
-# Backend Integration Guide - Resend Waitlist
-
-This guide explains how to set up the backend endpoint for the nēro waitlist form using Resend.
+# Backend Integration (Minimal)
 
 ## Environment Variables
 
-Add these to your backend environment:
-
 ```env
-RESEND_API_KEY=re_xxxxxxxxxxxxx
-RESEND_TEMPLATE_ID=your_template_id
-FROM_EMAIL=noreply@yourdomain.com
+SUPABASE_URL=https://<project-ref>.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=...
+SMTP_HOST=smtp.zoho.com
+SMTP_PORT=465
+SMTP_SECURE=true
+SMTP_USER=noreply@neroapp.co
+SMTP_PASS=...
+FROM_EMAIL=Nero <noreply@neroapp.co>
 ```
 
-## API Endpoint
+Paid Zoho SMTP host: `smtppro.zoho.com`.
 
-Create a `POST /api/waitlist` endpoint that:
+## Supabase SQL
 
-1. Receives the email from the frontend
-2. Triggers a Resend email using your pre-created template
-3. Returns success/error response
+```sql
+create extension if not exists citext;
 
-## Example Implementation (Node.js/Express)
+create table if not exists public.waitlist_signups (
+  id bigserial primary key,
+  email citext not null,
+  source text default 'landing-page',
+  created_at timestamptz not null default now(),
+  constraint waitlist_email_format_chk
+    check (email ~* '^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$')
+);
 
-```javascript
-import { Resend } from 'resend';
+alter table public.waitlist_signups
+  add constraint waitlist_signups_email_unique unique (email);
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-app.post('/api/waitlist', async (req, res) => {
-  const { email } = req.body;
-
-  // Validate email
-  if (!email || !email.includes('@')) {
-    return res.status(400).json({ error: 'Invalid email address' });
-  }
-
-  try {
-    // Send welcome email using Resend template
-    const data = await resend.emails.send({
-      from: process.env.FROM_EMAIL,
-      to: email,
-      subject: 'Welcome to nēro Waitlist!',
-      // Use your pre-created Resend template
-      react: null, // Template will be used instead
-      // OR if you want to use a custom template:
-      // react: WelcomeEmail({ email }), 
-    });
-
-    // Optionally: Store email in database
-    // await db.waitlist.create({ email, signupDate: new Date() });
-
-    res.status(200).json({ 
-      success: true, 
-      message: 'Successfully joined waitlist' 
-    });
-  } catch (error) {
-    console.error('Waitlist signup error:', error);
-    res.status(500).json({ 
-      error: 'Failed to join waitlist. Please try again.' 
-    });
-  }
-});
+create index if not exists waitlist_signups_created_at_idx
+  on public.waitlist_signups (created_at desc);
 ```
-
-## Example Implementation (Next.js API Route)
-
-```typescript
-// app/api/waitlist/route.ts
-import { Resend } from 'resend';
-import { NextResponse } from 'next/server';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-export async function POST(request: Request) {
-  const { email } = await request.json();
-
-  if (!email || !email.includes('@')) {
-    return NextResponse.json(
-      { error: 'Invalid email address' },
-      { status: 400 }
-    );
-  }
-
-  try {
-    await resend.emails.send({
-      from: process.env.FROM_EMAIL!,
-      to: email,
-      subject: 'Welcome to nēro Waitlist!',
-      // Use your Resend template here
-      react: null,
-    });
-
-    return NextResponse.json({ 
-      success: true,
-      message: 'Successfully joined waitlist' 
-    });
-  } catch (error) {
-    return NextResponse.json(
-      { error: 'Failed to join waitlist' },
-      { status: 500 }
-    );
-  }
-}
-```
-
-## Resend Template Setup
-
-1. Go to [Resend Dashboard](https://resend.com/emails)
-2. Create a new email template
-3. Design your welcome email with:
-   - nēro branding
-   - Confirmation message
-   - Next steps or launch timeline
-   - Social media links
-4. Save the template and note the template ID
-5. Use the template ID in your API endpoint
-
-## Testing
-
-Test the endpoint with:
-
-```bash
-curl -X POST http://localhost:3000/api/waitlist \
-  -H "Content-Type: application/json" \
-  -d '{"email": "test@example.com"}'
-```
-
-## Frontend Configuration
-
-Update the frontend fetch URL in `src/app/components/waitlist-form.tsx`:
-
-```typescript
-const response = await fetch("YOUR_BACKEND_URL/api/waitlist", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({ email }),
-});
-```
-
-Replace `YOUR_BACKEND_URL` with your actual backend URL (e.g., `https://api.yourdomain.com`).
-
-## Security Recommendations
-
-1. ✅ Never expose `RESEND_API_KEY` in client-side code
-2. ✅ Validate email format on both frontend and backend
-3. ✅ Implement rate limiting to prevent spam
-4. ✅ Add CORS headers to allow only your frontend domain
-5. ✅ Store emails in a database for analytics
-6. ✅ Consider double opt-in to verify email addresses
-7. ✅ Add honeypot field to prevent bot submissions
