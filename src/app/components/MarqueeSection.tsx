@@ -26,19 +26,19 @@ const logos = [
 
 export default function MarqueeSection() {
   return (
-    <section className="w-full overflow-hidden bg-white pb-8 pt-3 md:pb-10 md:pt-4">
+    <section className="mx-auto w-full max-w-[1440px] overflow-hidden bg-white px-6 py-4 sm:px-10 md:px-[80px] md:py-[48px]">
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="mx-auto flex max-w-[1200px] flex-col items-center px-6 text-center"
+        className="flex flex-col items-center text-center"
       >
         <p className="text-[15px] font-medium tracking-[0px] text-black/40 md:text-[22px]">
           Connect to your bank in seconds
         </p>
       </motion.div>
 
-      <div className="relative mt-4 overflow-hidden">
+      <div className="relative mt-4 overflow-hidden md:mt-6">
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white via-white/90 to-transparent sm:w-24 md:w-32" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white via-white/90 to-transparent sm:w-24 md:w-32" />
 

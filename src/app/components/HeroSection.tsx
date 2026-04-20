@@ -53,7 +53,7 @@ function Header() {
         transition={{ duration: 0.8, delay: 0.2, ease }}
         className="flex flex-col font-['Satoshi:600',sans-serif] font-semibold justify-center not-italic relative shrink-0 text-[#12123d] w-auto leading-[1.08] sm:leading-[1.12] lg:leading-[1.15] text-center lg:text-left"
       >
-        <p>Stop exhausting money</p>
+        <p>Stop running out of money</p>
       </motion.div>
       <motion.div
         initial={{ opacity: 0, x: -40, y: 10 }}
@@ -81,8 +81,8 @@ function HeaderParagraph() {
         className="flex flex-col font-['Satoshi:Regular',sans-serif] justify-center not-italic relative shrink-0 text-[#696969] text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] leading-[1.55] sm:leading-[1.6] w-full max-w-[320px] sm:max-w-[420px] md:max-w-[560px] lg:max-w-[600px] text-center lg:text-left"
       >
         <p>
-          nēro shows you exactly how much you can spend each day, so you never
-          have to worry about running out before the month ends.
+          Know exactly what you can spend today — so your money lasts
+          the full 30 days.
         </p>
       </motion.div>
     </div>
@@ -142,7 +142,7 @@ function SubmitButton({
       <div className="flex flex-row items-center justify-center size-full px-[20px] py-[12px] lg:py-[16px]">
         <div className="flex flex-col font-['Satoshi:Medium',sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-white whitespace-nowrap">
           <p className="leading-[16px]">
-            {isLoading ? "Joining..." : "Join the waitlist"}
+            {isLoading ? "Joining..." : "Get early access"}
           </p>
         </div>
       </div>
@@ -667,7 +667,7 @@ function Container11() {
       data-name="Container"
     >
       <div className="flex flex-col font-['Satoshi:Medium',sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-white tracking-[-0.16px] whitespace-nowrap">
-        <p className="leading-[24px]">Join Waitlist</p>
+        <p className="leading-[24px]">Get early access</p>
       </div>
     </div>
   );
@@ -815,7 +815,7 @@ export default function HeroSection() {
 
   return (
     <div
-      className="bg-white relative w-full h-auto min-h-[760px] sm:min-h-[860px] md:min-h-[980px] lg:min-h-0 lg:h-[920px] max-w-[1440px] mx-auto lg:overflow-hidden"
+      className="bg-white relative w-full h-auto min-h-[660px] sm:min-h-[720px] md:min-h-[780px] lg:min-h-0 lg:h-[920px] max-w-[1440px] mx-auto lg:overflow-hidden"
       data-name="Hero"
     >
       <div className="hidden lg:block relative w-full h-full">

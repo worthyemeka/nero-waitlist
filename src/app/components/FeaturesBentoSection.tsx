@@ -3,9 +3,18 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import bento1Phone from "../../assets/bento1-phone.jpg";
 import cardBento1 from "../../assets/card-bento1.png";
-import b2Mockup from "../../assets/b2-mockup.png";
-import b2Card1 from "../../assets/Card 1.png";
-import b2Card2 from "../../assets/Card 2.png";
+import b2Visual from "../../assets/bento2-image.png";
+import b2Button from "../../assets/b2-button.png";
+import emailIcon from "../../assets/email-icon.png";
+import accIcon from "../../assets/acc-icon.png";
+import kudIcon from "../../assets/kud-icon.png";
+import monIcon from "../../assets/mon-icon.png";
+import opIcon from "../../assets/op-icon.png";
+import oneIcon from "../../assets/one-icon.png";
+import zenIcon from "../../assets/zen-icon.png";
+import abstractDesign from "../../assets/abstract-design.png";
+import pipesLeft from "../../assets/svg-pipes-left.svg";
+import pipesRight from "../../assets/svg-pipes-right.svg";
 
 const revealTransition = {
     duration: 0.75,
@@ -105,73 +114,49 @@ export default function FeaturesBentoSection() {
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{ ...revealTransition, delay: 0.05 }}
                         whileHover={{ y: -6, transition: { type: "spring", stiffness: 400, damping: 15 } }}
-                        className="relative h-[360px] overflow-hidden rounded-[24px] border border-black/10 sm:h-[420px] md:h-[460px] xl:col-[2/3] xl:row-[1/2] xl:h-[480px]"
+                        className="relative h-[360px] overflow-hidden rounded-[24px] sm:h-[420px] md:h-[460px] xl:col-[2/3] xl:row-[1/2] xl:h-[480px]"
                         style={{
-                            background: "linear-gradient(180deg, #EDE8F8 0%, #E6DFF5 50%, #DDD3F0 100%)",
+                            background:
+                                "linear-gradient(90deg, rgba(242,242,242,0.37), rgba(242,242,242,0.37)), #ffffff",
                         }}
                     >
-                        {/* Phone mockup */}
-                        <div
-                            className="pointer-events-none absolute z-[3] top-[-28%] sm:top-[-5%] md:top-[-21%] xl:top-[-26%] w-[580px] sm:w-[620px] md:w-[800px] xl:w-[760px]"
-                            style={{
-                                left: "50%",
-                                transform: "translateX(-50%)",
-                            }}
+                        {/* Transaction list visual — top center */}
+                        <motion.div
+                            className="pointer-events-none relative z-[3] flex justify-center pt-6 sm:pt-7 md:pt-8 xl:pt-8 px-4 sm:px-6 md:px-8 xl:px-10"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
                         >
                             <img
-                                src={b2Mockup}
-                                alt="nēro transaction detail screen"
-                                className="w-full h-auto"
+                                src={b2Visual}
+                                alt="Transaction list showing auto-tracked spending"
+                                className="w-full max-w-[704px] sm:max-w-[380px] md:w-[640px] md:h-auto md:max-w-[440px] xl:max-w-[604px] h-auto"
                             />
-                        </div>
+                        </motion.div>
 
-                        {/* Card 1 — top-right */}
-                        <motion.img
-                            src={b2Card1}
-                            alt="Debit alert card"
-                            className="pointer-events-none absolute z-[4] top-[20%] sm:top-[10%] md:top-[6%] xl:top-[20%]"
-                            style={{
-                                right: "-8%",
-                                width: "78%",
-                            }}
-                            initial={{ opacity: 0, x: 40 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                        {/* Purple pill button — overlapping bottom of visual */}
+                        <motion.div
+                            className="relative z-[6] flex justify-center sm:w-[380px] -mt-[130px] sm:-mt-[-80px] md:-mt-[190px] md:ml-[190px] xl:-mt-[260px] xl:-ml-[-80px]"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
-                            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-                        />
-
-                        {/* Card 2 — mid-left */}
-                        <motion.img
-                            src={b2Card2}
-                            alt="Debit alert card"
-                            className="pointer-events-none absolute z-[4] top-[38%] sm:top-[22%] md:top-[26%] xl:top-[36%]"
-                            style={{
-                                left: "-8%",
-                                width: "78%",
-                            }}
-                            initial={{ opacity: 0, x: -40 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true, amount: 0.2 }}
-                            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-                        />
-
-                        {/* Gradient — higher on mobile so content shows */}
-                        <div
-                            className="pointer-events-none absolute inset-x-0 bottom-0 z-[5]"
-                            style={{
-                                height: "55%",
-                                background:
-                                    "linear-gradient(to top, #DDD3F0 0%, #DDD3F0 20%, rgba(221,211,240,0.95) 35%, rgba(230,223,245,0.75) 55%, rgba(237,232,248,0.3) 75%, transparent 100%)",
-                            }}
-                        />
+                            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.25 }}
+                        >
+                            <img
+                                src={b2Button}
+                                alt="Auto-Tracking spending"
+                                className="h-[120px] w-[300px] sm:h-[300px] sm:w-[300px] md:h-[160px] md:w-[580px] xl:h-[150px] xl:w-auto drop-shadow-lg"
+                            />
+                        </motion.div>
 
                         {/* Text — bottom */}
                         <div className="absolute bottom-6 left-6 right-6 z-[6] sm:bottom-7 sm:left-7 sm:right-7 xl:bottom-10 xl:left-10 xl:right-10">
                             <h3 className="text-[17px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] sm:text-[19px] md:text-[24px] xl:text-[22px]">
-                                Automatic Tracking
+                                We track everything for you
                             </h3>
-                            <p className="mt-2 text-[13px] font-normal leading-[1.4] text-[#797C86] sm:text-[14px] md:text-[15px] md:text-[18px] xl:text-[17px]">
-                                nēro reads your bank debit alerts and tracks every transaction for you. No manual entry. No receipts.
+                            <p className="mt-2 text-[13px] font-normal leading-[1.4] text-[#797C86] sm:text-[14px] md:text-[18px] xl:text-[17px]">
+                                nēro reads your bank alerts and tracks every transaction automatically — no manual input.
                             </p>
                         </div>
                     </motion.article>
@@ -183,14 +168,137 @@ export default function FeaturesBentoSection() {
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{ ...revealTransition, delay: 0.08 }}
                         whileHover={{ y: -6, transition: { type: "spring", stiffness: 400, damping: 15 } }}
-                        className="relative h-[360px] overflow-hidden rounded-[24px] border border-black/10 bg-[linear-gradient(160deg,#EAF2FF_0%,#DBE9FF_72%,#D4E4FF_100%)] sm:h-[400px] md:h-[440px] xl:col-[1/2] xl:row-[2/3] xl:h-[480px] xl:w-[510px] xl:justify-self-start"
+                        className="relative h-[360px] overflow-hidden rounded-[24px] sm:h-[400px] md:h-[440px] xl:col-[1/2] xl:row-[2/3] xl:h-[480px] xl:w-[510px] xl:justify-self-start"
+                        style={{
+                            background:
+                                "linear-gradient(90deg, rgba(242,242,242,0.37), rgba(242,242,242,0.37)), #ffffff",
+                        }}
                     >
-                        <div className="absolute left-6 right-6 top-7 sm:left-8 sm:right-8 sm:top-8 xl:left-9 xl:right-9 xl:top-9">
-                            <div className="h-[36px] w-[70%] rounded-[10px] bg-white/72 xl:h-[40px] xl:rounded-[12px]" />
-                            <div className="mt-4 h-[12px] w-[86%] rounded bg-white/82 xl:mt-5 xl:h-[14px]" />
-                            <div className="mt-2 h-[12px] w-[70%] rounded bg-white/82 xl:h-[14px]" />
+                        {/* Dotted grid background */}
+                        <div className="pointer-events-none absolute top-0 z-[1] h-[65%]" style={{ left: 32, right: 32 }}>
+                            <img
+                                src={abstractDesign}
+                                alt=""
+                                className="h-full w-full object-cover opacity-40"
+                            />
+                            <div
+                                className="absolute inset-x-0 bottom-0 h-[60%]"
+                                style={{ background: "linear-gradient(180deg, transparent 0%, rgba(248,248,248,0.95) 100%)" }}
+                            />
                         </div>
-                        <div className="absolute bottom-8 left-6 right-6 h-[44%] rounded-[16px] border border-white/60 bg-white/48 sm:left-8 sm:right-8 xl:bottom-10 xl:left-9 xl:right-9 xl:h-[46%] xl:rounded-[18px]" />
+
+                        {/* Hub layout */}
+                        <div className="pointer-events-none absolute inset-x-0 top-0 z-[2]" style={{ height: "65%" }}>
+
+                            {/* Left pipes SVG — behind email icon */}
+                            <img
+                                src={pipesLeft}
+                                alt=""
+                                className="absolute z-[1]"
+                                style={{ top: "50%", right: "50%", transform: "translateY(-50%)", width: 160, height: 175 }}
+                            />
+                            {/* Right pipes SVG — behind email icon */}
+                            <img
+                                src={pipesRight}
+                                alt=""
+                                className="absolute z-[1]"
+                                style={{ top: "50%", left: "50%", transform: "translateY(-50%)", width: 160, height: 175 }}
+                            />
+
+                            {/* Center email icon — on top of pipes */}
+                            <motion.div
+                                className="absolute left-1/2 top-1/2 z-[4] -translate-x-1/2 -translate-y-1/2"
+                                initial={{ opacity: 0, scale: 0.7 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+                            >
+                                <img
+                                    src={emailIcon}
+                                    alt="Email icon"
+                                    className="relative z-[5]"
+                                    style={{ width: 136.97, height: 136.97 }}
+                                />
+                            </motion.div>
+
+                            {/* Left logos: Access (top), OneBank (middle), Zenith (bottom) */}
+                            <motion.div
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[56px] w-[56px] sm:h-[62px] sm:w-[62px] xl:h-[70px] xl:w-[70px]"
+                                style={{ top: "12%", left: "8%" }}
+                                initial={{ opacity: 0, scale: 0 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.5, type: "spring", stiffness: 300, damping: 18, delay: 0.2 }}
+                            >
+                                <img src={accIcon} alt="Access Bank" className="h-full w-full object-cover" />
+                            </motion.div>
+
+                            <motion.div
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[56px] w-[56px] sm:h-[62px] sm:w-[62px] xl:h-[70px] xl:w-[70px]"
+                                style={{ top: "38%", left: "3%" }}
+                                initial={{ opacity: 0, scale: 0 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.5, type: "spring", stiffness: 300, damping: 18, delay: 0.3 }}
+                            >
+                                <img src={oneIcon} alt="OneBank" className="h-full w-full object-cover" />
+                            </motion.div>
+
+                            <motion.div
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[56px] w-[56px] sm:h-[62px] sm:w-[62px] xl:h-[70px] xl:w-[70px]"
+                                style={{ top: "65%", left: "8%" }}
+                                initial={{ opacity: 0, scale: 0 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.5, type: "spring", stiffness: 300, damping: 18, delay: 0.4 }}
+                            >
+                                <img src={zenIcon} alt="Zenith" className="h-full w-full object-cover" />
+                            </motion.div>
+
+                            {/* Right logos: Moniepoint (top), Kuda (middle), OPay (bottom) */}
+                            <motion.div
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[56px] w-[56px] sm:h-[62px] sm:w-[62px] xl:h-[70px] xl:w-[70px]"
+                                style={{ top: "12%", right: "8%" }}
+                                initial={{ opacity: 0, scale: 0 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.5, type: "spring", stiffness: 300, damping: 18, delay: 0.25 }}
+                            >
+                                <img src={monIcon} alt="Moniepoint" className="h-full w-full object-cover" />
+                            </motion.div>
+
+                            <motion.div
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[56px] w-[56px] sm:h-[62px] sm:w-[62px] xl:h-[70px] xl:w-[70px]"
+                                style={{ top: "38%", right: "3%" }}
+                                initial={{ opacity: 0, scale: 0 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.5, type: "spring", stiffness: 300, damping: 18, delay: 0.35 }}
+                            >
+                                <img src={kudIcon} alt="Kuda" className="h-full w-full object-cover" />
+                            </motion.div>
+
+                            <motion.div
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[56px] w-[56px] sm:h-[62px] sm:w-[62px] xl:h-[70px] xl:w-[70px]"
+                                style={{ top: "65%", right: "8%" }}
+                                initial={{ opacity: 0, scale: 0 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.5, type: "spring", stiffness: 300, damping: 18, delay: 0.45 }}
+                            >
+                                <img src={opIcon} alt="OPay" className="h-full w-full object-cover" />
+                            </motion.div>
+                        </div>
+
+                        {/* Text — bottom */}
+                        <div className="absolute bottom-6 left-6 right-6 z-[6] sm:bottom-7 sm:left-7 sm:right-7 xl:bottom-10 xl:left-10 xl:right-10">
+                            <h3 className="text-[17px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] sm:text-[19px] md:text-[24px] xl:text-[22px]">
+                                Connect your bank & email
+                            </h3>
+                            <p className="mt-2 text-[13px] font-normal leading-[1.4] text-[#797C86] sm:text-[14px] md:text-[18px] xl:text-[17px]">
+                                Link your account via email. This helps us track & keep up with your spending automatically. We will <span className="font-semibold text-[#000000]">never</span> ask you for any of your personal information.
+                            </p>
+                        </div>
                     </motion.article>
 
                     {/* Bento 4 */}

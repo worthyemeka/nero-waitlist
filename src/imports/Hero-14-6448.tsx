@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import svgPaths from "./svg-4mt9vzy6qh";
 import imgImage from "figma:asset/aed80f8a771b6448e63386ca4074fbe4e03535d7.png";
 import imgImage1 from "figma:asset/50d79a24ccc74633b2db10f0fefb0f3fc1b06bd6.png";
@@ -197,12 +198,18 @@ function ImageBlock() {
 }
 
 function Counter() {
+  const [count, setCount] = useState(100);
+  useEffect(() => {
+    if (count >= 120) return;
+    const timeout = setTimeout(() => setCount((c) => c + 1), 80);
+    return () => clearTimeout(timeout);
+  }, [count]);
   return (
     <div className="content-stretch flex gap-[12px] items-center relative shrink-0 w-full" data-name="Counter">
       <ImageBlock />
       <div className="flex flex-col font-['Instrument_Sans:Medium',sans-serif] font-medium justify-center leading-[0] relative shrink-0 text-[#2a2a91] text-[16px] tracking-[-0.32px] whitespace-nowrap" style={{ fontVariationSettings: "'wdth' 100" }}>
         <p className="not-italic">
-          <span className="font-['Satoshi:Bold',sans-serif] leading-[24px]">100+ people</span>
+          <span className="font-['Satoshi:Bold',sans-serif] leading-[24px]">{count}+ people</span>
           <span className="font-['Satoshi:Medium',sans-serif] leading-[24px]">{` `}</span>
           <span className="font-['Satoshi:Regular',sans-serif] leading-[24px] text-[#12123d]">already signed up for our waitlist</span>
         </p>
@@ -250,7 +257,7 @@ function Frame50() {
             <g clipPath="url(#paint0_angular_14_6158_clip_path)" mask="url(#path-1-inside-1_14_6158)" data-figma-skip-parse="true">
               <g transform="matrix(0.0642013 0.369194 -0.376859 0.0655341 729.164 595.997)">
                 <foreignObject height="2304.5" width="2304.5" x="-1152.25" y="-1152.25">
-                  <div style={{ background: "conic-gradient(from 90deg,rgba(222, 221, 255, 1) 0deg,rgba(104, 104, 220, 1) 45deg,rgba(255, 255, 255, 1) 104.4deg,rgba(23, 0, 168, 1) 203.4deg,rgba(108, 108, 255, 1) 268.2deg,rgba(255, 255, 255, 1) 322.2deg,rgba(222, 221, 255, 1) 360deg)", height: "100%", width: "100%", opacity: "1" }} xmlns="http://www.w3.org/1999/xhtml" />
+                  <div style={{ background: "conic-gradient(from 90deg,rgba(222, 221, 255, 1) 0deg,rgba(104, 104, 220, 1) 45deg,rgba(255, 255, 255, 1) 104.4deg,rgba(23, 0, 168, 1) 203.4deg,rgba(108, 108, 255, 1) 268.2deg,rgba(255, 255, 255, 1) 322.2deg,rgba(222, 221, 255, 1) 360deg)", height: "100%", width: "100%", opacity: "1" }} />
                 </foreignObject>
               </g>
             </g>
@@ -263,7 +270,7 @@ function Frame50() {
             <g clipPath="url(#paint1_angular_14_6158_clip_path)" mask="url(#path-3-inside-2_14_6158)" data-figma-skip-parse="true">
               <g transform="matrix(0 0.465501 -0.513553 0 753.364 608.706)">
                 <foreignObject height="2129.03" width="2129.03" x="-1064.52" y="-1064.52">
-                  <div style={{ background: "conic-gradient(from 90deg,rgba(222, 221, 255, 1) 0deg,rgba(104, 104, 220, 1) 45deg,rgba(255, 255, 255, 1) 104.4deg,rgba(23, 0, 168, 1) 203.4deg,rgba(108, 108, 255, 1) 268.2deg,rgba(255, 255, 255, 1) 322.2deg,rgba(222, 221, 255, 1) 360deg)", height: "100%", width: "100%", opacity: "1" }} xmlns="http://www.w3.org/1999/xhtml" />
+                  <div style={{ background: "conic-gradient(from 90deg,rgba(222, 221, 255, 1) 0deg,rgba(104, 104, 220, 1) 45deg,rgba(255, 255, 255, 1) 104.4deg,rgba(23, 0, 168, 1) 203.4deg,rgba(108, 108, 255, 1) 268.2deg,rgba(255, 255, 255, 1) 322.2deg,rgba(222, 221, 255, 1) 360deg)", height: "100%", width: "100%", opacity: "1" }} />
                 </foreignObject>
               </g>
             </g>
@@ -276,7 +283,7 @@ function Frame50() {
             <g clipPath="url(#paint2_angular_14_6158_clip_path)" mask="url(#path-5-inside-3_14_6158)" data-figma-skip-parse="true">
               <g transform="matrix(0 0.53007 -0.686239 0 865.171 645.258)">
                 <foreignObject height="2084.08" width="2084.08" x="-1042.04" y="-1042.04">
-                  <div style={{ background: "conic-gradient(from 90deg,rgba(221, 219, 255, 1) 0deg,rgba(104, 104, 220, 1) 45deg,rgba(234, 230, 255, 1) 104.4deg,rgba(23, 0, 168, 1) 203.4deg,rgba(108, 108, 255, 1) 268.2deg,rgba(255, 255, 255, 1) 322.2deg,rgba(221, 219, 255, 1) 360deg)", height: "100%", width: "100%", opacity: "1" }} xmlns="http://www.w3.org/1999/xhtml" />
+                  <div style={{ background: "conic-gradient(from 90deg,rgba(221, 219, 255, 1) 0deg,rgba(104, 104, 220, 1) 45deg,rgba(234, 230, 255, 1) 104.4deg,rgba(23, 0, 168, 1) 203.4deg,rgba(108, 108, 255, 1) 268.2deg,rgba(255, 255, 255, 1) 322.2deg,rgba(221, 219, 255, 1) 360deg)", height: "100%", width: "100%", opacity: "1" }} />
                 </foreignObject>
               </g>
             </g>
