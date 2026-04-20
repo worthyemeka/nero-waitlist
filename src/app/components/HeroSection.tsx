@@ -629,13 +629,14 @@ function PhonesMobile() {
   );
 }
 
-function Logo() {
+function Logo({ onClick }: { onClick: () => void }) {
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.6, ease }}
+      onClick={onClick}
       className="h-[20.009px] relative shrink-0 w-[67.344px] cursor-pointer"
       data-name="logo"
     >
@@ -730,7 +731,7 @@ function IconFlipArrow() {
   );
 }
 
-function Content1() {
+function Content1({ onClick }: { onClick: () => void }) {
   return (
     <motion.button
       initial={{ opacity: 0, scale: 0.9 }}
@@ -738,6 +739,7 @@ function Content1() {
       transition={{ duration: 0.5, ease }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
+      onClick={onClick}
       className="bg-[#2a2a91] content-stretch flex gap-[10px] h-[40px] items-center justify-center overflow-clip px-[18px] sm:px-[22px] py-[16px] relative rounded-[107px] shrink-0 cursor-pointer"
       data-name="Content"
     >
@@ -747,25 +749,43 @@ function Content1() {
   );
 }
 
-function Navigation() {
+function Navigation({
+  onLogoClick,
+  onCtaClick,
+}: {
+  onLogoClick: () => void;
+  onCtaClick: () => void;
+}) {
   return (
     <div
       className="content-stretch flex items-center justify-between relative shrink-0 w-full"
       data-name="Navigation"
     >
-      <Logo />
-      <Content1 />
+      <Logo onClick={onLogoClick} />
+      <Content1 onClick={onCtaClick} />
     </div>
   );
 }
 
-function Navbar() {
+function Navbar({
+  isSticky,
+  onLogoClick,
+  onCtaClick,
+}: {
+  isSticky: boolean;
+  onLogoClick: () => void;
+  onCtaClick: () => void;
+}) {
   return (
     <div
-      className="absolute content-stretch flex flex-col items-start justify-center left-0 px-[12px] sm:px-[16px] md:px-[32px] lg:px-[80px] py-[16px] md:py-[20px] top-0 w-full z-[20]"
+      className={`content-stretch flex flex-col items-start justify-center left-0 px-[12px] sm:px-[16px] md:px-[32px] lg:px-[80px] py-[16px] md:py-[20px] w-full z-[40] transition-all duration-300 ${
+        isSticky
+          ? "fixed top-0 bg-white/90 backdrop-blur-md border-b border-[rgba(0,0,0,0.06)] shadow-[0_6px_20px_rgba(18,18,61,0.06)]"
+          : "absolute top-0 bg-transparent"
+      }`}
       data-name="Navbar"
     >
-      <Navigation />
+      <Navigation onLogoClick={onLogoClick} onCtaClick={onCtaClick} />
     </div>
   );
 }
@@ -775,6 +795,26 @@ export default function HeroSection() {
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
+  const [isNavSticky, setIsNavSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsNavSticky(window.scrollY > 20);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const scrollToCta = () => {
+    document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const handleSubmit = async () => {
     if (!email || isLoading) return;
@@ -815,7 +855,7 @@ export default function HeroSection() {
 
   return (
     <div
-      className="bg-white relative w-full h-auto min-h-[660px] sm:min-h-[720px] md:min-h-[780px] lg:min-h-0 lg:h-[920px] max-w-[1440px] mx-auto lg:overflow-hidden"
+      className="bg-white relative w-full h-auto min-h-[660px] sm:min-h-[720px] md:min-h-[780px] lg:min-h-0 lg:h-[752px] max-w-[1440px] mx-auto lg:overflow-hidden"
       data-name="Hero"
     >
       <div className="hidden lg:block relative w-full h-full">
@@ -850,7 +890,10 @@ export default function HeroSection() {
 
         <PhonesDesktop />
 
-        <div className="absolute left-0 right-0 bottom-0 h-[146px] bg-gradient-to-t from-white via-white/98 to-transparent pointer-events-none z-[30]" />
+        <div
+          className="absolute h-[146px] bg-gradient-to-t from-white via-white/98 to-transparent pointer-events-none z-[30]"
+          style={{ left: "2px", top: "629px", right: 0 }}
+        />
         <div className="absolute right-[2%] bottom-[0px] w-[500px] h-[230px] rounded-full bg-white/90 blur-[108px] pointer-events-none z-[6]" />
       </div>
 
@@ -863,7 +906,11 @@ export default function HeroSection() {
 
       <PhonesMobile />
 
-      <Navbar />
+      <Navbar
+        isSticky={isNavSticky}
+        onLogoClick={scrollToTop}
+        onCtaClick={scrollToCta}
+      />
 
       <AnimatePresence>
         {status !== "idle" && (

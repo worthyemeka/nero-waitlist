@@ -81,7 +81,7 @@ export default function CTAFooterSection() {
 
   return (
 
-    <section className="relative w-full overflow-hidden">
+    <section id="cta" className="relative w-full overflow-hidden">
       {/* Doodle background layer */}
       <img
         src={doodleLayer}
@@ -104,14 +104,14 @@ export default function CTAFooterSection() {
       />
 
       {/* CTA Content */}
-      <div className="relative z-10 flex flex-col items-center text-center px-6 sm:px-8 pt-[80px] sm:pt-[100px] md:pt-[120px] pb-[80px] sm:pb-[100px] md:pb-[120px]">
+      <div className="relative z-10 flex flex-col items-center text-center px-5 sm:px-8 pt-[72px] sm:pt-[100px] md:pt-[120px] pb-[64px] sm:pb-[100px] md:pb-[120px]">
           {/* Heading */}
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={revealTransition}
-            className="font-['Satoshi:700',sans-serif] font-bold text-[#2A2A91] text-[28px] sm:text-[34px] md:text-[42px] xl:text-[52px] leading-[1.15] tracking-[-0.5px] md:tracking-[-1px] max-w-[340px] sm:max-w-[440px] md:max-w-[600px] xl:max-w-[700px]"
+            className="font-['Satoshi:700',sans-serif] font-bold text-[#2A2A91] text-[26px] sm:text-[34px] md:text-[42px] xl:text-[52px] leading-[1.15] tracking-[-0.5px] md:tracking-[-1px] max-w-[340px] sm:max-w-[440px] md:max-w-[600px] xl:max-w-[700px]"
           >
             This isn't about restriction.
             <br />
@@ -124,7 +124,7 @@ export default function CTAFooterSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ ...revealTransition, delay: 0.15 }}
-            className="font-['Satoshi:Regular',sans-serif] text-[#696969] text-[14px] sm:text-[15px] md:text-[17px] xl:text-[18px] leading-[1.55] mt-[16px] sm:mt-[20px] md:mt-[24px] max-w-[300px] sm:max-w-[400px] md:max-w-[480px]"
+            className="font-['Satoshi:Regular',sans-serif] text-[#696969] text-[14px] sm:text-[15px] md:text-[17px] xl:text-[18px] leading-[1.55] mt-[16px] sm:mt-[20px] md:mt-[24px] max-w-[320px] sm:max-w-[400px] md:max-w-[480px]"
           >
             Get early access to nēro and start spending with
             <br className="hidden sm:block" />
@@ -137,7 +137,7 @@ export default function CTAFooterSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ ...revealTransition, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-[12px] items-center mt-[28px] sm:mt-[32px] md:mt-[40px] w-full max-w-[540px]"
+            className="flex flex-col sm:flex-row gap-[12px] items-stretch sm:items-center mt-[28px] sm:mt-[32px] md:mt-[40px] w-full max-w-[540px]"
           >
             <div className="bg-white content-stretch flex flex-col h-[48px] items-start overflow-clip pl-[18px] pr-[16px] py-[14px] relative rounded-[80px] shrink-0 w-full sm:flex-1">
               <input
@@ -181,7 +181,7 @@ export default function CTAFooterSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ ...revealTransition, delay: 0.45 }}
-            className="flex items-center gap-[10px] mt-[20px] sm:mt-[24px]"
+            className="flex flex-wrap items-center justify-center gap-[10px] mt-[20px] sm:mt-[24px] max-w-[360px] sm:max-w-none"
           >
             <div className="relative flex">
               {avatars.map((avatar, i) => (
@@ -198,7 +198,7 @@ export default function CTAFooterSection() {
                 </div>
               ))}
             </div>
-            <p className="font-['Satoshi:Regular',sans-serif] text-[12px] sm:text-[13px] md:text-[14px]">
+            <p className="font-['Satoshi:Regular',sans-serif] text-[12px] sm:text-[13px] md:text-[14px] text-center sm:text-left">
               <span className="font-['Satoshi:700',sans-serif] font-bold text-[#2a2a91]">
                 Join {count}+ people
               </span>
@@ -209,9 +209,9 @@ export default function CTAFooterSection() {
 
       {/* Footer */}
       <footer className="relative z-10 w-full border-t border-[rgba(255,255,255,0.15)]">
-        <div className="max-w-[1440px] mx-auto flex flex-col sm:flex-row items-center justify-between px-6 sm:px-8 md:px-12 xl:px-[80px] py-[20px] sm:py-[24px] gap-[12px] sm:gap-0">
+        <div className="max-w-[1440px] mx-auto flex flex-col sm:flex-row items-center sm:items-center justify-between px-5 sm:px-8 md:px-12 xl:px-[80px] py-[18px] sm:py-[24px] gap-[14px] sm:gap-0">
           {/* Left - Links */}
-          <div className="flex gap-[16px] sm:gap-[20px] items-center order-2 sm:order-1">
+          <div className="flex flex-wrap justify-center sm:justify-start gap-[14px] sm:gap-[20px] items-center order-2 sm:order-1">
             <a
               href="#"
               className="font-['Satoshi:Regular',sans-serif] text-[13px] md:text-[14px] text-[#696969] hover:text-[#2a2a91] transition-colors"
@@ -227,7 +227,7 @@ export default function CTAFooterSection() {
           </div>
 
           {/* Center - Copyright */}
-          <p className="font-['Satoshi:Regular',sans-serif] text-[13px] md:text-[14px] text-[#696969] order-1 sm:order-2">
+          <p className="font-['Satoshi:Regular',sans-serif] text-[13px] md:text-[14px] text-[#696969] order-1 sm:order-2 text-center">
             @2026 nēro. All right's reserved.
           </p>
 
