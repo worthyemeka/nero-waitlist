@@ -4,6 +4,12 @@ import svgPaths from "../../imports/svg-yyyef861wl";
 import phonesImage from "../../imports/phones.png";
 import bgEllipse from "../../assets/bg-ellipse.svg";
 import circleVectors from "../../assets/circle-vectors.svg";
+import avatar1 from "../../assets/avatar1.png";
+import avatar2 from "../../assets/avatar2.png";
+import avatar3 from "../../assets/avatar3.jpeg";
+import avatar4 from "../../assets/avatar4.png";
+import avatar5 from "../../assets/avatar5.jpeg";
+import avatar6 from "../../assets/avatar6.jpg";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -179,14 +185,7 @@ function EmailForm({
 function CounterComponent() {
   const [count, setCount] = useState(100);
 
-  const avatars = [
-    "/src/assets/avatar1.png",
-    "/src/assets/avatar2.png",
-    "/src/assets/avatar3.jpeg",
-    "/src/assets/avatar4.png",
-    "/src/assets/avatar5.jpeg",
-    "/src/assets/avatar6.jpg",
-  ];
+  const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 
   useEffect(() => {
     const timer = setTimeout(() => {
