@@ -9,7 +9,7 @@ export default function App() {
     <div className="w-full bg-white">
       <HeroSection />
       <MarqueeSection />
-     {/* <AboutSection /> */}
+     {/* <AboutSectionsss /> */}
       <FeaturesBentoSection />
       <CTAFooterSection />
     </div>
