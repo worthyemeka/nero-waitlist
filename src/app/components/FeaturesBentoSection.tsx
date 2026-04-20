@@ -175,7 +175,7 @@ export default function FeaturesBentoSection() {
                         }}
                     >
                         {/* Dotted grid background */}
-                        <div className="pointer-events-none absolute top-0 z-[1] h-[65%]" style={{ left: 32, right: 32 }}>
+                        <div className="pointer-events-none absolute inset-x-4 top-0 z-[1] h-[65%] sm:inset-x-8">
                             <img
                                 src={abstractDesign}
                                 alt=""
@@ -194,15 +194,15 @@ export default function FeaturesBentoSection() {
                             <img
                                 src={pipesLeft}
                                 alt=""
-                                className="absolute z-[1]"
-                                style={{ top: "50%", right: "50%", transform: "translateY(-50%)", width: 160, height: 175 }}
+                                className="absolute z-[1] w-[110px] h-[120px] sm:w-[140px] sm:h-[155px] md:w-[160px] md:h-[175px]"
+                                style={{ top: "50%", right: "50%", transform: "translateY(-50%)" }}
                             />
                             {/* Right pipes SVG — behind email icon */}
                             <img
                                 src={pipesRight}
                                 alt=""
-                                className="absolute z-[1]"
-                                style={{ top: "50%", left: "50%", transform: "translateY(-50%)", width: 160, height: 175 }}
+                                className="absolute z-[1] w-[110px] h-[120px] sm:w-[140px] sm:h-[155px] md:w-[160px] md:h-[175px]"
+                                style={{ top: "50%", left: "50%", transform: "translateY(-50%)" }}
                             />
 
                             {/* Center email icon — on top of pipes */}
@@ -216,15 +216,14 @@ export default function FeaturesBentoSection() {
                                 <img
                                     src={emailIcon}
                                     alt="Email icon"
-                                    className="relative z-[5]"
-                                    style={{ width: 136.97, height: 136.97 }}
+                                    className="relative z-[5] h-[90px] w-[90px] sm:h-[110px] sm:w-[110px] md:h-[130px] md:w-[130px] xl:h-[136.97px] xl:w-[136.97px]"
                                 />
                             </motion.div>
 
                             {/* Left logos: Access (top), OneBank (middle), Zenith (bottom) */}
                             <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[56px] w-[56px] sm:h-[62px] sm:w-[62px] xl:h-[70px] xl:w-[70px]"
-                                style={{ top: "12%", left: "8%" }}
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px]"
+                                style={{ top: "12%", left: "5%" }}
                                 initial={{ opacity: 0, scale: 0 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true, amount: 0.2 }}
@@ -234,8 +233,8 @@ export default function FeaturesBentoSection() {
                             </motion.div>
 
                             <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[56px] w-[56px] sm:h-[62px] sm:w-[62px] xl:h-[70px] xl:w-[70px]"
-                                style={{ top: "38%", left: "3%" }}
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px]"
+                                style={{ top: "38%", left: "0%" }}
                                 initial={{ opacity: 0, scale: 0 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true, amount: 0.2 }}
@@ -245,8 +244,8 @@ export default function FeaturesBentoSection() {
                             </motion.div>
 
                             <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[56px] w-[56px] sm:h-[62px] sm:w-[62px] xl:h-[70px] xl:w-[70px]"
-                                style={{ top: "65%", left: "8%" }}
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px]"
+                                style={{ top: "65%", left: "5%" }}
                                 initial={{ opacity: 0, scale: 0 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true, amount: 0.2 }}
@@ -257,8 +256,8 @@ export default function FeaturesBentoSection() {
 
                             {/* Right logos: Moniepoint (top), Kuda (middle), OPay (bottom) */}
                             <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[56px] w-[56px] sm:h-[62px] sm:w-[62px] xl:h-[70px] xl:w-[70px]"
-                                style={{ top: "12%", right: "8%" }}
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px]"
+                                style={{ top: "12%", right: "5%" }}
                                 initial={{ opacity: 0, scale: 0 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true, amount: 0.2 }}
@@ -268,8 +267,8 @@ export default function FeaturesBentoSection() {
                             </motion.div>
 
                             <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[56px] w-[56px] sm:h-[62px] sm:w-[62px] xl:h-[70px] xl:w-[70px]"
-                                style={{ top: "38%", right: "3%" }}
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px]"
+                                style={{ top: "38%", right: "0%" }}
                                 initial={{ opacity: 0, scale: 0 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true, amount: 0.2 }}
@@ -279,8 +278,8 @@ export default function FeaturesBentoSection() {
                             </motion.div>
 
                             <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[56px] w-[56px] sm:h-[62px] sm:w-[62px] xl:h-[70px] xl:w-[70px]"
-                                style={{ top: "65%", right: "8%" }}
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px]"
+                                style={{ top: "65%", right: "5%" }}
                                 initial={{ opacity: 0, scale: 0 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true, amount: 0.2 }}
