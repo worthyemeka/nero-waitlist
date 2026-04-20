@@ -15,6 +15,7 @@ import zenIcon from "../../assets/zen-icon.png";
 import abstractDesign from "../../assets/abstract-design.png";
 import pipesLeft from "../../assets/svg-pipes-left.svg";
 import pipesRight from "../../assets/svg-pipes-right.svg";
+import bento4Mockup from "../../assets/bento4-mockup.png";
 
 const revealTransition = {
     duration: 0.75,
@@ -222,8 +223,7 @@ export default function FeaturesBentoSection() {
 
                             {/* Left logos: Access (top), OneBank (middle), Zenith (bottom) */}
                             <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px]"
-                                style={{ top: "12%", left: "5%" }}
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[12%] left-[5%] md:left-[22%] xl:left-[12%]"
                                 initial={{ opacity: 0, scale: 0 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true, amount: 0.2 }}
@@ -233,8 +233,7 @@ export default function FeaturesBentoSection() {
                             </motion.div>
 
                             <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px]"
-                                style={{ top: "38%", left: "0%" }}
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[38%] left-[0%] md:left-[30%] xl:left-[18%]"
                                 initial={{ opacity: 0, scale: 0 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true, amount: 0.2 }}
@@ -244,8 +243,7 @@ export default function FeaturesBentoSection() {
                             </motion.div>
 
                             <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px]"
-                                style={{ top: "65%", left: "5%" }}
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[65%] left-[5%] md:left-[22%] xl:left-[12%]"
                                 initial={{ opacity: 0, scale: 0 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true, amount: 0.2 }}
@@ -256,8 +254,7 @@ export default function FeaturesBentoSection() {
 
                             {/* Right logos: Moniepoint (top), Kuda (middle), OPay (bottom) */}
                             <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px]"
-                                style={{ top: "12%", right: "5%" }}
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[12%] right-[5%] md:right-[22%] xl:right-[12%]"
                                 initial={{ opacity: 0, scale: 0 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true, amount: 0.2 }}
@@ -267,8 +264,7 @@ export default function FeaturesBentoSection() {
                             </motion.div>
 
                             <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px]"
-                                style={{ top: "38%", right: "0%" }}
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[38%] right-[0%] md:right-[30%] xl:right-[18%]"
                                 initial={{ opacity: 0, scale: 0 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true, amount: 0.2 }}
@@ -278,8 +274,7 @@ export default function FeaturesBentoSection() {
                             </motion.div>
 
                             <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px]"
-                                style={{ top: "65%", right: "5%" }}
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[65%] right-[5%] md:right-[22%] xl:right-[12%]"
                                 initial={{ opacity: 0, scale: 0 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true, amount: 0.2 }}
@@ -307,20 +302,35 @@ export default function FeaturesBentoSection() {
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{ ...revealTransition, delay: 0.12 }}
                         whileHover={{ y: -6, transition: { type: "spring", stiffness: 400, damping: 15 } }}
-                        className="relative h-[360px] overflow-hidden rounded-[24px] border border-black/10 bg-[linear-gradient(160deg,#FFFFFF_0%,#F2F2F2_74%)] sm:h-[400px] md:h-[440px] xl:col-[2/3] xl:row-[2/3] xl:h-[480px] xl:w-[730px] xl:justify-self-end"
+                        className="relative h-[360px] overflow-hidden rounded-[24px] sm:h-[400px] md:h-[440px] xl:col-[2/3] xl:row-[2/3] xl:h-[480px] xl:w-[730px] xl:justify-self-end"
+                        style={{
+                            background:
+                                "linear-gradient(90deg, rgba(242,242,242,0.37), rgba(242,242,242,0.37)), #ffffff",
+                        }}
                     >
-                        <div className="absolute left-6 right-6 top-7 sm:left-8 sm:right-8 sm:top-8 xl:left-9 xl:right-9 xl:top-9">
-                            <div className="h-[34px] w-[52%] rounded-[8px] bg-black/10 xl:h-[38px] xl:rounded-[10px]" />
-                            <div className="mt-3 h-[12px] w-[72%] rounded bg-black/10 xl:mt-4 xl:h-[14px]" />
-                            <div className="mt-2 h-[12px] w-[58%] rounded bg-black/10 xl:h-[14px]" />
+                        {/* Text — top-left */}
+                        <div className="relative z-[6] max-w-[200px] pl-6 pt-8 sm:max-w-[260px] sm:pl-7 sm:pt-9 md:max-w-[340px] md:pl-8 md:pt-10 xl:max-w-[300px] xl:pl-10 xl:pt-12">
+                            <h3 className="text-[17px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] sm:text-[19px] md:text-[24px] xl:text-[22px]">
+                                See where your money goes
+                            </h3>
+                            <p className="mt-2 text-[13px] font-normal leading-[1.4] text-[#797C86] sm:text-[14px] md:text-[18px] xl:mt-3 xl:text-[17px]">
+                                Understand your spending patterns over time so you stay in control, catch patterns, and understand your behavior over time.
+                            </p>
                         </div>
-                        <motion.div
-                            className="absolute bottom-7 left-6 right-6 h-[56%] rounded-[18px] border border-black/10 bg-white/58 sm:left-8 sm:right-8 xl:bottom-9 xl:left-9 xl:right-9 xl:h-[58%] xl:rounded-[20px]"
-                            initial={{ opacity: 0, y: 20 }}
+
+                        {/* Phone mockup — right side */}
+                        <motion.img
+                            src={bento4Mockup}
+                            alt="Insights screen showing spending patterns"
+                            className="pointer-events-none absolute bottom-0 right-[-20px] z-[3] w-[260px] sm:right-[-10px] sm:w-[300px] md:right-0 md:w-[380px] xl:right-[-10px] xl:w-[460px]"
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
                             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
                         />
+
+                        {/* Bottom fade */}
+                        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[4] h-[180px] bg-gradient-to-t from-[#F2F3F2] via-[#F2F3F2]/50 to-transparent md:h-[200px] xl:h-[300px]" />
                     </motion.article>
 
                 </div>
