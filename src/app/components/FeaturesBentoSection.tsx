@@ -309,7 +309,7 @@ export default function FeaturesBentoSection() {
                         }}
                     >
                         {/* Text — top-left */}
-                        <div className="relative z-[6] max-w-[200px] pl-6 pt-8 sm:max-w-[260px] sm:pl-7 sm:pt-9 md:max-w-[340px] md:pl-8 md:pt-10 xl:max-w-[300px] xl:pl-10 xl:pt-12">
+                        <div className="relative z-[6] max-w-[200px] pl-6 pt-8 sm:max-w-[260px] sm:pl-7 sm:pt-9 md:max-w-[340px] md:pl-8 md:pt-10 xl:max-w-[400px] xl:pl-10 xl:pt-12">
                             <h3 className="text-[17px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] sm:text-[19px] md:text-[24px] xl:text-[22px]">
                                 See where your money goes
                             </h3>
