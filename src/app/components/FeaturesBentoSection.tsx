@@ -54,7 +54,7 @@ export default function FeaturesBentoSection() {
                         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                         viewport={{ once: true, amount: 0.2 }}
                         transition={revealTransition}
-                        whileHover={{ y: -3 }}
+                        whileHover={{ y: -6, transition: { type: "spring", stiffness: 400, damping: 15 } }}
                         className="relative h-[380px] overflow-hidden rounded-[24px] sm:h-[440px] md:h-[460px] xl:col-[1/2] xl:row-[1/2] xl:h-[480px] xl:w-[730px]"
                         style={{
                             background:
@@ -62,11 +62,11 @@ export default function FeaturesBentoSection() {
                         }}
                     >
                         {/* Text — top-left */}
-                        <div className="relative z-[6] max-w-[214px] pl-8 pt-10 xl:max-w-[384px] xl:pl-10 xl:pt-12">
-                            <h3 className="text-[16px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] xl:text-[22px]">
+                        <div className="relative z-[6] max-w-[214px] pl-8 pt-10 md:max-w-[450px] md:pl-13 md:pt-11 xl:max-w-[384px] xl:pl-10 xl:pt-12">
+                            <h3 className="text-[16px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] md:text-[24px] xl:text-[22px]">
                                 Know what you can spend today
                             </h3>
-                            <p className="mt-0 text-[13px] font-[400] leading-[1.5] text-[#797C86] xl:mt-4 xl:text-[17px]">
+                            <p className="mt-0 text-[13px] font-[400] leading-[1.5] text-[#797C86] md:mt-2 md:text-[18px] xl:mt-4 xl:text-[17px]">
                                 nēro shows you exactly what you can spend today — so your money lasts the full cycle.
                             </p>
                         </div>
@@ -74,12 +74,12 @@ export default function FeaturesBentoSection() {
                         {/* Phone mockup — right side, blurred */}
                         <motion.div
                             style={{ y: phoneParallaxY }}
-                            className="pointer-events-none absolute right-[-75px] top-[20px] z-[2] xl:right-[-40px] xl:top-[34.93px]"
+                            className="pointer-events-none absolute right-[-75px] top-[20px] z-[2] md:right-[-40px] md:top-[28px] xl:right-[-40px] xl:top-[34.93px]"
                         >
                             <img
                                 src={bento1Phone}
                                 alt="nēro app screen"
-                                className="h-auto w-[220px] rounded-[20px] opacity-60 blur-[3px] sm:w-[122px] xl:w-[322px]"
+                                className="h-auto w-[220px] rounded-[20px] opacity-60 blur-[3px] sm:w-[122px] md:w-[260px] xl:w-[322px]"
                             />
                         </motion.div>
 
@@ -87,17 +87,15 @@ export default function FeaturesBentoSection() {
                         <motion.img
                             src={cardBento1}
                             alt="Today's spending target card"
-                            className="pointer-events-none absolute bottom-[40px] left-[-4px] z-[4] w-[340px] drop-shadow-xl xl:bottom-[10px] xl:left-[-12px] xl:w-[650px]"
-                            animate={{ y: [0, -6, 0, 6, 0] }}
-                            transition={{
-                                duration: 8,
-                                repeat: Infinity,
-                                ease: "easeInOut",
-                            }}
+                            className="pointer-events-none absolute bottom-[40px] left-[-4px] z-[4] w-[340px] drop-shadow-xl md:bottom-[-6px] md:left-[-4px] md:w-[700px] xl:bottom-[10px] xl:left-[-12px] xl:w-[650px]"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
                         />
 
                         {/* Bottom fade */}
-                        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[3] h-[120px] bg-gradient-to-t from-[#F2F3F2] via-[#F2F3F2]/50 to-transparent xl:h-[140px]" />
+                        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[3] h-[120px] bg-gradient-to-t from-[#F2F3F2] via-[#F2F3F2]/50 to-transparent md:h-[130px] xl:h-[140px]" />
                     </motion.article>
 
                     {/* Bento 2 */}
@@ -106,7 +104,7 @@ export default function FeaturesBentoSection() {
                         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{ ...revealTransition, delay: 0.05 }}
-                        whileHover={{ y: -3 }}
+                        whileHover={{ y: -6, transition: { type: "spring", stiffness: 400, damping: 15 } }}
                         className="relative h-[360px] overflow-hidden rounded-[24px] border border-black/10 sm:h-[420px] md:h-[460px] xl:col-[2/3] xl:row-[1/2] xl:h-[480px]"
                         style={{
                             background: "linear-gradient(180deg, #EDE8F8 0%, #E6DFF5 50%, #DDD3F0 100%)",
@@ -136,12 +134,10 @@ export default function FeaturesBentoSection() {
                                 right: "-8%",
                                 width: "78%",
                             }}
-                            animate={{ y: [0, -6, 0, 6, 0] }}
-                            transition={{
-                                duration: 7,
-                                repeat: Infinity,
-                                ease: "easeInOut",
-                            }}
+                            initial={{ opacity: 0, x: 40 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
                         />
 
                         {/* Card 2 — mid-left */}
@@ -153,13 +149,10 @@ export default function FeaturesBentoSection() {
                                 left: "-8%",
                                 width: "78%",
                             }}
-                            animate={{ y: [0, 6, 0, -6, 0] }}
-                            transition={{
-                                duration: 8,
-                                repeat: Infinity,
-                                ease: "easeInOut",
-                                delay: 0.5,
-                            }}
+                            initial={{ opacity: 0, x: -40 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
                         />
 
                         {/* Gradient — higher on mobile so content shows */}
@@ -189,7 +182,7 @@ export default function FeaturesBentoSection() {
                         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{ ...revealTransition, delay: 0.08 }}
-                        whileHover={{ y: -3 }}
+                        whileHover={{ y: -6, transition: { type: "spring", stiffness: 400, damping: 15 } }}
                         className="relative h-[360px] overflow-hidden rounded-[24px] border border-black/10 bg-[linear-gradient(160deg,#EAF2FF_0%,#DBE9FF_72%,#D4E4FF_100%)] sm:h-[400px] md:h-[440px] xl:col-[1/2] xl:row-[2/3] xl:h-[480px] xl:w-[510px] xl:justify-self-start"
                     >
                         <div className="absolute left-6 right-6 top-7 sm:left-8 sm:right-8 sm:top-8 xl:left-9 xl:right-9 xl:top-9">
@@ -206,7 +199,7 @@ export default function FeaturesBentoSection() {
                         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{ ...revealTransition, delay: 0.12 }}
-                        whileHover={{ y: -3 }}
+                        whileHover={{ y: -6, transition: { type: "spring", stiffness: 400, damping: 15 } }}
                         className="relative h-[360px] overflow-hidden rounded-[24px] border border-black/10 bg-[linear-gradient(160deg,#FFFFFF_0%,#F2F2F2_74%)] sm:h-[400px] md:h-[440px] xl:col-[2/3] xl:row-[2/3] xl:h-[480px] xl:w-[730px] xl:justify-self-end"
                     >
                         <div className="absolute left-6 right-6 top-7 sm:left-8 sm:right-8 sm:top-8 xl:left-9 xl:right-9 xl:top-9">
@@ -216,12 +209,10 @@ export default function FeaturesBentoSection() {
                         </div>
                         <motion.div
                             className="absolute bottom-7 left-6 right-6 h-[56%] rounded-[18px] border border-black/10 bg-white/58 sm:left-8 sm:right-8 xl:bottom-9 xl:left-9 xl:right-9 xl:h-[58%] xl:rounded-[20px]"
-                            animate={{ y: [0, -3, 0, 3, 0] }}
-                            transition={{
-                                duration: 8.5,
-                                repeat: Infinity,
-                                ease: "easeInOut",
-                            }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
                         />
                     </motion.article>
 

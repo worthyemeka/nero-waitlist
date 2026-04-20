@@ -35,7 +35,7 @@ function Header() {
   return (
     <div className="content-stretch flex flex-col h-[156px] items-center relative shrink-0 text-[64px] tracking-[-3px] w-full" data-name="Header">
       <div className="flex flex-col font-['Satoshi:Bold',sans-serif] justify-center not-italic relative shrink-0 text-[#12123d] w-full">
-        <p className="leading-[78px]">Stop exhausting money</p>
+        <p className="leading-[78px]">Stop running out of money</p>
       </div>
       <div className="flex flex-col font-['Satoshi:Bold_Italic',sans-serif] italic justify-center relative shrink-0 text-[#2a2a91] w-full">
         <p className="leading-[78px]">before the month ends</p>
@@ -49,7 +49,9 @@ function HeaderParagraph() {
     <div className="content-stretch flex flex-col gap-[20px] items-start leading-[0] relative shrink-0 w-full" data-name="Header & Paragraph">
       <Header />
       <div className="flex flex-col font-['Satoshi:Regular',sans-serif] justify-center not-italic relative shrink-0 text-[#696969] text-[22px] w-full">
-        <p className="leading-[30px]">nēro shows you exactly how much you can spend each day, so you never have to worry about running out before the month ends.</p>
+        <p className="leading-[30px]">
+          Know exactly what you can spend today — so your money lasts the full 30 days.
+        </p>
       </div>
     </div>
   );
@@ -77,7 +79,7 @@ function Container1() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
       <div className="flex flex-col font-['Satoshi:Medium',sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[16px] text-white whitespace-nowrap">
-        <p className="leading-[16px]">Join the waitlist</p>
+        <p className="leading-[16px]">Get early access</p>
       </div>
     </div>
   );
