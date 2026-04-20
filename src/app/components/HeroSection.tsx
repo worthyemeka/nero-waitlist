@@ -850,7 +850,7 @@ export default function HeroSection() {
 
         <PhonesDesktop />
 
-        <div className="absolute left-0 right-0 bottom-0 h-[340px] bg-gradient-to-t from-white via-white/98 to-transparent pointer-events-none z-[30]" />
+        <div className="absolute left-0 right-0 bottom-0 h-[146px] bg-gradient-to-t from-white via-white/98 to-transparent pointer-events-none z-[30]" />
         <div className="absolute right-[2%] bottom-[0px] w-[500px] h-[230px] rounded-full bg-white/90 blur-[108px] pointer-events-none z-[6]" />
       </div>
 

@@ -26,7 +26,7 @@ const logos = [
 
 export default function MarqueeSection() {
   return (
-    <section className="mx-auto w-full max-w-[1440px] overflow-hidden bg-white px-6 py-4 sm:px-10 md:px-[80px] md:py-[48px]">
+    <section className="mx-auto w-full max-w-[1440px] overflow-hidden bg-white px-6 py-4 sm:px-10 md:px-[80px] md:py-[48px] lg:mt-[40px]">
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
