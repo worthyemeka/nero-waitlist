@@ -180,11 +180,12 @@ function CounterComponent() {
   const [count, setCount] = useState(100);
 
   const avatars = [
-    "/src/imports/Screenshot_2026-04-09_at_10.41.03.png",
-    "/src/imports/Screenshot_2026-04-09_at_10.41.52.png",
-    "/src/imports/Screenshot_2026-04-09_at_10.44.54.png",
-    "/src/imports/Screenshot_2026-04-09_at_10.45.43.png",
-    "/src/imports/244664566_1083366172436351_337922157944893883_n.jpg",
+    "/src/assets/avatar1.png",
+    "/src/assets/avatar2.png",
+    "/src/assets/avatar3.jpeg",
+    "/src/assets/avatar4.png",
+    "/src/assets/avatar5.jpeg",
+    "/src/assets/avatar6.jpg",
   ];
 
   useEffect(() => {
@@ -249,7 +250,7 @@ function CounterComponent() {
       </div>
       <div className="flex flex-col font-['Satoshi:Regular',sans-serif] justify-center leading-[1.35] relative shrink-0 text-[11px] sm:text-[13px] md:text-[15px] tracking-normal min-w-0">
         <p className="not-italic whitespace-nowrap">
-          <span className="font-['Satoshi:600',sans-serif] text-[#2a2a91]">
+          <span className="font-['Satoshi:700',sans-serif] font-bold text-[#2a2a91]">
             {count}+ people
           </span>
           <span className="font-['Satoshi:Regular',sans-serif] text-[#696969]">

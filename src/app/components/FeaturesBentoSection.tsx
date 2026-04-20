@@ -62,11 +62,11 @@ export default function FeaturesBentoSection() {
                         }}
                     >
                         {/* Text — top-left */}
-                        <div className="relative z-[6] max-w-[384px] pl-8 pt-10 xl:max-w-[384px] xl:pl-10 xl:pt-12">
-                            <h3 className="text-[20px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] xl:text-[22px]">
+                        <div className="relative z-[6] max-w-[214px] pl-8 pt-10 xl:max-w-[384px] xl:pl-10 xl:pt-12">
+                            <h3 className="text-[16px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] xl:text-[22px]">
                                 Know what you can spend today
                             </h3>
-                            <p className="mt-0 text-[15px] font-[400] leading-[1.5] text-[#797C86] xl:mt-4 xl:text-[17px]">
+                            <p className="mt-0 text-[13px] font-[400] leading-[1.5] text-[#797C86] xl:mt-4 xl:text-[17px]">
                                 nēro shows you exactly what you can spend today — so your money lasts the full cycle.
                             </p>
                         </div>
@@ -74,12 +74,12 @@ export default function FeaturesBentoSection() {
                         {/* Phone mockup — right side, blurred */}
                         <motion.div
                             style={{ y: phoneParallaxY }}
-                            className="pointer-events-none absolute right-[-60px] top-[20px] z-[2] xl:right-[-40px] xl:top-[74.93px]"
+                            className="pointer-events-none absolute right-[-75px] top-[20px] z-[2] xl:right-[-40px] xl:top-[34.93px]"
                         >
                             <img
                                 src={bento1Phone}
                                 alt="nēro app screen"
-                                className="h-auto w-[420px] rounded-[20px] opacity-60 blur-[3px] xl:w-[302px]"
+                                className="h-auto w-[220px] rounded-[20px] opacity-60 blur-[3px] sm:w-[122px] xl:w-[322px]"
                             />
                         </motion.div>
 
@@ -87,7 +87,7 @@ export default function FeaturesBentoSection() {
                         <motion.img
                             src={cardBento1}
                             alt="Today's spending target card"
-                            className="pointer-events-none absolute bottom-[40px] left-[-4px] z-[4] w-[340px] drop-shadow-xl xl:bottom-[10px] xl:left-[-12px] xl:w-[700px]"
+                            className="pointer-events-none absolute bottom-[40px] left-[-4px] z-[4] w-[340px] drop-shadow-xl xl:bottom-[10px] xl:left-[-12px] xl:w-[650px]"
                             animate={{ y: [0, -6, 0, 6, 0] }}
                             transition={{
                                 duration: 8,
