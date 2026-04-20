@@ -6,7 +6,7 @@ const SMTP_PORT = Number(process.env.SMTP_PORT ?? 465);
 const SMTP_SECURE = (process.env.SMTP_SECURE ?? "true").toLowerCase() === "true";
 const SMTP_USER = process.env.SMTP_USER;
 const SMTP_PASS = process.env.SMTP_PASS;
-const FROM_EMAIL = process.env.FROM_EMAIL ?? "Nero <noreply@neroapp.co>";
+const FROM_EMAIL = process.env.FROM_EMAIL ?? "Nero <no-reply@neroapp.co>";
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -147,11 +147,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     try {
       await sendWelcomeEmail(normalizedEmail);
+      return res.status(200).json({ message: "You're on the waitlist! Check your inbox." });
     } catch (mailError) {
       console.error("SMTP send error:", mailError);
+      return res.status(200).json({
+        message: "You're on the waitlist, but we couldn't send your confirmation email right now.",
+      });
     }
-
-    return res.status(200).json({ message: "You're on the waitlist! Check your inbox." });
   } catch (error) {
     console.error("Waitlist handler error:", error);
     return res.status(500).json({ error: "Failed to send confirmation email. Please try again." });
