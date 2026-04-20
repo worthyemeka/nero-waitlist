@@ -70,12 +70,15 @@ async function sendWelcomeEmail(email: string) {
   const smtpUser = requireEnv("SMTP_USER", SMTP_USER);
   requireEnv("SMTP_PASS", SMTP_PASS);
 
-  await transporter.sendMail({
-    from: FROM_EMAIL,
-    to: email,
-    replyTo: smtpUser,
-    subject: "You're on the nēro waitlist 🎉",
-    html: `<!DOCTYPE html>
+  const path = require('path');
+  const faviconPath = path.join(process.cwd(), 'public', 'favicon.png');
+  try {
+    await transporter.sendMail({
+      from: FROM_EMAIL,
+      to: email,
+      replyTo: smtpUser,
+      subject: "You're on the nēro waitlist 🎉",
+      html: `<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="UTF-8" />
@@ -439,14 +442,18 @@ async function sendWelcomeEmail(email: string) {
     ...existing code for the email body...
   </body>
 </html>`,
-    attachments: [
-      {
-        filename: 'favicon.png',
-        path: './public/favicon.png',
-        cid: 'nero-avatar@neroapp.co', // Content-ID for embedding if needed
-      },
-    ],
-  });
+      attachments: [
+        {
+          filename: 'favicon.png',
+          path: faviconPath,
+          cid: 'nero-avatar@neroapp.co',
+        },
+      ],
+    });
+  } catch (err) {
+    console.error('Nodemailer sendMail error:', err);
+    throw err;
+  }
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
