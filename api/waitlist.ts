@@ -75,54 +75,377 @@ async function sendWelcomeEmail(email: string) {
     to: email,
     replyTo: smtpUser,
     subject: "You're on the nēro waitlist 🎉",
-    html: `
-      <!DOCTYPE html>
-      <html lang="en">
-        <head>
-          <meta charset="UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <title>Welcome to nēro</title>
-        </head>
-        <body style="margin:0;padding:0;background-color:#f5f5f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-          <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5;padding:40px 20px;">
-            <tr>
-              <td align="center">
-                <table width="560" cellpadding="0" cellspacing="0" style="background-color:#ffffff;border-radius:16px;overflow:hidden;max-width:560px;width:100%;">
-                  <tr>
-                    <td style="background-color:#0E0E2C;padding:40px 48px 32px;">
-                      <p style="margin:0;font-size:28px;font-weight:600;color:#ffffff;letter-spacing:-0.5px;">nēro</p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="padding:40px 48px;">
-                      <h1 style="margin:0 0 16px;font-size:24px;font-weight:600;color:#0E0E2C;letter-spacing:-0.5px;">
-                        You're on the list.
-                      </h1>
-                      <p style="margin:0 0 24px;font-size:16px;color:#797C86;line-height:1.6;">
-                        Thanks for joining the nēro waitlist. We're building something that makes managing your money actually feel effortless — and you'll be among the first to experience it.
-                      </p>
-                      <p style="margin:0 0 24px;font-size:16px;color:#797C86;line-height:1.6;">
-                        We'll reach out as soon as your spot is ready.
-                      </p>
-                      <p style="margin:0;font-size:16px;color:#0E0E2C;font-weight:500;">
-                        — The nēro team
-                      </p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="padding:24px 48px;border-top:1px solid #f0f0f0;">
-                      <p style="margin:0;font-size:13px;color:#b0b3bb;">
-                        You received this because you signed up at nero.app. No further emails unless we have news.
-                      </p>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-        </body>
-      </html>
-    `,
+    html: `<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="supported-color-schemes" content="light dark" />
+    <title>You're in! — nēro</title>
+    <!--[if mso]> <style>* { font-family: Arial, sans-serif !important; }</style> <![endif]-->
+    <style>
+      body, table, td, p, a {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100% !important;
+        min-width: 100% !important;
+        background-color: #F8F7F7;
+      }
+      table {
+        border-collapse: collapse;
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+      }
+      img {
+        border: 0;
+        display: block;
+        line-height: 100%;
+        outline: none;
+        text-decoration: none;
+        -ms-interpolation-mode: bicubic;
+      }
+      a {
+        text-decoration: none;
+      }
+      .email-outer-table {
+        width: 100%;
+        background-color: #F8F7F7;
+      }
+      .email-wrapper {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #F8F7F7;
+      }
+      .email-preheader {
+        background-color: #F8F7F7;
+      }
+      .email-body {
+        background-color: #F8F7F7;
+        background-image: url('https://res.cloudinary.com/dentghiic/image/upload/v1775340773/doodle-bg_ywfwsr.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 40px 30px;
+      }
+      .hero-block {
+        background-color: #2A2A91;
+        font-size: 0;
+        line-height: 0;
+      }
+      .text-block-pad {
+        padding: 40px 28px;
+        color: #FFFFFF;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-weight: 300;
+        font-size: 22px;
+        letter-spacing: 0.3px;
+        line-height: 1.5;
+        background-image: url('https://res.cloudinary.com/dentghiic/image/upload/v1775073702/Body_image_qvjfav.png');
+        background-size: cover;
+        background-position: center;
+        background-color: #2A2A91;
+      }
+      .preheader-text {
+        margin: 0;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 11px;
+        color: #777777;
+        letter-spacing: -0.2px;
+        line-height: 1.5;
+      }
+      .preheader-link {
+        color: #2A2A91;
+        text-decoration: underline;
+      }
+      .white-copy,
+      .white-copy p,
+      .white-copy span,
+      .white-copy a {
+        color: #FFFFFF !important;
+      }
+      .feature-card {
+        background-color: #161616;
+        border-top: 4px solid #2A2A91;
+        border-radius: 5px;
+        overflow: hidden;
+        margin-bottom: 22px;
+      }
+      .card-heading {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+        color: #F8F7F7;
+        letter-spacing: -0.4px;
+        line-height: 1.3;
+        margin: 0;
+      }
+      .card-body-text {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-weight: 300;
+        font-size: 15px;
+        color: #D2D2D2;
+        line-height: 1.55;
+        letter-spacing: 0.2px;
+        margin: 0;
+      }
+      .button-primary {
+        display: inline-block;
+        background-color: #2A2A91;
+        color: #FFFFFF !important;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-weight: 700;
+        font-size: 12px;
+        text-align: center;
+        text-decoration: none;
+        padding: 9px 20px;
+        border-radius: 999px;
+        letter-spacing: -0.3px;
+      }
+      .divider {
+        border-top: 1px solid rgba(255,255,255,0.15);
+        margin: 0 0 22px;
+      }
+      .body-close-text,
+      .body-close-text p {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-weight: 300;
+        font-size: 22px;
+        color: #0A0A0A;
+        letter-spacing: 0.2px;
+        line-height: 1.5;
+        margin: 0;
+      }
+      .body-signoff,
+      .body-signoff p {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        font-size: 22px;
+        color: #0A0A0A;
+        letter-spacing: -0.1px;
+        line-height: 1.5;
+        margin: 0;
+      }
+      .footer-shell {
+        background-color: #2A2A91;
+        background-image: url('https://res.cloudinary.com/dentghiic/image/upload/v1775074270/footer_col5m7.png');
+        background-size: cover;
+        background-position: center;
+      }
+      .footer-motto {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-weight: 700;
+        font-size: 18px;
+        color: #FFFFFF !important;
+        letter-spacing: -0.5px;
+        line-height: 1.2;
+        margin: 0 0 28px;
+      }
+      .footer-copy {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        font-size: 13px;
+        color: rgba(248,247,247,0.72) !important;
+        letter-spacing: -0.2px;
+        line-height: 1.65;
+        margin: 0 0 22px;
+      }
+      .footer-copy a {
+        color: rgba(248,247,247,0.9) !important;
+        text-decoration: underline;
+      }
+      .footer-small {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        font-size: 11px;
+        color: rgba(248,247,247,0.45) !important;
+        letter-spacing: -0.2px;
+        margin: 0;
+      }
+      .social-pill {
+        display: inline-block;
+        border: 1px solid rgba(255,255,255,0.3);
+        border-radius: 999px;
+        padding: 10px;
+        line-height: 0;
+        background-color: transparent;
+      }
+      .instagram-phone-wrap {
+        width: 223px;
+        height: 240px;
+        overflow: hidden;
+      }
+      .instagram-phone {
+        display: block;
+        width: 223px;
+        height: auto;
+      }
+      @media only screen and (max-width: 599px) {
+        .email-wrapper {
+          width: 100% !important;
+        }
+        .email-body {
+          padding: 24px 14px !important;
+        }
+        .text-block-pad {
+          padding: 24px 18px !important;
+          font-size: 18px !important;
+          line-height: 1.55 !important;
+        }
+        .crickets-heading {
+          font-size: 19px !important;
+        }
+        .body-close-text,
+        .body-close-text p,
+        .body-signoff,
+        .body-signoff p {
+          font-size: 18px !important;
+          line-height: 1.55 !important;
+        }
+        .fc1-table,
+        .fc2-table,
+        .stack-table {
+          width: 100% !important;
+        }
+        .fc2-img-cell {
+          display: none !important;
+          width: 0 !important;
+          max-height: 0 !important;
+          overflow: hidden !important;
+        }
+        .fc2-text-cell {
+          display: block !important;
+          width: 100% !important;
+          padding: 24px 20px !important;
+          box-sizing: border-box !important;
+        }
+        .fc1-img-cell {
+          display: none !important;
+          width: 0 !important;
+          max-height: 0 !important;
+          overflow: hidden !important;
+          padding: 0 !important;
+        }
+        .fc1-text-cell {
+          display: block !important;
+          width: 100% !important;
+          padding: 18px 20px 24px !important;
+          box-sizing: border-box !important;
+        }
+        .instagram-phone-wrap {
+          width: 120px !important;
+          height: auto !important;
+          margin: 0 auto !important;
+          overflow: visible !important;
+        }
+        .instagram-phone {
+          width: 120px !important;
+          height: auto !important;
+          margin: 0 auto !important;
+        }
+        .email-footer {
+          padding: 40px 20px 36px !important;
+        }
+        .mobile-center {
+          text-align: center !important;
+        }
+        .mobile-full {
+          width: 100% !important;
+        }
+      }
+      @media only screen and (max-width: 420px) {
+        .email-body {
+          padding: 20px 10px !important;
+        }
+        .text-block-pad {
+          padding: 20px 14px !important;
+          font-size: 17px !important;
+        }
+        .fc1-img-cell {
+          padding: 14px 14px 0 !important;
+        }
+        .fc1-text-cell,
+        .fc2-text-cell {
+          padding: 16px 14px 20px !important;
+        }
+        .email-footer {
+          padding: 32px 14px 28px !important;
+        }
+      }
+      @media (prefers-color-scheme: dark) {
+        body,
+        .email-outer-table,
+        .email-wrapper,
+        .email-preheader,
+        .email-body {
+          background-color: #0F1115 !important;
+        }
+        .preheader-text {
+          color: #B7BCC7 !important;
+        }
+        .preheader-link {
+          color: #8FA3FF !important;
+        }
+        .feature-card {
+          background-color: #151922 !important;
+          border-top-color: #8FA3FF !important;
+        }
+        .card-heading {
+          color: #F3F6FF !important;
+        }
+        .card-body-text {
+          color: #D1D8E6 !important;
+        }
+        .button-primary {
+          background-color: #8FA3FF !important;
+          color: #0F1115 !important;
+        }
+        .body-close-text,
+        .body-close-text p,
+        .body-signoff,
+        .body-signoff p {
+          color: #0A0A0A !important;
+        }
+        .footer-shell {
+          background-color: #111827 !important;
+        }
+        .footer-copy {
+          color: rgba(243,246,255,0.82) !important;
+        }
+        .footer-small {
+          color: rgba(243,246,255,0.55) !important;
+        }
+      }
+      [data-ogsc] .button-primary {
+        background-color: #8FA3FF !important;
+        color: #0F1115 !important;
+      }
+      [data-ogsc] .body-close-text,
+      [data-ogsc] .body-close-text p,
+      [data-ogsc] .body-signoff,
+      [data-ogsc] .body-signoff p {
+        color: #0A0A0A !important;
+      }
+    </style>
+  </head>
+  <body style="margin:0;padding:0;background-color:#F8F7F7;">
+    ...existing code for the email body...
+  </body>
+</html>`,
+    attachments: [
+      {
+        filename: 'favicon.png',
+        path: './public/favicon.png',
+        cid: 'nero-avatar@neroapp.co', // Content-ID for embedding if needed
+      },
+    ],
   });
 }
 
