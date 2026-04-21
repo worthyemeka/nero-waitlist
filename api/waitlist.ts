@@ -81,60 +81,81 @@ async function sendWelcomeEmail(email: string) {
     },
     html: `
       <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <meta name="description" content="You're officially in! Get early access, join our WhatsApp group, and invite friends to nēro. Control your spending. Fix your future." />
-    <title>You're in! — nēro</title>
-    <style>
-      .email-preheader { display: none !important; visibility: hidden; mso-hide: all; font-size: 1px; color: #fff; line-height: 1px; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="x-apple-disable-message-reformatting" />
     <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no" />
-    <meta name="color-scheme" content="light dark" />
-    <meta name="supported-color-schemes" content="light dark" />
+    <meta name="color-scheme" content="light" />
+    <meta name="supported-color-schemes" content="light" />
     <title>You're in! — nēro</title>
 
-    <!--[if mso]> <style>* { font-family: Arial, sans-serif !important; }</style> <![endif]-->
+    <!--[if mso]>
+    <noscript>
+      <xml>
+        <o:OfficeDocumentSettings>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+      </xml>
+    </noscript>
+    <![endif]-->
 
-    <style>
-      body, table, td, p, a {
-        -webkit-text-size-adjust: 100%;
-        -ms-text-size-adjust: 100%;
+    <style type="text/css">
+      /* =========================================================
+         RESET
+      ========================================================= */
+      body, table, td, p, a, li, blockquote {
+        -webkit-text-size-adjust: 100% !important;
+        -ms-text-size-adjust: 100% !important;
       }
-
       body {
-        margin: 0;
-        padding: 0;
+        margin: 0 !important;
+        padding: 0 !important;
         width: 100% !important;
         min-width: 100% !important;
-        background-color: #F8F7F7;
+        background-color: #F8F7F7 !important;
       }
-
       table {
-        border-collapse: collapse;
-        mso-table-lspace: 0pt;
-        mso-table-rspace: 0pt;
+        border-collapse: collapse !important;
+        mso-table-lspace: 0pt !important;
+        mso-table-rspace: 0pt !important;
       }
-
       img {
-        border: 0;
-        display: block;
-        line-height: 100%;
-        outline: none;
-        text-decoration: none;
-        -ms-interpolation-mode: bicubic;
+        border: 0 !important;
+        display: block !important;
+        line-height: 100% !important;
+        outline: none !important;
+        text-decoration: none !important;
+        -ms-interpolation-mode: bicubic !important;
       }
-
       a {
-        text-decoration: none;
+        text-decoration: none !important;
       }
 
-      .email-outer-table {
+      /* =========================================================
+         PREHEADER — completely hidden everywhere
+      ========================================================= */
+      .preheader-ghost {
+        display: none !important;
+        visibility: hidden !important;
+        mso-hide: all !important;
+        font-size: 1px !important;
+        line-height: 1px !important;
+        max-height: 0 !important;
+        max-width: 0 !important;
+        opacity: 0 !important;
+        overflow: hidden !important;
+      }
+
+      /* =========================================================
+         LAYOUT
+      ========================================================= */
+      .email-outer {
         width: 100%;
         background-color: #F8F7F7;
       }
-
       .email-wrapper {
         width: 100%;
         max-width: 600px;
@@ -142,70 +163,100 @@ async function sendWelcomeEmail(email: string) {
         background-color: #F8F7F7;
       }
 
-      .email-preheader {
+      /* =========================================================
+         TOPBAR (view in browser)
+      ========================================================= */
+      .topbar-cell {
+        text-align: center;
+        padding: 10px 20px;
         background-color: #F8F7F7;
       }
-
-      .email-body {
-        background-color: #F8F7F7;
-        background-image: url('https://res.cloudinary.com/dentghiic/image/upload/v1775340773/doodle-bg_ywfwsr.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        padding: 40px 30px;
-      }
-
-      .hero-block {
-        background-color: #2A2A91;
-        font-size: 0;
-        line-height: 0;
-      }
-
-      .text-block-pad {
-        padding: 40px 28px;
-        color: #FFFFFF;
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-weight: 300;
-        font-size: 22px;
-        letter-spacing: 0.3px;
-        line-height: 1.5;
-        background-image: url('https://res.cloudinary.com/dentghiic/image/upload/v1775073702/Body_image_qvjfav.png');
-        background-size: cover;
-        background-position: center;
-        background-color: #2A2A91;
-      }
-
-      .preheader-text {
+      .topbar-text {
         margin: 0;
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-family: Arial, Helvetica, sans-serif;
         font-size: 11px;
         color: #777777;
         letter-spacing: -0.2px;
         line-height: 1.5;
       }
-
-      .preheader-link {
+      .topbar-link {
         color: #2A2A91;
-        text-decoration: underline;
+        text-decoration: underline !important;
       }
 
-      .white-copy,
-      .white-copy p,
-      .white-copy span,
-      .white-copy a {
-        color: #FFFFFF !important;
+      /* =========================================================
+         HERO
+      ========================================================= */
+      .hero-cell {
+        background-color: #2A2A91;
+        font-size: 0;
+        line-height: 0;
       }
 
-      .feature-card {
-        background-color: #161616;
-        border-top: 4px solid #2A2A91;
+      /* =========================================================
+         BODY AREA
+      ========================================================= */
+      .body-cell {
+        padding: 40px 30px;
+        background-color: #F8F7F7;
+      }
+
+      /* =========================================================
+         INTRO BLOCKS (purple)
+      ========================================================= */
+      .intro-table {
         border-radius: 5px;
         overflow: hidden;
         margin-bottom: 22px;
+        background-color: #2A2A91;
+      }
+      .intro-td {
+        padding: 40px 28px;
+        background-color: #2A2A91;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 300;
+        font-size: 22px;
+        letter-spacing: 0.3px;
+        line-height: 1.5;
+        color: #FFFFFF;
+      }
+      .intro-td p {
+        margin: 0 0 20px;
+        color: #FFFFFF;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .intro-td p:last-child {
+        margin-bottom: 0;
       }
 
+      /* =========================================================
+         DIVIDER
+      ========================================================= */
+      .divider-row td {
+        padding: 0 0 22px;
+        font-size: 0;
+        line-height: 0;
+      }
+      .divider-line {
+        width: 100%;
+        height: 1px;
+        background-color: #CCCCCC;
+        font-size: 0;
+        line-height: 0;
+      }
+
+      /* =========================================================
+         FEATURE CARDS (dark)
+      ========================================================= */
+      .card-outer {
+        border-radius: 5px;
+        overflow: hidden;
+        margin-bottom: 22px;
+        background-color: #161616;
+        border-top: 4px solid #2A2A91;
+      }
       .card-heading {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-family: Arial, Helvetica, sans-serif;
         font-weight: 700;
         font-size: 20px;
         color: #F8F7F7;
@@ -213,9 +264,8 @@ async function sendWelcomeEmail(email: string) {
         line-height: 1.3;
         margin: 0;
       }
-
       .card-body-text {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-family: Arial, Helvetica, sans-serif;
         font-weight: 300;
         font-size: 15px;
         color: #D2D2D2;
@@ -224,295 +274,226 @@ async function sendWelcomeEmail(email: string) {
         margin: 0;
       }
 
-      .button-primary {
+      /* =========================================================
+         BUTTONS
+      ========================================================= */
+      .btn-primary {
         display: inline-block;
         background-color: #2A2A91;
         color: #FFFFFF !important;
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-family: Arial, Helvetica, sans-serif;
         font-weight: 700;
         font-size: 12px;
         text-align: center;
-        text-decoration: none;
+        text-decoration: none !important;
         padding: 9px 20px;
         border-radius: 999px;
         letter-spacing: -0.3px;
+        white-space: nowrap;
+        mso-padding-alt: 9px 20px;
       }
 
-      .divider {
-        border-top: 1px solid rgba(255,255,255,0.15);
-        margin: 0 0 22px;
+      /* =========================================================
+         CARD 1 — "Put your people on" (fc2 in original)
+      ========================================================= */
+      .fc2-img-td {
+        width: 260px;
+        vertical-align: bottom;
+        padding: 0;
+      }
+      .fc2-text-td {
+        vertical-align: middle;
+        padding: 28px 16px 28px 22px;
       }
 
-      .body-close-text,
-      .body-close-text p {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      /* =========================================================
+         CARD 2 — "Get In Early" (fc1 in original)
+      ========================================================= */
+      .fc1-img-td {
+        width: 50%;
+        vertical-align: bottom;
+        padding: 0;
+        overflow: hidden;
+      }
+      .fc1-text-td {
+        width: 50%;
+        vertical-align: middle;
+        padding: 24px 20px 24px 16px;
+      }
+
+      /* =========================================================
+         SIGN-OFF BLOCK
+      ========================================================= */
+      .signoff-td {
+        padding: 32px 24px;
+        background-color: #0A0A0A;
+        border-radius: 5px;
+      }
+      .signoff-text {
+        font-family: Arial, Helvetica, sans-serif;
         font-weight: 300;
         font-size: 22px;
-        color: #0A0A0A;
+        color: #FFFFFF;
         letter-spacing: 0.2px;
         line-height: 1.5;
         margin: 0;
       }
-
-      .body-signoff,
-      .body-signoff p {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      .signoff-name {
+        font-family: Arial, Helvetica, sans-serif;
         font-weight: 400;
         font-size: 22px;
-        color: #0A0A0A;
+        color: #FFFFFF;
         letter-spacing: -0.1px;
         line-height: 1.5;
-        margin: 0;
+        margin: 22px 0 0;
       }
 
-      .footer-shell {
+      /* =========================================================
+         FOOTER
+      ========================================================= */
+      .footer-cell {
+        padding: 64px 40px 56px;
         background-color: #2A2A91;
-        background-image: url('https://res.cloudinary.com/dentghiic/image/upload/v1775074270/footer_col5m7.png');
-        background-size: cover;
-        background-position: center;
+        text-align: center;
       }
-
       .footer-motto {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-family: Arial, Helvetica, sans-serif;
         font-weight: 700;
         font-size: 18px;
-        color: #FFFFFF !important;
+        color: #FFFFFF;
         letter-spacing: -0.5px;
         line-height: 1.2;
         margin: 0 0 28px;
       }
-
       .footer-copy {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-family: Arial, Helvetica, sans-serif;
         font-weight: 400;
         font-size: 13px;
-        color: rgba(248,247,247,0.72) !important;
+        color: rgba(248,247,247,0.80);
         letter-spacing: -0.2px;
         line-height: 1.65;
         margin: 0 0 22px;
       }
-
       .footer-copy a {
-        color: rgba(248,247,247,0.9) !important;
-        text-decoration: underline;
+        color: #FFFFFF !important;
+        text-decoration: underline !important;
       }
-
       .footer-small {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-family: Arial, Helvetica, sans-serif;
         font-weight: 400;
         font-size: 11px;
-        color: rgba(248,247,247,0.45) !important;
+        color: rgba(248,247,247,0.55);
         letter-spacing: -0.2px;
         margin: 0;
       }
-
+      .footer-divider {
+        width: 100%;
+        height: 1px;
+        background-color: rgba(255,255,255,0.18);
+        font-size: 0;
+        line-height: 0;
+        margin: 0 0 24px;
+      }
       .social-pill {
         display: inline-block;
-        border: 1px solid rgba(255,255,255,0.3);
+        border: 1px solid rgba(255,255,255,0.35);
         border-radius: 999px;
         padding: 10px;
         line-height: 0;
         background-color: transparent;
       }
 
-      .instagram-phone-wrap {
-        width: 223px;
-        height: 240px;
-        overflow: hidden;
-      }
-
-      .instagram-phone {
-        display: block;
-        width: 223px;
-        height: auto;
-      }
-
+      /* =========================================================
+         MOBILE  ≤ 599px
+      ========================================================= */
       @media only screen and (max-width: 599px) {
-        .email-wrapper {
-          width: 100% !important;
+
+        .body-cell {
+          padding: 20px 12px !important;
         }
 
-        .email-body {
-          padding: 24px 14px !important;
-        }
-
-        .text-block-pad {
+        .intro-td {
           padding: 24px 18px !important;
           font-size: 18px !important;
           line-height: 1.55 !important;
         }
 
-        .crickets-heading {
-          font-size: 19px !important;
+        /* --- Card 1: "Put your people on" --- */
+        .fc2-text-td {
+          padding: 20px 14px !important;
+          width: 50% !important;
+        }
+        .fc2-img-td {
+          width: 50% !important;
+        }
+        .fc2-img-td img {
+          width: 100% !important;
+          max-width: 160px !important;
+          height: auto !important;
         }
 
-        .body-close-text,
-        .body-close-text p,
-        .body-signoff,
-        .body-signoff p {
+        /* --- Card 2: "Get In Early" --- */
+        .fc1-img-td {
+          width: 50% !important;
+          padding: 0 !important;
+          overflow: hidden !important;
+        }
+        .fc1-img-td img {
+          width: 100% !important;
+          max-width: 160px !important;
+          height: auto !important;
+          display: block !important;
+        }
+        .fc1-text-td {
+          width: 50% !important;
+          padding: 20px 14px 20px 12px !important;
+        }
+
+        /* --- Headings & text inside cards --- */
+        .card-heading {
+          font-size: 17px !important;
+        }
+        .card-body-text {
+          font-size: 13px !important;
+        }
+
+        /* --- Button: never let it wrap --- */
+        .btn-primary {
+          font-size: 11px !important;
+          padding: 8px 14px !important;
+          white-space: nowrap !important;
+        }
+
+        /* --- Sign-off --- */
+        .signoff-text,
+        .signoff-name {
           font-size: 18px !important;
           line-height: 1.55 !important;
         }
 
-        .fc1-table,
-        .fc2-table,
-        .stack-table {
-          width: 100% !important;
+        /* --- Footer --- */
+        .footer-cell {
+          padding: 36px 20px 32px !important;
         }
-
-        /* Hide CTA visuals on mobile */
-        @media only screen and (max-width: 599px) {
-          .email-wrapper {
-            width: 100% !important;
-          }
-
-          .email-body {
-            padding: 24px 8px !important;
-          }
-
-          .text-block-pad {
-            padding: 18px 8px !important;
-            font-size: 17px !important;
-            line-height: 1.55 !important;
-          }
-
-          .crickets-heading {
-            font-size: 17px !important;
-          }
-
-          .body-close-text,
-          .body-close-text p,
-          .body-signoff,
-          .body-signoff p {
-            font-size: 16px !important;
-            line-height: 1.55 !important;
-          }
-
-          .fc1-table,
-          .fc2-table,
-          .stack-table {
-            width: 100% !important;
-          }
-
-          .fc2-img-cell, .fc1-img-cell {
-            display: table-cell !important;
-            width: 50% !important;
-            max-width: 180px !important;
-            padding: 0 !important;
-            text-align: center !important;
-            vertical-align: bottom !important;
-            overflow: hidden !important;
-          }
-
-          .fc2-img-cell img {
-            width: 100% !important;
-            max-width: 120px !important;
-            height: auto !important;
-            margin: 0 auto !important;
-            display: block !important;
-            border-radius: 12px;
-          }
-
-          .fc1-img-cell img, .instagram-phone, .instagram-phone-wrap {
-            width: 100% !important;
-            max-width: 180px !important;
-            height: auto !important;
-            margin: 0 auto !important;
-            display: block !important;
-            transform: rotate(-6deg);
-            object-fit: cover;
-            object-position: left center;
-            border-radius: 0 16px 16px 0;
-            clip-path: inset(0 0 0 0 round 0 16px 16px 0);
-          }
-
-          .fc2-text-cell, .fc1-text-cell {
-            display: table-cell !important;
-            width: 50% !important;
-            padding: 12px 10px 12px 18px !important;
-            box-sizing: border-box !important;
-            text-align: left !important;
-            vertical-align: middle !important;
-          }
-
-          .email-footer {
-            padding: 28px 8px 24px !important;
-          }
-
-          .mobile-center {
-            text-align: center !important;
-          }
-
-          .mobile-full {
-            width: 100% !important;
-          }
-        }
-          color: #B7BCC7 !important;
-        }
-
-        .preheader-link {
-          color: #8FA3FF !important;
-        }
-
-        .feature-card {
-          background-color: #151922 !important;
-          border-top-color: #8FA3FF !important;
-        }
-
-        .card-heading {
-          color: #F3F6FF !important;
-        }
-
-        .card-body-text {
-          color: #D1D8E6 !important;
-        }
-
-        .button-primary {
-          background-color: #8FA3FF !important;
-          color: #0F1115 !important;
-        }
-
-        .body-close-text,
-        .body-close-text p,
-        .body-signoff,
-        .body-signoff p {
-          color: #0A0A0A !important;
-        }
-
-        .footer-shell {
-          background-color: #111827 !important;
-        }
-
-        .footer-copy {
-          color: rgba(243,246,255,0.82) !important;
-        }
-
-        .footer-shell {
-          background-color: #2A2A91 !important;
-          background-image: url('https://res.cloudinary.com/dentghiic/image/upload/v1775074270/footer_col5m7.png');
-          background-size: cover;
-          background-position: center;
-        }
-        .footer-motto, .footer-copy, .footer-copy a, .footer-small {
-          color: #FFFFFF !important;
-        }
-        background-color: #8FA3FF !important;
-        color: #0F1115 !important;
-      }
-
-      [data-ogsc] .body-close-text,
-      [data-ogsc] .body-close-text p,
-      [data-ogsc] .body-signoff,
-      [data-ogsc] .body-signoff p {
-        color: #0A0A0A !important;
       }
     </style>
   </head>
 
   <body style="margin:0;padding:0;background-color:#F8F7F7;">
+
+    <!--
+      PREHEADER TEXT — renders as inbox preview in all major clients,
+      but is completely invisible inside the opened email.
+      The filler nbsp/zwj characters pad it out so the client doesn't
+      pull in body text to fill the preview snippet.
+    -->
+    <div class="preheader-ghost" aria-hidden="true" style="display:none !important;visibility:hidden !important;mso-hide:all !important;font-size:1px !important;line-height:1px !important;max-height:0 !important;max-width:0 !important;opacity:0 !important;overflow:hidden !important;">
+      You're officially in! Get early access, join our WhatsApp group, and invite friends to nēro. Control your spending. Fix your future.&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+    </div>
+
     <table
-      class="email-outer-table"
       role="presentation"
+      class="email-outer"
       cellpadding="0"
       cellspacing="0"
       border="0"
@@ -523,50 +504,49 @@ async function sendWelcomeEmail(email: string) {
         <td align="center" style="padding:0;">
           <table
             role="presentation"
+            class="email-wrapper"
             cellpadding="0"
             cellspacing="0"
             border="0"
-            width="100%"
-            class="email-wrapper"
-            style="max-width:600px;width:100%;background-color:#F8F7F7;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;"
+            width="600"
+            style="width:600px;max-width:600px;background-color:#F8F7F7;"
           >
+
+            <!-- ===================== TOPBAR ===================== -->
             <tr>
-              <td class="email-preheader" style="text-align:center;padding:10px 20px;background-color:#F8F7F7;">
-                <span class="email-preheader">You're officially in! Get early access, join our WhatsApp group, and invite friends to nēro.</span>
-                <p
-                  class="preheader-text"
-                  style="margin:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;color:#777777;letter-spacing:-0.2px;line-height:1.5;"
-                >
+              <td class="topbar-cell" style="text-align:center;padding:10px 20px;background-color:#F8F7F7;">
+                <p class="topbar-text" style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#777777;letter-spacing:-0.2px;line-height:1.5;">
                   Having trouble viewing this email?
-                  <a href="https://waitlist.neroapp.co/browser-view" class="preheader-link" style="color:#2A2A91;text-decoration:underline;"
-                    >View it in your browser</a
-                  >
+                  <a href="https://waitlist.neroapp.co/browser-view" class="topbar-link" style="color:#2A2A91;text-decoration:underline;">View it in your browser</a>
                 </p>
               </td>
             </tr>
 
+            <!-- ===================== HERO ===================== -->
             <tr>
-              <td class="hero-block" style="background-color:#2A2A91;font-size:0;line-height:0;">
+              <td class="hero-cell" style="background-color:#2A2A91;font-size:0;line-height:0;">
                 <a href="https://waitlist.neroapp.co" style="display:block;font-size:0;line-height:0;">
                   <img
-                    class="email-hero-img"
                     src="https://res.cloudinary.com/dentghiic/image/upload/v1775078555/hero-phone_v8xpux.png"
                     alt="You're in! You're officially on the list."
                     width="600"
-                    style="display:block;width:100%;height:auto;max-width:600px;"
+                    style="display:block;width:100%;max-width:600px;height:auto;"
                   />
                 </a>
               </td>
             </tr>
 
+            <!-- ===================== BODY ===================== -->
             <tr>
               <td
-                class="email-body"
-                background="https://res.cloudinary.com/dentghiic/image/upload/v1775340773/doodle-bg_ywfwsr.png"
-                style="padding:40px 30px;background-color:#F8F7F7;background-image:url('https://res.cloudinary.com/dentghiic/image/upload/v1775340773/doodle-bg_ywfwsr.png');background-size:cover;background-position:center;background-repeat:no-repeat;"
+                class="body-cell"
+                style="padding:40px 30px;background-color:#F8F7F7;"
               >
+
+                <!-- INTRO BLOCK 1 -->
                 <table
                   role="presentation"
+                  class="intro-table"
                   cellpadding="0"
                   cellspacing="0"
                   border="0"
@@ -575,22 +555,23 @@ async function sendWelcomeEmail(email: string) {
                 >
                   <tr>
                     <td
-                      class="text-block-pad white-copy"
-                      background="https://res.cloudinary.com/dentghiic/image/upload/v1775340198/doodle_with_purple_ugdevx.png"
-                      style="padding:40px 28px;color:#FFFFFF;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:22px;letter-spacing:0.3px;line-height:1.5;background-image:url('https://res.cloudinary.com/dentghiic/image/upload/v1775073702/Body_image_qvjfav.png');background-size:cover;background-position:center;background-color:#2A2A91;"
+                      class="intro-td"
+                      style="padding:40px 28px;background-color:#2A2A91;font-family:Arial,Helvetica,sans-serif;font-weight:300;font-size:22px;letter-spacing:0.3px;line-height:1.5;color:#FFFFFF;"
                     >
-                      <p style="margin:0 0 20px;">
+                      <p style="margin:0 0 20px;color:#FFFFFF;font-family:Arial,Helvetica,sans-serif;">
                         <span style="font-weight:500;color:#FFFFFF;">Hey there</span>,
                       </p>
-                      <p style="margin:0 0 20px;color:#FFFFFF;">You're officially in! 🎉</p>
-                      <p style="margin:0 0 20px;color:#FFFFFF;">If money disappears faster than it should, you're exactly where you need to be.</p>
-                      <p style="margin:0;color:#FFFFFF;">We're building Nero to help you stay in control without the stress.</p>
+                      <p style="margin:0 0 20px;color:#FFFFFF;font-family:Arial,Helvetica,sans-serif;">You're officially in! 🎉</p>
+                      <p style="margin:0 0 20px;color:#FFFFFF;font-family:Arial,Helvetica,sans-serif;">If money disappears faster than it should, you're exactly where you need to be.</p>
+                      <p style="margin:0;color:#FFFFFF;font-family:Arial,Helvetica,sans-serif;">We're building Nero to help you stay in control without the stress.</p>
                     </td>
                   </tr>
                 </table>
 
+                <!-- INTRO BLOCK 2 -->
                 <table
                   role="presentation"
+                  class="intro-table"
                   cellpadding="0"
                   cellspacing="0"
                   border="0"
@@ -599,204 +580,222 @@ async function sendWelcomeEmail(email: string) {
                 >
                   <tr>
                     <td
-                      class="text-block-pad white-copy"
-                      background="https://res.cloudinary.com/dentghiic/image/upload/v1775073702/Body_image_qvjfav.png"
-                      style="padding:40px 28px;color:#FFFFFF;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:22px;letter-spacing:0.3px;line-height:1.5;background-image:url('https://res.cloudinary.com/dentghiic/image/upload/v1775073702/Body_image_qvjfav.png');background-size:cover;background-position:center;background-color:#2A2A91;"
+                      class="intro-td"
+                      style="padding:40px 28px;background-color:#2A2A91;font-family:Arial,Helvetica,sans-serif;font-weight:300;font-size:22px;letter-spacing:0.3px;line-height:1.5;color:#FFFFFF;"
                     >
-                      <p
-                        class="crickets-heading"
-                        style="font-weight:700;font-size:24px;text-transform:uppercase;margin:0 0 11px;color:#FFFFFF;"
-                      >
+                      <p style="font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:24px;text-transform:uppercase;margin:0 0 11px;color:#FFFFFF;letter-spacing:-0.3px;">
                         What happens next?
                       </p>
-                      <p style="font-weight:300;margin:0 0 22px;color:#FFFFFF;">
-                        We’ll send you early updates, first looks, and your invite when your spot is ready.
+                      <p style="font-family:Arial,Helvetica,sans-serif;font-weight:300;margin:0 0 22px;color:#FFFFFF;">
+                        We'll send you early updates, first looks, and your invite when your spot is ready.
                       </p>
-                      <p style="font-weight:300;margin:0;color:#FFFFFF;">
+                      <p style="font-family:Arial,Helvetica,sans-serif;font-weight:300;margin:0;color:#FFFFFF;">
                         While you wait, here are two quick things you can do:
                       </p>
                     </td>
                   </tr>
                 </table>
 
-                <div class="divider" style="border-top:1px solid rgba(255,255,255,0.15);margin:0 0 22px;"></div>
-
-                <div
-                  class="feature-card"
-                  style="background-color:#161616;border-top:4px solid #2A2A91;border-radius:5px;overflow:hidden;margin-bottom:22px;"
-                >
-                  <table
-                    role="presentation"
-                    class="fc2-table stack-table"
-                    cellpadding="0"
-                    cellspacing="0"
-                    border="0"
-                    width="100%"
-                  >
-                    <tr>
-                      <td
-                        class="fc2-text-cell"
-                        align="left"
-                        valign="middle"
-                        style="padding:28px 10px 28px 22px;width:218px;vertical-align:middle;"
-                      >
-                        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-                          <tr>
-                            <td style="padding-bottom:14px;">
-                              <p
-                                class="card-heading"
-                                style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;font-size:20px;color:#F8F7F7;letter-spacing:-0.4px;line-height:1.3;margin:0;"
-                              >
-                                Put your people on
-                              </p>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td style="padding-bottom:14px;">
-                              <p
-                                class="card-body-text"
-                                style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:15px;color:#D2D2D2;line-height:1.55;letter-spacing:0.2px;margin:0;"
-                              >
-                                Know someone who needs nēro too? Share the waitlist with them.
-                              </p>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <a
-                                href="https://waitlist.neroapp.co"
-                                class="button-primary"
-                                style="display:inline-block;background-color:#2A2A91;color:#FFFFFF !important;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;font-size:12px;text-align:center;text-decoration:none;padding:9px 20px;border-radius:999px;letter-spacing:-0.3px;"
-                                >Share the link →</a
-                              >
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td
-                        class="fc2-img-cell"
-                        align="right"
-                        valign="bottom"
-                        style="width:283px;vertical-align:bottom;padding:0;"
-                      >
-                        <img
-                          src="https://res.cloudinary.com/dentghiic/image/upload/v1775073795/girl_r44znk.png"
-                          alt=""
-                          width="283"
-                          style="display:block;width:100%;height:auto;vertical-align:bottom;"
-                        />
-                      </td>
-                    </tr>
-                  </table>
-                </div>
-
-                <div
-                  class="feature-card"
-                  style="background-color:#161616;border-top:4px solid #2A2A91;border-radius:5px;overflow:hidden;margin-bottom:22px;"
-                >
-                  <table
-                    role="presentation"
-                    class="fc1-table stack-table"
-                    cellpadding="0"
-                    cellspacing="0"
-                    border="0"
-                    width="100%"
-                  >
-                    <tr>
-                      <td
-                        class="fc1-img-cell"
-                        align="center"
-                        valign="bottom"
-                        style="width:251px;padding:48px 0 0 28px;vertical-align:bottom;"
-                      >
-                        <div class="instagram-phone-wrap" style="width:223px;overflow:hidden;height:240px;">
-                          <img
-                            class="instagram-phone"
-                            src="https://neroapp.co/assets/phone-mockup.png"
-                            alt="WhatsApp testers group"
-                            width="223"
-                            style="display:block;width:223px;height:auto;"
-                          />
-                        </div>
-                      </td>
-                      <td
-                        class="fc1-text-cell"
-                        align="left"
-                        valign="middle"
-                        style="width:222px;padding:14px;vertical-align:middle;"
-                      >
-                        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-                          <tr>
-                            <td style="padding-bottom:14px;">
-                              <p
-                                class="card-heading"
-                                style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;font-size:20px;color:#F8F7F7;letter-spacing:-0.4px;line-height:1.3;margin:0;"
-                              >
-                                Get In Early
-                              </p>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td style="padding-bottom:14px;">
-                              <p
-                                class="card-body-text"
-                                style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:15px;color:#D2D2D2;letter-spacing:0.2px;line-height:1.55;margin:0;"
-                              >
-                                Join the testers GC for real-time drops, behind-the-scenes updates, and first dibs as we build. Tap in.
-                              </p>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <a
-                                href="https://chat.whatsapp.com/JYVG4hCC5gZ6q9MfluDOSo?mode=gi_t"
-                                class="button-primary"
-                                style="display:inline-block;background-color:#2A2A91;color:#FFFFFF !important;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;font-size:12px;text-align:center;text-decoration:none;padding:9px 20px;border-radius:999px;letter-spacing:-0.3px;"
-                                >Join WhatsApp group →</a
-                              >
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                </div>
-
-                <div class="divider" style="border-top:1px solid rgba(255,255,255,0.15);margin:0 0 22px;"></div>
-
-                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin:0;">
+                <!-- DIVIDER -->
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" class="divider-row" style="margin-bottom:22px;">
                   <tr>
-                    <td
-                      background="https://res.cloudinary.com/dentghiic/image/upload/v1775344004/bottom-text_jddilk.png"
-                      style="padding:32px 24px;background-color:#0A0A0A;background-image:url('https://res.cloudinary.com/dentghiic/image/upload/v1775344208/bottom-text_jobmyo.png');background-size:cover;background-position:center;background-repeat:no-repeat;border-radius:5px;"
-                    >
-                      <div
-                        class="body-close-text"
-                        style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:22px;color:#FFFFFF;letter-spacing:0.2px;line-height:1.5;padding:0 0 22px;"
-                      >
-                        <p style="margin:0;color:#0a0a0a;">Thanks again for joining us early.</p>
-                        <p style="margin:22px 0 0;color:#0a0a0a;">See you soon.</p>
-                      </div>
-
-                      <div
-                        class="body-signoff"
-                        style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:400;font-size:22px;color:#FFFFFF;letter-spacing:-0.1px;line-height:1.5;"
-                      >
-                        <p style="margin:0;color:#0a0a0a;">— Worthy from nēro</p>
-                      </div>
+                    <td style="padding:0;font-size:0;line-height:0;">
+                      <div class="divider-line" style="width:100%;height:1px;background-color:#CCCCCC;font-size:0;line-height:0;"></div>
                     </td>
                   </tr>
                 </table>
+
+                <!-- ============================================
+                     CARD 1 — "Put your people on"
+                ============================================= -->
+                <table
+                  role="presentation"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  width="100%"
+                  style="border-radius:5px;overflow:hidden;margin-bottom:22px;background-color:#161616;border-top:4px solid #2A2A91;"
+                >
+                  <tr>
+                    <!-- Text side -->
+                    <td
+                      class="fc2-text-td"
+                      align="left"
+                      valign="middle"
+                      style="vertical-align:middle;padding:28px 16px 28px 22px;width:280px;"
+                    >
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                          <td style="padding-bottom:14px;">
+                            <p class="card-heading" style="font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:20px;color:#F8F7F7;letter-spacing:-0.4px;line-height:1.3;margin:0;">
+                              Put your people on
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding-bottom:14px;">
+                            <p class="card-body-text" style="font-family:Arial,Helvetica,sans-serif;font-weight:300;font-size:15px;color:#D2D2D2;line-height:1.55;letter-spacing:0.2px;margin:0;">
+                              Know someone who needs nēro too? Share the waitlist with them.
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <!--[if mso]>
+                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://waitlist.neroapp.co" style="height:34px;v-text-anchor:middle;width:130px;" arcsize="50%" stroke="f" fillcolor="#2A2A91">
+                              <w:anchorlock/>
+                              <center style="color:#FFFFFF;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;">Share the link &rarr;</center>
+                            </v:roundrect>
+                            <![endif]-->
+                            <!--[if !mso]><!-->
+                            <a
+                              href="https://waitlist.neroapp.co"
+                              class="btn-primary"
+                              style="display:inline-block;background-color:#2A2A91;color:#FFFFFF !important;font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:12px;text-align:center;text-decoration:none;padding:9px 20px;border-radius:999px;letter-spacing:-0.3px;white-space:nowrap;mso-hide:all;"
+                            >Share the link &rarr;</a>
+                            <!--<![endif]-->
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                    <!-- Image side -->
+                    <td
+                      class="fc2-img-td"
+                      align="right"
+                      valign="bottom"
+                      style="vertical-align:bottom;padding:0;width:260px;"
+                    >
+                      <img
+                        src="https://res.cloudinary.com/dentghiic/image/upload/v1775073795/girl_r44znk.png"
+                        alt=""
+                        width="260"
+                        style="display:block;width:100%;height:auto;vertical-align:bottom;"
+                      />
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- ============================================
+                     CARD 2 — "Get In Early"
+                ============================================= -->
+                <table
+                  role="presentation"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  width="100%"
+                  style="border-radius:5px;overflow:hidden;margin-bottom:22px;background-color:#161616;border-top:4px solid #2A2A91;"
+                >
+                  <tr>
+                    <!-- Phone image side — rotated -6deg via VML for Outlook, CSS transform elsewhere -->
+                    <td
+                      class="fc1-img-td"
+                      align="left"
+                      valign="bottom"
+                      style="vertical-align:bottom;padding:0;width:50%;overflow:hidden;background-color:#161616;"
+                    >
+                      <!--[if mso]>
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <tr><td style="padding:48px 0 0 20px;vertical-align:bottom;">
+                          <img src="https://res.cloudinary.com/dentghiic/image/upload/v1776742215/phone-email_vypvtf.png" alt="WhatsApp testers group" width="220" style="display:block;width:220px;height:auto;" />
+                        </td></tr>
+                      </table>
+                      <![endif]-->
+                      <!--[if !mso]><!-->
+                      <div style="overflow:hidden;line-height:0;font-size:0;">
+                        <img
+                          src="https://res.cloudinary.com/dentghiic/image/upload/v1776742215/phone-email_vypvtf.png"
+                          alt="WhatsApp testers group"
+                          width="260"
+                          style="display:block;width:100%;max-width:260px;height:auto;-webkit-transform:rotate(-6deg);-moz-transform:rotate(-6deg);-ms-transform:rotate(-6deg);-o-transform:rotate(-6deg);transform:rotate(-6deg);-webkit-transform-origin:bottom left;-moz-transform-origin:bottom left;-ms-transform-origin:bottom left;transform-origin:bottom left;margin-bottom:-18px;margin-left:-6px;"
+                        />
+                      </div>
+                      <!--<![endif]-->
+                    </td>
+                    <!-- Text side -->
+                    <td
+                      class="fc1-text-td"
+                      align="left"
+                      valign="middle"
+                      style="vertical-align:middle;padding:28px 20px 28px 20px;width:50%;background-color:#161616;"
+                    >
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <tr>
+                          <td style="padding-bottom:14px;">
+                            <p class="card-heading" style="font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:20px;color:#F8F7F7;letter-spacing:-0.4px;line-height:1.3;margin:0;">
+                              Get In Early
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding-bottom:16px;">
+                            <p class="card-body-text" style="font-family:Arial,Helvetica,sans-serif;font-weight:300;font-size:15px;color:#D2D2D2;letter-spacing:0.2px;line-height:1.55;margin:0;">
+                              Join the testers GC for real-time drops, behind-the-scenes updates, and first dibs as we build. Tap in.
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <!--[if mso]>
+                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://chat.whatsapp.com/JYVG4hCC5gZ6q9MfluDOSo?mode=gi_t" style="height:34px;v-text-anchor:middle;width:160px;" arcsize="50%" stroke="f" fillcolor="#2A2A91">
+                              <w:anchorlock/>
+                              <center style="color:#FFFFFF;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;">Join WhatsApp group &rarr;</center>
+                            </v:roundrect>
+                            <![endif]-->
+                            <!--[if !mso]><!-->
+                            <a
+                              href="https://chat.whatsapp.com/JYVG4hCC5gZ6q9MfluDOSo?mode=gi_t"
+                              class="btn-primary"
+                              style="display:inline-block;background-color:#2A2A91;color:#FFFFFF !important;font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:12px;text-align:center;text-decoration:none;padding:9px 20px;border-radius:999px;letter-spacing:-0.3px;white-space:nowrap;mso-hide:all;"
+                            >Join WhatsApp group &rarr;</a>
+                            <!--<![endif]-->
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- DIVIDER -->
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:22px;">
+                  <tr>
+                    <td style="padding:0;font-size:0;line-height:0;">
+                      <div style="width:100%;height:1px;background-color:#CCCCCC;font-size:0;line-height:0;"></div>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- SIGN-OFF -->
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tr>
+                    <td
+                      class="signoff-td"
+                      style="padding:32px 24px;background-color:#0A0A0A;border-radius:5px;"
+                    >
+                      <p class="signoff-text" style="font-family:Arial,Helvetica,sans-serif;font-weight:300;font-size:22px;color:#FFFFFF;letter-spacing:0.2px;line-height:1.5;margin:0;">
+                        Thanks again for joining us early.
+                      </p>
+                      <p class="signoff-text" style="font-family:Arial,Helvetica,sans-serif;font-weight:300;font-size:22px;color:#FFFFFF;letter-spacing:0.2px;line-height:1.5;margin:22px 0 0;">
+                        See you soon.
+                      </p>
+                      <p class="signoff-name" style="font-family:Arial,Helvetica,sans-serif;font-weight:400;font-size:22px;color:#FFFFFF;letter-spacing:-0.1px;line-height:1.5;margin:22px 0 0;">
+                        — Worthy from nēro
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
               </td>
             </tr>
 
+            <!-- ===================== FOOTER ===================== -->
             <tr>
               <td
-                class="email-footer footer-shell"
+                class="footer-cell"
                 align="center"
-                background="https://res.cloudinary.com/dentghiic/image/upload/v1775074270/footer_col5m7.png"
-                style="padding:64px 40px 56px;background-image:url('https://res.cloudinary.com/dentghiic/image/upload/v1775074270/footer_col5m7.png');background-size:cover;background-position:center;background-color:#2A2A91;"
+                style="padding:64px 40px 56px;background-color:#2A2A91;text-align:center;"
               >
+                <!-- Logo -->
                 <div style="margin-bottom:20px;text-align:center;">
                   <a href="https://waitlist.neroapp.co" style="display:inline-block;line-height:0;">
                     <img
@@ -804,41 +803,32 @@ async function sendWelcomeEmail(email: string) {
                       alt="nēro"
                       width="90"
                       height="30"
-                      style="display:inline-block;"
+                      style="display:inline-block;width:90px;height:30px;"
                     />
                   </a>
                 </div>
 
-                <p
-                  class="footer-motto"
-                  style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;font-size:18px;color:#FFFFFF !important;letter-spacing:-0.5px;line-height:1.2;margin:0 0 28px;"
-                >
+                <!-- Motto -->
+                <p class="footer-motto" style="font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:18px;color:#FFFFFF;letter-spacing:-0.5px;line-height:1.2;margin:0 0 28px;">
                   Control your spending. Fix your future.
                 </p>
 
-                <div style="width:100%;height:1px;background:rgba(255,255,255,0.13);margin:0 0 24px;"></div>
+                <!-- Divider -->
+                <div class="footer-divider" style="width:100%;height:1px;background-color:rgba(255,255,255,0.18);font-size:0;line-height:0;margin:0 0 24px;"></div>
 
-                <p
-                  class="footer-copy"
-                  style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:400;font-size:13px;color:#FFFFFF !important;letter-spacing:-0.2px;line-height:1.65;margin:0 0 22px;"
-                >
-                  You’re receiving this because you joined the nēro waitlist.<br />
-                  If this isn’t for you, you can
-                  <a href="#" style="color:#FFFFFF !important;text-decoration:underline;"
-                    >unsubscribe</a
-                  >
-                  anytime.
+                <!-- Copy -->
+                <p class="footer-copy" style="font-family:Arial,Helvetica,sans-serif;font-weight:400;font-size:13px;color:rgba(248,247,247,0.80);letter-spacing:-0.2px;line-height:1.65;margin:0 0 22px;">
+                  You're receiving this because you joined the nēro waitlist.<br />
+                  If this isn't for you, you can <a href="#" style="color:#FFFFFF !important;text-decoration:underline;">unsubscribe</a> anytime.
                 </p>
 
+                <!-- Social -->
                 <div style="margin-bottom:32px;text-align:center;">
                   <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">
                     <tr>
                       <td style="padding:0 8px;">
                         <a href="https://instagram.com/nero.fin" style="display:inline-block;text-decoration:none;">
-                          <span
-                            class="social-pill"
-                            style="display:inline-block;border:1px solid rgba(255,255,255,0.3);border-radius:999px;padding:10px;line-height:0;background-color:transparent;"
-                          >
+                          <span class="social-pill" style="display:inline-block;border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:10px;line-height:0;background-color:transparent;">
                             <img
                               src="https://res.cloudinary.com/dentghiic/image/upload/v1775080449/Instagram_ra23tp.png"
                               alt="Instagram"
@@ -853,18 +843,18 @@ async function sendWelcomeEmail(email: string) {
                   </table>
                 </div>
 
-                <p
-                  class="footer-small"
-                  style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:400;font-size:11px;color:#FFFFFF !important;letter-spacing:-0.2px;margin:0;"
-                >
-                  © 2026 nēro. All rights reserved.
+                <!-- Legal -->
+                <p class="footer-small" style="font-family:Arial,Helvetica,sans-serif;font-weight:400;font-size:11px;color:rgba(248,247,247,0.55);letter-spacing:-0.2px;margin:0;">
+                  &copy; 2026 nēro. All rights reserved.
                 </p>
               </td>
             </tr>
+
           </table>
         </td>
       </tr>
     </table>
+
   </body>
 </html>
     `,
