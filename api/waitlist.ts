@@ -570,7 +570,7 @@ async function sendWelcomeEmail(email: string) {
                       style="padding:40px 28px;color:#FFFFFF;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:22px;letter-spacing:0.3px;line-height:1.5;background-image:url('https://res.cloudinary.com/dentghiic/image/upload/v1775073702/Body_image_qvjfav.png');background-size:cover;background-position:center;background-color:#2A2A91;"
                     >
                       <p style="margin:0 0 20px;">
-                        <span style="font-weight:500;color:#FFFFFF;">Hey {{first_name}}</span>,
+                        <span style="font-weight:500;color:#FFFFFF;">Hey there,</span>,
                       </p>
                       <p style="margin:0 0 20px;color:#FFFFFF;">You're officially in! 🎉</p>
                       <p style="margin:0 0 20px;color:#FFFFFF;">If money disappears faster than it should, you're exactly where you need to be.</p>
