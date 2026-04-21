@@ -75,12 +75,20 @@ async function sendWelcomeEmail(email: string) {
     to: email,
     replyTo: smtpUser,
     subject: "You're on the nēro waitlist 🎉",
+    // Mail preview text
+    headers: {
+      'X-Entity-Ref-ID': 'nero-waitlist',
+    },
     html: `
       <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description" content="You're officially in! Get early access, join our WhatsApp group, and invite friends to nēro. Control your spending. Fix your future." />
+    <title>You're in! — nēro</title>
+    <style>
+      .email-preheader { display: none !important; visibility: hidden; mso-hide: all; font-size: 1px; color: #fff; line-height: 1px; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; }
     <meta name="x-apple-disable-message-reformatting" />
     <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no" />
     <meta name="color-scheme" content="light dark" />
@@ -352,33 +360,14 @@ async function sendWelcomeEmail(email: string) {
           width: 100% !important;
         }
 
-        .fc2-img-cell {
-          display: none !important;
-          width: 0 !important;
-          max-height: 0 !important;
-          overflow: hidden !important;
-        }
-
-        .fc2-text-cell {
-          display: block !important;
-          width: 100% !important;
-          padding: 24px 20px !important;
-          box-sizing: border-box !important;
-        }
-
-        .fc1-img-cell {
-          display: none !important;
-          width: 0 !important;
-          max-height: 0 !important;
-          overflow: hidden !important;
-          padding: 0 !important;
-        }
-
-        .fc1-text-cell {
-          display: block !important;
-          width: 100% !important;
-          padding: 18px 20px 24px !important;
-          box-sizing: border-box !important;
+        /* Hide CTA visuals on mobile */
+        @media only screen and (max-width: 599px) {
+          .fc2-img-cell, .fc1-img-cell {
+            display: none !important;
+            width: 0 !important;
+            max-height: 0 !important;
+            overflow: hidden !important;
+          }
         }
 
         .instagram-phone-wrap {
@@ -481,12 +470,15 @@ async function sendWelcomeEmail(email: string) {
           color: rgba(243,246,255,0.82) !important;
         }
 
-        .footer-small {
-          color: rgba(243,246,255,0.55) !important;
+        .footer-shell {
+          background-color: #2A2A91 !important;
+          background-image: url('https://res.cloudinary.com/dentghiic/image/upload/v1775074270/footer_col5m7.png');
+          background-size: cover;
+          background-position: center;
         }
-      }
-
-      [data-ogsc] .button-primary {
+        .footer-motto, .footer-copy, .footer-copy a, .footer-small {
+          color: #FFFFFF !important;
+        }
         background-color: #8FA3FF !important;
         color: #0F1115 !important;
       }
@@ -523,12 +515,13 @@ async function sendWelcomeEmail(email: string) {
           >
             <tr>
               <td class="email-preheader" style="text-align:center;padding:10px 20px;background-color:#F8F7F7;">
+                <span class="email-preheader">You're officially in! Get early access, join our WhatsApp group, and invite friends to nēro.</span>
                 <p
                   class="preheader-text"
                   style="margin:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;color:#777777;letter-spacing:-0.2px;line-height:1.5;"
                 >
                   Having trouble viewing this email?
-                  <a href="browser-view.html" class="preheader-link" style="color:#2A2A91;text-decoration:underline;"
+                  <a href="https://waitlist.neroapp.co/browser-view" class="preheader-link" style="color:#2A2A91;text-decoration:underline;"
                     >View it in your browser</a
                   >
                 </p>
@@ -570,7 +563,7 @@ async function sendWelcomeEmail(email: string) {
                       style="padding:40px 28px;color:#FFFFFF;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:22px;letter-spacing:0.3px;line-height:1.5;background-image:url('https://res.cloudinary.com/dentghiic/image/upload/v1775073702/Body_image_qvjfav.png');background-size:cover;background-position:center;background-color:#2A2A91;"
                     >
                       <p style="margin:0 0 20px;">
-                        <span style="font-weight:500;color:#FFFFFF;">Hey there,</span>,
+                        <span style="font-weight:500;color:#FFFFFF;">Hey there</span>,
                       </p>
                       <p style="margin:0 0 20px;color:#FFFFFF;">You're officially in! 🎉</p>
                       <p style="margin:0 0 20px;color:#FFFFFF;">If money disappears faster than it should, you're exactly where you need to be.</p>
