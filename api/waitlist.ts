@@ -362,74 +362,74 @@ async function sendWelcomeEmail(email: string) {
 
         /* Hide CTA visuals on mobile */
         @media only screen and (max-width: 599px) {
+          .email-wrapper {
+            width: 100% !important;
+          }
+
+          .email-body {
+            padding: 24px 8px !important;
+          }
+
+          .text-block-pad {
+            padding: 18px 8px !important;
+            font-size: 17px !important;
+            line-height: 1.55 !important;
+          }
+
+          .crickets-heading {
+            font-size: 17px !important;
+          }
+
+          .body-close-text,
+          .body-close-text p,
+          .body-signoff,
+          .body-signoff p {
+            font-size: 16px !important;
+            line-height: 1.55 !important;
+          }
+
+          .fc1-table,
+          .fc2-table,
+          .stack-table {
+            width: 100% !important;
+          }
+
           .fc2-img-cell, .fc1-img-cell {
-            display: none !important;
-            width: 0 !important;
-            max-height: 0 !important;
-            overflow: hidden !important;
+            display: block !important;
+            width: 100% !important;
+            max-width: 90px !important;
+            padding: 0 !important;
+            text-align: center !important;
+          }
+
+          .fc2-img-cell img, .fc1-img-cell img, .instagram-phone, .instagram-phone-wrap {
+            width: 70px !important;
+            max-width: 70px !important;
+            height: auto !important;
+            margin: 0 auto !important;
+            display: block !important;
+          }
+
+          .fc2-text-cell, .fc1-text-cell {
+            display: block !important;
+            width: 100% !important;
+            padding: 12px 6px 12px 6px !important;
+            box-sizing: border-box !important;
+            text-align: left !important;
+          }
+
+          .email-footer {
+            padding: 28px 8px 24px !important;
+          }
+
+          .mobile-center {
+            text-align: center !important;
+          }
+
+          .mobile-full {
+            width: 100% !important;
           }
         }
-
-        .instagram-phone-wrap {
-          width: 120px !important;
-          height: auto !important;
-          margin: 0 auto !important;
-          overflow: visible !important;
-        }
-
-        .instagram-phone {
-          width: 120px !important;
-          height: auto !important;
-          margin: 0 auto !important;
-        }
-
-        .email-footer {
-          padding: 40px 20px 36px !important;
-        }
-
-        .mobile-center {
-          text-align: center !important;
-        }
-
-        .mobile-full {
-          width: 100% !important;
-        }
-      }
-
-      @media only screen and (max-width: 420px) {
-        .email-body {
-          padding: 20px 10px !important;
-        }
-
-        .text-block-pad {
-          padding: 20px 14px !important;
-          font-size: 17px !important;
-        }
-
-        .fc1-img-cell {
-          padding: 14px 14px 0 !important;
-        }
-
-        .fc1-text-cell,
-        .fc2-text-cell {
-          padding: 16px 14px 20px !important;
-        }
-
-        .email-footer {
-          padding: 32px 14px 28px !important;
-        }
-      }
-
-      @media (prefers-color-scheme: dark) {
-        body,
-        .email-outer-table,
-        .email-wrapper,
-        .email-preheader,
-        .email-body {
-          background-color: #0F1115 !important;
-        }
-
-        .preheader-text {
           color: #B7BCC7 !important;
         }
 
