@@ -213,13 +213,13 @@ export default function CTAFooterSection() {
           {/* Left - Links */}
           <div className="flex flex-wrap justify-center sm:justify-start gap-[14px] sm:gap-[20px] items-center order-2 sm:order-1">
             <a
-              href="#"
+              href="/terms-of-service"
               className="font-['Satoshi:Regular',sans-serif] text-[13px] md:text-[14px] text-[#696969] hover:text-[#2a2a91] transition-colors"
             >
-              Terms & Conditions
+              Terms of Service
             </a>
             <a
-              href="#"
+              href="/privacy-policy"
               className="font-['Satoshi:Regular',sans-serif] text-[13px] md:text-[14px] text-[#696969] hover:text-[#2a2a91] transition-colors"
             >
               Privacy Policy

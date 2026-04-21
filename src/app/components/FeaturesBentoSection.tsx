@@ -76,7 +76,7 @@ export default function FeaturesBentoSection() {
                             <h3 className="text-[16px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] md:text-[24px] xl:text-[22px]">
                                 Know what you can spend today
                             </h3>
-                            <p className="mt-0 text-[13px] font-[400] leading-[1.5] text-[#797C86] md:mt-2 md:text-[18px] xl:mt-4 xl:text-[17px]">
+                            <p className="mt-0 text-[13px] font-[400] leading-[1.5] text-[#797C86] md:mt-2 md:text-[18px] xl:mt-4 xl:text-[20px]">
                                 nēro shows you exactly what you can spend today — so your money lasts the full cycle.
                             </p>
                         </div>
@@ -123,7 +123,7 @@ export default function FeaturesBentoSection() {
                     >
                         {/* Transaction list visual — top center */}
                         <motion.div
-                            className="pointer-events-none relative z-[3] flex justify-center pt-6 sm:pt-7 md:pt-8 xl:pt-8 px-4 sm:px-6 md:px-8 xl:px-10"
+                            className="pointer-events-none relative z-[3] flex justify-center pt-6 sm:pt-7 md:pt-8 xl:pt-[-10px] px-4 sm:px-6 md:px-8 xl:px-10"
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
@@ -132,13 +132,13 @@ export default function FeaturesBentoSection() {
                             <img
                                 src={b2Visual}
                                 alt="Transaction list showing auto-tracked spending"
-                                className="w-full max-w-[704px] sm:max-w-[380px] md:w-[640px] md:h-auto md:max-w-[440px] xl:max-w-[604px] h-auto"
+                                className="w-full max-w-[404px] sm:max-w-[380px] md:w-[640px] md:h-auto md:max-w-[440px] xl:max-w-[504px] h-auto"
                             />
                         </motion.div>
 
                         {/* Purple pill button — overlapping bottom of visual */}
                         <motion.div
-                            className="relative z-[6] flex justify-center sm:w-[380px] -mt-[130px] sm:-mt-[-80px] md:-mt-[190px] md:ml-[190px] xl:-mt-[260px] xl:-ml-[-80px]"
+                            className="relative z-[6] flex justify-center sm:w-[380px] -mt-[130px] sm:-mt-[40px] md:-mt-[190px] md:ml-[190px] xl:-mt-[180px] xl:-ml-[-80px]"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
@@ -147,7 +147,7 @@ export default function FeaturesBentoSection() {
                             <img
                                 src={b2Button}
                                 alt="Auto-Tracking spending"
-                                className="h-[120px] w-[300px] sm:h-[300px] sm:w-[300px] md:h-[160px] md:w-[580px] xl:h-[150px] xl:w-auto drop-shadow-lg"
+                                className="h-[110px] w-[250px] sm:h-[300px] sm:w-[200px] md:h-[120px] md:w-[580px] xl:h-[120px] xl:w-[270px] drop-shadow-lg"
                             />
                         </motion.div>
 
@@ -156,7 +156,7 @@ export default function FeaturesBentoSection() {
                             <h3 className="text-[17px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] sm:text-[19px] md:text-[24px] xl:text-[22px]">
                                 We track everything for you
                             </h3>
-                            <p className="mt-2 text-[13px] font-normal leading-[1.4] text-[#797C86] sm:text-[14px] md:text-[18px] xl:text-[17px]">
+                            <p className="mt-2 text-[13px] font-normal leading-[1.4] text-[#797C86] sm:text-[14px] md:text-[18px] xl:text-[20px]">
                                 nēro reads your bank alerts and tracks every transaction automatically — no manual input.
                             </p>
                         </div>
@@ -223,7 +223,7 @@ export default function FeaturesBentoSection() {
 
                             {/* Left logos: Access (top), OneBank (middle), Zenith (bottom) */}
                             <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[12%] left-[5%] md:left-[22%] xl:left-[12%]"
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[12%] left-[15%] md:left-[22%] xl:left-[12%]"
                                 initial={{ opacity: 0, scale: 0 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true, amount: 0.2 }}
@@ -233,7 +233,7 @@ export default function FeaturesBentoSection() {
                             </motion.div>
 
                             <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[38%] left-[0%] md:left-[30%] xl:left-[18%]"
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[38%] left-[23%] md:left-[30%] xl:left-[18%]"
                                 initial={{ opacity: 0, scale: 0 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true, amount: 0.2 }}
@@ -243,7 +243,7 @@ export default function FeaturesBentoSection() {
                             </motion.div>
 
                             <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[65%] left-[5%] md:left-[22%] xl:left-[12%]"
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[65%] left-[15%] md:left-[22%] xl:left-[12%]"
                                 initial={{ opacity: 0, scale: 0 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true, amount: 0.2 }}
@@ -254,7 +254,7 @@ export default function FeaturesBentoSection() {
 
                             {/* Right logos: Moniepoint (top), Kuda (middle), OPay (bottom) */}
                             <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[12%] right-[5%] md:right-[22%] xl:right-[12%]"
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[12%] right-[15%] md:right-[22%] xl:right-[12%]"
                                 initial={{ opacity: 0, scale: 0 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true, amount: 0.2 }}
@@ -264,7 +264,7 @@ export default function FeaturesBentoSection() {
                             </motion.div>
 
                             <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[38%] right-[0%] md:right-[30%] xl:right-[18%]"
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[38%] right-[23%] md:right-[30%] xl:right-[18%]"
                                 initial={{ opacity: 0, scale: 0 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true, amount: 0.2 }}
@@ -274,7 +274,7 @@ export default function FeaturesBentoSection() {
                             </motion.div>
 
                             <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[65%] right-[5%] md:right-[22%] xl:right-[12%]"
+                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[65%] right-[15%] md:right-[22%] xl:right-[12%]"
                                 initial={{ opacity: 0, scale: 0 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true, amount: 0.2 }}
@@ -289,7 +289,7 @@ export default function FeaturesBentoSection() {
                             <h3 className="text-[17px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] sm:text-[19px] md:text-[24px] xl:text-[22px]">
                                 Connect your bank & email
                             </h3>
-                            <p className="mt-2 text-[13px] font-normal leading-[1.4] text-[#797C86] sm:text-[14px] md:text-[18px] xl:text-[17px]">
+                            <p className="mt-2 text-[13px] font-normal leading-[1.4] text-[#797C86] sm:text-[14px] md:text-[18px] xl:text-[20px]">
                                 Link your account via email. This helps us track & keep up with your spending automatically. We will <span className="font-semibold text-[#000000]">never</span> ask you for any of your personal information.
                             </p>
                         </div>
@@ -313,7 +313,7 @@ export default function FeaturesBentoSection() {
                             <h3 className="text-[17px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] sm:text-[19px] md:text-[24px] xl:text-[22px]">
                                 See where your money goes
                             </h3>
-                            <p className="mt-2 text-[13px] font-normal leading-[1.4] text-[#797C86] sm:text-[14px] md:text-[18px] xl:mt-3 xl:text-[17px]">
+                            <p className="mt-2 text-[13px] font-normal leading-[1.4] text-[#797C86] sm:text-[14px] md:text-[18px] xl:mt-3 xl:text-[20px]">
                                 Understand your spending patterns over time so you stay in control, catch patterns, and understand your behavior over time.
                             </p>
                         </div>

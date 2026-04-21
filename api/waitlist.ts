@@ -801,7 +801,7 @@ async function sendWelcomeEmail(email: string) {
 
                 <p
                   class="footer-motto"
-                  style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;font-size:18px;color:#FFFFFF;letter-spacing:-0.5px;line-height:1.2;margin:0 0 28px;"
+                  style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;font-size:18px;color:#FFFFFF !important;letter-spacing:-0.5px;line-height:1.2;margin:0 0 28px;"
                 >
                   Control your spending. Fix your future.
                 </p>
@@ -810,11 +810,11 @@ async function sendWelcomeEmail(email: string) {
 
                 <p
                   class="footer-copy"
-                  style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:400;font-size:13px;color:rgba(248,247,247,0.72);letter-spacing:-0.2px;line-height:1.65;margin:0 0 22px;"
+                  style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:400;font-size:13px;color:#FFFFFF !important;letter-spacing:-0.2px;line-height:1.65;margin:0 0 22px;"
                 >
                   You’re receiving this because you joined the nēro waitlist.<br />
                   If this isn’t for you, you can
-                  <a href="{{ unsubscribeUrl }}" style="color:rgba(248,247,247,0.9);text-decoration:underline;"
+                  <a href="#" style="color:#FFFFFF !important;text-decoration:underline;"
                     >unsubscribe</a
                   >
                   anytime.
@@ -824,7 +824,7 @@ async function sendWelcomeEmail(email: string) {
                   <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">
                     <tr>
                       <td style="padding:0 8px;">
-                        <a href="https://instagram.com/nero.finance" style="display:inline-block;text-decoration:none;">
+                        <a href="https://instagram.com/nero.fin" style="display:inline-block;text-decoration:none;">
                           <span
                             class="social-pill"
                             style="display:inline-block;border:1px solid rgba(255,255,255,0.3);border-radius:999px;padding:10px;line-height:0;background-color:transparent;"
@@ -845,7 +845,7 @@ async function sendWelcomeEmail(email: string) {
 
                 <p
                   class="footer-small"
-                  style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:400;font-size:11px;color:rgba(248,247,247,0.45);letter-spacing:-0.2px;margin:0;"
+                  style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:400;font-size:11px;color:#FFFFFF !important;letter-spacing:-0.2px;margin:0;"
                 >
                   © 2026 nēro. All rights reserved.
                 </p>
