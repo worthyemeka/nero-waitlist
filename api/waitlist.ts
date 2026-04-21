@@ -402,7 +402,15 @@ async function sendWelcomeEmail(email: string) {
             text-align: center !important;
           }
 
-          .fc2-img-cell img, .fc1-img-cell img, .instagram-phone, .instagram-phone-wrap {
+          .fc2-img-cell img {
+            width: 70px !important;
+            max-width: 70px !important;
+            height: auto !important;
+            margin: 0 auto !important;
+            display: block !important;
+          }
+
+          .fc1-img-cell img, .instagram-phone, .instagram-phone-wrap {
             width: 70px !important;
             max-width: 70px !important;
             height: auto !important;
