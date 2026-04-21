@@ -395,35 +395,44 @@ async function sendWelcomeEmail(email: string) {
           }
 
           .fc2-img-cell, .fc1-img-cell {
-            display: block !important;
-            width: 100% !important;
-            max-width: 90px !important;
+            display: table-cell !important;
+            width: 50% !important;
+            max-width: 180px !important;
             padding: 0 !important;
             text-align: center !important;
+            vertical-align: bottom !important;
+            overflow: hidden !important;
           }
 
           .fc2-img-cell img {
-            width: 70px !important;
-            max-width: 70px !important;
+            width: 100% !important;
+            max-width: 120px !important;
             height: auto !important;
             margin: 0 auto !important;
             display: block !important;
+            border-radius: 12px;
           }
 
           .fc1-img-cell img, .instagram-phone, .instagram-phone-wrap {
-            width: 70px !important;
-            max-width: 70px !important;
+            width: 100% !important;
+            max-width: 180px !important;
             height: auto !important;
             margin: 0 auto !important;
             display: block !important;
+            transform: rotate(-6deg);
+            object-fit: cover;
+            object-position: left center;
+            border-radius: 0 16px 16px 0;
+            clip-path: inset(0 0 0 0 round 0 16px 16px 0);
           }
 
           .fc2-text-cell, .fc1-text-cell {
-            display: block !important;
-            width: 100% !important;
-            padding: 12px 6px 12px 6px !important;
+            display: table-cell !important;
+            width: 50% !important;
+            padding: 12px 10px 12px 18px !important;
             box-sizing: border-box !important;
             text-align: left !important;
+            vertical-align: middle !important;
           }
 
           .email-footer {
@@ -703,7 +712,7 @@ async function sendWelcomeEmail(email: string) {
                         <div class="instagram-phone-wrap" style="width:223px;overflow:hidden;height:240px;">
                           <img
                             class="instagram-phone"
-                            src="https://res.cloudinary.com/dentghiic/image/upload/v1776723816/whatsapp-group_g7cdgg.png"
+                            src="https://neroapp.co/assets/phone-mockup.png"
                             alt="WhatsApp testers group"
                             width="223"
                             style="display:block;width:223px;height:auto;"
