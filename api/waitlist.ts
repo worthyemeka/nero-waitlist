@@ -94,7 +94,15 @@ async function sendWelcomeEmail(email: string) {
     <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no" />
     <title>You're in! — nēro</title>
 
-    <!--[if mso]> <noscript> <xml> <o:OfficeDocumentSettings> <o:PixelsPerInch>96</o:PixelsPerInch> </o:OfficeDocumentSettings> </xml> </noscript> <![endif]-->
+    <!--[if mso]>
+    <noscript>
+      <xml>
+        <o:OfficeDocumentSettings>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+      </xml>
+    </noscript>
+    <![endif]-->
 
     <style type="text/css">
       body, table, td, p, a, li, blockquote {
@@ -143,20 +151,20 @@ async function sendWelcomeEmail(email: string) {
 
       .email-outer {
         width: 100%;
-        background-color: #FFFFFF;
+        background-color: #FFFFFF !important;
       }
 
       .email-wrapper {
         width: 100%;
         max-width: 600px;
         margin: 0 auto;
-        background-color: #FFFFFF;
+        background-color: #FFFFFF !important;
       }
 
       .topbar-cell {
         text-align: center;
         padding: 10px 20px;
-        background-color: #FFFFFF;
+        background-color: #FFFFFF !important;
       }
 
       .topbar-text {
@@ -180,14 +188,14 @@ async function sendWelcomeEmail(email: string) {
       }
 
       .body-cell {
-        padding: 40px;
-        background-color: #FFFFFF;
+        padding: 28px 40px 36px 40px;
+        background-color: #FFFFFF !important;
       }
 
       .intro-table {
         border-radius: 5px;
         overflow: hidden;
-        margin-bottom: 22px;
+        margin-bottom: 16px;
         background-color: #2A2A91;
       }
 
@@ -212,138 +220,45 @@ async function sendWelcomeEmail(email: string) {
         margin-bottom: 0;
       }
 
-      .divider-row td {
-        padding: 0 0 22px;
-        font-size: 0;
-        line-height: 0;
-      }
-
       .divider-line {
         width: 100%;
         height: 1px;
-        background-color: #BABABA;
+        background-color: #BABABA !important;
         font-size: 0;
         line-height: 0;
       }
 
-      .card-outer {
-        border-radius: 5px;
-        overflow: hidden;
-        margin-bottom: 22px;
-        background-color: #161616;
-        border-top: 4px solid #2A2A91;
-      }
-
-      .card-heading {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-weight: 700;
-        font-size: 20px;
-        color: #F8F7F7;
-        letter-spacing: -0.4px;
-        line-height: 1.3;
-        margin: 0;
-      }
-
-      .card-body-text {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-weight: 300;
-        font-size: 15px;
-        color: #D2D2D2;
-        line-height: 1.55;
-        letter-spacing: 0.2px;
-        margin: 0;
-      }
-
-      .btn-primary {
-        display: inline-block;
-        background-color: #2A2A91;
-        color: #FFFFFF !important;
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-weight: 700;
-        font-size: 12px;
+      .footer-bg-cell {
+        background-color: #2A2A91 !important;
+        background-image: url('https://res.cloudinary.com/dentghiic/image/upload/v1776775967/footer-container_c5rbly.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         text-align: center;
-        text-decoration: none !important;
-        padding: 9px 20px;
-        border-radius: 999px;
-        letter-spacing: -0.3px;
-        white-space: nowrap;
-        mso-padding-alt: 9px 20px;
+        padding: 48px 0 44px 0;
       }
 
-      .fc2-img-td {
-        width: 260px;
-        vertical-align: bottom;
-        padding: 0;
-      }
-
-      .fc2-text-td {
-        vertical-align: middle;
-        padding: 40px;
-      }
-
-      .fc1-img-td {
-        width: 50%;
-        vertical-align: bottom;
-        padding: 0;
-        overflow: hidden;
-      }
-
-      .fc1-text-td {
-        width: 50%;
-        vertical-align: middle;
-        padding: 40px;
-      }
-
-      .signoff-td {
-        padding: 32px 24px;
-        background-color: #0A0A0A;
-        border-radius: 5px;
-      }
-
-      .signoff-text {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-weight: 300;
-        font-size: 22px;
-        color: #FFFFFF;
-        letter-spacing: 0.2px;
-        line-height: 1.5;
-        margin: 0;
-      }
-
-      .signoff-name {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-weight: 400;
-        font-size: 22px;
-        color: #FFFFFF;
-        letter-spacing: -0.1px;
-        line-height: 1.5;
-        margin: 22px 0 0;
-      }
-
-      .footer-cell {
-        padding: 64px 40px 56px;
-        background-color: #2A2A91;
-        text-align: center;
+      .footer-content {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
       }
 
       .footer-motto {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-family: Helvetica, Arial, sans-serif;
         font-weight: 700;
-        font-size: 18px;
+        font-size: 12px;
         color: #FFFFFF;
-        letter-spacing: -0.5px;
-        line-height: 1.2;
-        margin: 0 0 28px;
+        margin: 0 0 22px;
+        letter-spacing: -0.3px;
       }
 
       .footer-copy {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-weight: 400;
-        font-size: 13px;
-        color: rgba(248,247,247,0.80);
-        letter-spacing: -0.2px;
-        line-height: 1.65;
-        margin: 0 0 22px;
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 12px;
+        color: rgba(248,247,247,0.85);
+        margin: 18px 0;
+        line-height: 1.5;
       }
 
       .footer-copy a {
@@ -352,30 +267,10 @@ async function sendWelcomeEmail(email: string) {
       }
 
       .footer-small {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-weight: 400;
-        font-size: 11px;
-        color: rgba(248,247,247,0.55);
-        letter-spacing: -0.2px;
-        margin: 0;
-      }
-
-      .footer-divider {
-        width: 100%;
-        height: 1px;
-        background-color: rgba(255,255,255,0.18);
-        font-size: 0;
-        line-height: 0;
-        margin: 0 0 24px;
-      }
-
-      .social-pill {
-        display: inline-block;
-        border: 1px solid rgba(255,255,255,0.35);
-        border-radius: 999px;
-        padding: 10px;
-        line-height: 0;
-        background-color: transparent;
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 10px;
+        color: rgba(248,247,247,0.65);
+        margin-top: 10px;
       }
 
       @media only screen and (max-width: 599px) {
@@ -389,98 +284,14 @@ async function sendWelcomeEmail(email: string) {
           line-height: 1.55 !important;
         }
 
-        .fc2-text-td {
-          width: 50% !important;
-          padding: 0 !important;
+        .footer-bg-cell {
+          padding: 36px 0 32px 0 !important;
         }
 
-        .fc2-img-td {
-          width: 50% !important;
+        .footer-inner-pad {
+          padding-left: 20px !important;
+          padding-right: 20px !important;
         }
-
-        .fc2-img-td img {
-          width: 100% !important;
-          max-width: 160px !important;
-          height: auto !important;
-        }
-
-        .fc1-img-td {
-          width: 50% !important;
-          padding: 0 !important;
-          overflow: hidden !important;
-        }
-
-        .fc1-img-td img {
-          width: 100% !important;
-          max-width: 160px !important;
-          height: auto !important;
-          display: block !important;
-        }
-
-        .fc1-text-td {
-          width: 50% !important;
-          padding: 0 !important;
-        }
-
-        .card-heading {
-          font-size: 17px !important;
-        }
-
-        .card-body-text {
-          font-size: 13px !important;
-        }
-
-        .btn-primary {
-          font-size: 11px !important;
-          padding: 8px 14px !important;
-          white-space: nowrap !important;
-        }
-
-        .signoff-text,
-        .signoff-name {
-          font-size: 18px !important;
-          line-height: 1.55 !important;
-        }
-
-        .footer-cell {
-          padding: 36px 20px 32px !important;
-        }
-
-        .divider-line {
-          background-color: #BABABA !important;
-        }
-      }
-
-      @media (prefers-color-scheme: dark) {
-        body,
-        .email-outer,
-        .email-wrapper,
-        .topbar-cell,
-        .body-cell {
-          background-color: #0A0A0A !important;
-        }
-
-        .divider-line {
-          background-color: rgba(255,255,255,0.2) !important;
-        }
-      }
-
-      [data-ogsc] body,
-      [data-ogsc] .email-outer,
-      [data-ogsc] .email-wrapper,
-      [data-ogsc] .topbar-cell,
-      [data-ogsc] .body-cell,
-      [data-ogsb] body,
-      [data-ogsb] .email-outer,
-      [data-ogsb] .email-wrapper,
-      [data-ogsb] .topbar-cell,
-      [data-ogsb] .body-cell {
-        background-color: #0A0A0A !important;
-      }
-
-      [data-ogsc] .divider-line,
-      [data-ogsb] .divider-line {
-        background-color: rgba(255,255,255,0.2) !important;
       }
     </style>
   </head>
@@ -491,8 +302,7 @@ async function sendWelcomeEmail(email: string) {
       aria-hidden="true"
       style="display:none !important;visibility:hidden !important;mso-hide:all !important;font-size:1px !important;line-height:1px !important;max-height:0 !important;max-width:0 !important;opacity:0 !important;overflow:hidden !important;"
     >
-      You're officially in! Get early access, join our WhatsApp group, and invite friends to nēro. Control your
-      spending. Fix your future.&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+      You're officially in! Get early access, join our WhatsApp group, and invite friends to nēro. Control your spending. Fix your future.
     </div>
 
     <table
@@ -526,8 +336,7 @@ async function sendWelcomeEmail(email: string) {
                     href="https://tinyurl.com/browserview"
                     class="topbar-link"
                     style="color:#2A2A91;text-decoration:underline;"
-                    >View it in your browser</a
-                  >
+                  >View it in your browser</a>
                 </p>
               </td>
             </tr>
@@ -558,38 +367,21 @@ async function sendWelcomeEmail(email: string) {
                 >
                   <tr>
                     <td
-                      style="padding:40px 28px;background:transparent;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:22px;letter-spacing:0.3px;line-height:1.5;color:#fff;background:#2A2A91 url('https://res.cloudinary.com/dentghiic/image/upload/v1776771304/doodle-bg_y6kf1j.png') center/cover repeat;"
+                      class="intro-td"
+                      style="padding:40px 28px;background:#2A2A91 url('https://res.cloudinary.com/dentghiic/image/upload/v1776771304/doodle-bg_y6kf1j.png') center/cover repeat;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:22px;letter-spacing:0.3px;line-height:1.5;color:#FFFFFF;"
                     >
-                      <p style="margin:0 0 20px;color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
-                        <span style="font-weight:500;color:#fff;">Hey there</span>,
-                      </p>
-                      <p style="margin:0 0 20px;color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
-                        You're officially in! 🎉
-                      </p>
-                      <p style="margin:0 0 20px;color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
-                        If money disappears faster than it should, you're exactly where you need to be.
-                      </p>
-                      <p style="margin:0;color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
-                        We're building Nero to help you stay in control without the stress.
-                      </p>
+                      <p style="margin:0 0 20px;color:#FFFFFF;"><span style="font-weight:500;color:#FFFFFF;">Hey there</span>,</p>
+                      <p style="margin:0 0 20px;color:#FFFFFF;">You're officially in! 🎉</p>
+                      <p style="margin:0 0 20px;color:#FFFFFF;">If money disappears faster than it should, you're exactly where you need to be.</p>
+                      <p style="margin:0;color:#FFFFFF;">We're building Nero to help you stay in control without the stress.</p>
                     </td>
                   </tr>
                 </table>
 
-                <table
-                  role="presentation"
-                  cellpadding="0"
-                  cellspacing="0"
-                  border="0"
-                  width="100%"
-                  style="margin-bottom:22px;"
-                >
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:22px;">
                   <tr>
                     <td style="padding:0;font-size:0;line-height:0;">
-                      <div
-                        class="divider-line"
-                        style="width:100%;height:1px;font-size:0;line-height:0;background-color:#BABABA;"
-                      ></div>
+                      <div class="divider-line" style="width:100%;height:1px;background-color:#BABABA !important;font-size:0;line-height:0;"></div>
                     </td>
                   </tr>
                 </table>
@@ -604,20 +396,20 @@ async function sendWelcomeEmail(email: string) {
                 >
                   <tr>
                     <td
-                      style="padding:40px 28px;background:transparent;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#fff;"
+                      style="padding:40px 28px;background:transparent;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#FFFFFF;"
                     >
                       <p
-                        style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;font-size:24px;text-transform:uppercase;margin:0 0 11px;color:#fff;letter-spacing:-0.3px;"
+                        style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;font-size:24px;text-transform:uppercase;margin:0 0 11px;color:#FFFFFF;letter-spacing:-0.3px;"
                       >
                         WHAT HAPPENS NEXT?
                       </p>
                       <p
-                        style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;margin:0 0 22px;color:#fff;font-size:22px;"
+                        style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;margin:0 0 22px;color:#FFFFFF;font-size:22px;"
                       >
                         We'll send you early updates, first looks, and your invite when your spot is ready.
                       </p>
                       <p
-                        style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;margin:0;color:#fff;font-size:22px;"
+                        style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;margin:0;color:#FFFFFF;font-size:22px;"
                       >
                         While you wait, here are two quick things you can do:
                       </p>
@@ -625,32 +417,15 @@ async function sendWelcomeEmail(email: string) {
                   </tr>
                 </table>
 
-                <table
-                  role="presentation"
-                  cellpadding="0"
-                  cellspacing="0"
-                  border="0"
-                  width="100%"
-                  style="margin-bottom:22px;"
-                >
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:22px;">
                   <tr>
                     <td style="padding:0;font-size:0;line-height:0;">
-                      <div
-                        class="divider-line"
-                        style="width:100%;height:1px;font-size:0;line-height:0;background-color:#BABABA;"
-                      ></div>
+                      <div class="divider-line" style="width:100%;height:1px;background-color:#BABABA !important;font-size:0;line-height:0;"></div>
                     </td>
                   </tr>
                 </table>
 
-                <table
-                  role="presentation"
-                  cellpadding="0"
-                  cellspacing="0"
-                  border="0"
-                  width="100%"
-                  style="margin-bottom:22px;"
-                >
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:22px;">
                   <tr>
                     <td align="center" style="padding:0;">
                       <a href="https://waitlist.neroapp.co" target="_blank" style="display:inline-block;">
@@ -665,14 +440,7 @@ async function sendWelcomeEmail(email: string) {
                   </tr>
                 </table>
 
-                <table
-                  role="presentation"
-                  cellpadding="0"
-                  cellspacing="0"
-                  border="0"
-                  width="100%"
-                  style="margin-bottom:22px;"
-                >
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:22px;">
                   <tr>
                     <td align="center" style="padding:0;">
                       <a href="https://waitlist.neroapp.co" target="_blank" style="display:inline-block;">
@@ -687,49 +455,46 @@ async function sendWelcomeEmail(email: string) {
                   </tr>
                 </table>
 
-                <table
-                  role="presentation"
-                  cellpadding="0"
-                  cellspacing="0"
-                  border="0"
-                  width="100%"
-                  style="margin-bottom:22px;"
-                >
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:22px;">
                   <tr>
                     <td style="padding:0;font-size:0;line-height:0;">
-                      <div
-                        class="divider-line"
-                        style="width:100%;height:1px;font-size:0;line-height:0;background-color:#BABABA;"
-                      ></div>
+                      <div class="divider-line" style="width:100%;height:1px;background-color:#BABABA !important;font-size:0;line-height:0;"></div>
                     </td>
                   </tr>
                 </table>
 
                 <table
                   role="presentation"
-                  class="intro-table"
                   cellpadding="0"
                   cellspacing="0"
                   border="0"
                   width="100%"
-                  style="border-radius:5px;overflow:hidden;margin-bottom:16px;background-color:#2A2A91;"
+                  style="margin-bottom:16px;"
                 >
                   <tr>
-                    <td
-                      style="padding:40px 28px;background:transparent;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:22px;letter-spacing:0.3px;line-height:1.5;color:#fff;background:#2A2A91 url('https://res.cloudinary.com/dentghiic/image/upload/v1775344208/bottom-text_jobmyo.png') center/cover repeat;"
-                    >
-                      <p style="margin:0 0 20px;color:#0a0a0a;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
-                        Thanks again for joining us early.
-                      </p>
-                      <p style="margin:0 0 20px;color:#0a0a0a;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
-                        See you soon.
-                      </p>
-                      <p
-                        class="signoff-name"
-                        style="font-family:Arial,Helvetica,sans-serif;font-weight:400;font-size:22px;color:#0a0a0a;letter-spacing:-0.1px;line-height:1.5;margin:22px 0 0;"
+                    <td align="center" style="padding:0;">
+                      <table
+                        role="presentation"
+                        cellpadding="0"
+                        cellspacing="0"
+                        border="0"
+                        width="424"
+                        style="width:100%;max-width:424px;border-radius:5px;overflow:hidden;background-color:#2A2A91;"
                       >
-                        — Worthy from nēro
-                      </p>
+                        <tr>
+                          <td
+                            style="padding:32px 24px;background:#2A2A91 url('https://res.cloudinary.com/dentghiic/image/upload/v1775344208/bottom-text_jobmyo.png') center/cover repeat;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:22px;letter-spacing:0.3px;line-height:1.5;color:#0A0A0A;min-height:208px;"
+                          >
+                            <p style="margin:0 0 20px;color:#0A0A0A;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">Thanks again for joining us early.</p>
+                            <p style="margin:0 0 20px;color:#0A0A0A;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">See you soon.</p>
+                            <p
+                              style="font-family:Arial,Helvetica,sans-serif;font-weight:400;font-size:22px;color:#0A0A0A;letter-spacing:-0.1px;line-height:1.5;margin:22px 0 0;"
+                            >
+                              — Worthy from nēro
+                            </p>
+                          </td>
+                        </tr>
+                      </table>
                     </td>
                   </tr>
                 </table>
@@ -737,28 +502,18 @@ async function sendWelcomeEmail(email: string) {
             </tr>
 
             <tr>
-              <td align="center" style="padding:0;background:#2A2A91;">
+              <td class="footer-bg-cell" align="center" style="background:#2A2A91 url('https://res.cloudinary.com/dentghiic/image/upload/v1776775967/footer-container_c5rbly.png') center/cover no-repeat;padding:48px 0 44px 0;text-align:center;">
                 <table
                   role="presentation"
-                  width="600"
+                  width="100%"
                   cellpadding="0"
                   cellspacing="0"
                   border="0"
-                  style="width:100%;max-width:600px;background:#2A2A91;"
+                  class="footer-content"
+                  style="width:100%;max-width:600px;margin:0 auto;"
                 >
                   <tr>
-                    <td
-                      background="https://res.cloudinary.com/dentghiic/image/upload/v1776775967/footer-container_c5rbly.png"
-                      valign="top"
-                      style="
-                        background-image:url('https://res.cloudinary.com/dentghiic/image/upload/v1776775967/footer-container_c5rbly.png');
-                        background-size:cover;
-                        background-position:center;
-                        background-repeat:no-repeat;
-                        padding:48px 20px 44px;
-                        text-align:center;
-                      "
-                    >
+                    <td class="footer-inner-pad" align="center" style="padding:0 20px;">
                       <img
                         src="https://res.cloudinary.com/dentghiic/image/upload/v1775071417/Logo_hyr7r6.png"
                         alt="nēro logo"
@@ -766,16 +521,7 @@ async function sendWelcomeEmail(email: string) {
                         style="display:block;margin:0 auto 12px;"
                       />
 
-                      <p
-                        style="
-                          font-family:Helvetica,Arial,sans-serif;
-                          font-weight:700;
-                          font-size:12px;
-                          color:#F8F7F7;
-                          margin:0 0 22px;
-                          letter-spacing:-0.3px;
-                        "
-                      >
+                      <p class="footer-motto" style="font-family:Helvetica,Arial,sans-serif;font-weight:700;font-size:12px;color:#FFFFFF;margin:0 0 22px;letter-spacing:-0.3px;">
                         Control your spending. Fix your future.
                       </p>
 
@@ -785,15 +531,7 @@ async function sendWelcomeEmail(email: string) {
                         </tr>
                       </table>
 
-                      <p
-                        style="
-                          font-family:Helvetica,Arial,sans-serif;
-                          font-size:12px;
-                          color:rgba(248,247,247,0.85);
-                          margin:18px 0;
-                          line-height:1.5;
-                        "
-                      >
+                      <p class="footer-copy" style="font-family:Helvetica,Arial,sans-serif;font-size:12px;color:rgba(248,247,247,0.85);margin:18px 0;line-height:1.5;">
                         You're receiving this because you joined the nēro waitlist.<br />
                         If this isn't for you, you can
                         <a href="#" style="color:#FFFFFF;text-decoration:underline;">unsubscribe</a>
@@ -821,14 +559,7 @@ async function sendWelcomeEmail(email: string) {
                         </a>
                       </div>
 
-                      <p
-                        style="
-                          font-family:Helvetica,Arial,sans-serif;
-                          font-size:10px;
-                          color:rgba(248,247,247,0.65);
-                          margin-top:10px;
-                        "
-                      >
+                      <p class="footer-small" style="font-family:Helvetica,Arial,sans-serif;font-size:10px;color:rgba(248,247,247,0.65);margin-top:10px;">
                         © 2026 nēro. All rights reserved.
                       </p>
                     </td>

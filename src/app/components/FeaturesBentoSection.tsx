@@ -156,7 +156,7 @@ export default function FeaturesBentoSection() {
                         </motion.div>
 
                         {/* Text — bottom */}
-                        <div className="absolute bottom-[15px] left-6 right-6 z-[6] sm:bottom-7 sm:left-7 sm:right-7 xl:bottom-10 xl:left-10 xl:right-10">
+                        <div className="absolute bottom-[20px] left-6 right-6 z-[6] sm:bottom-13 sm:left-7 sm:right-7 xl:bottom-10 xl:left-10 xl:right-10">
                             <h3 className="text-[20px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] sm:text-[20px] md:text-[22px] xl:text-[22px]">
                                 We track everything for you
                             </h3>
