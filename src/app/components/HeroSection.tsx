@@ -185,32 +185,48 @@ function EmailForm({
 }
 
 function CounterComponent() {
-  const [count, setCount] = useState(100);
+  const [count, setCount] = useState(120);
+  const [dbCount, setDbCount] = useState(0);
 
   const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 
   useEffect(() => {
+    fetch("https://api.neroapp.co/waitlist")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.count !== undefined) {
+          setDbCount(data.count);
+        }
+      })
+      .catch(() => {
+        // Fallback: keep dbCount at 0
+      });
+  }, []);
+
+  useEffect(() => {
     const timer = setTimeout(() => {
-      let current = 100;
-      const target = 120;
+      const baseTarget = 120;
+      const target = baseTarget + dbCount;
       const duration = 2000;
-      const increment = (target - current) / (duration / 16);
+      const startCount = 120;
+      const increment = (target - startCount) / (duration / 16);
 
       const interval = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-          setCount(target);
-          clearInterval(interval);
-        } else {
-          setCount(Math.floor(current));
-        }
+        setCount((prev) => {
+          const next = prev + increment;
+          if (next >= target) {
+            clearInterval(interval);
+            return target;
+          }
+          return Math.floor(next);
+        });
       }, 16);
 
       return () => clearInterval(interval);
     }, 1500);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [dbCount]);
 
   return (
     <motion.div

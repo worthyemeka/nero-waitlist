@@ -36,6 +36,57 @@ function requireEnv(name: string, value?: string): string {
   return value;
 }
 
+let cachedCount: { count: number; expires: number } | null = null;
+
+function getCachedCount(): number | null {
+  if (cachedCount && cachedCount.expires > Date.now()) {
+    return cachedCount.count;
+  }
+  return null;
+}
+
+function setCachedCount(count: number): void {
+  cachedCount = { count, expires: Date.now() + 5 * 60 * 1000 };
+}
+
+async function getWaitlistCount(): Promise<number> {
+  const cached = getCachedCount();
+  if (cached !== null) {
+    return cached;
+  }
+
+  const supabaseUrl = requireEnv("SUPABASE_URL", SUPABASE_URL);
+  const serviceRoleKey = requireEnv("SUPABASE_SERVICE_ROLE_KEY", SUPABASE_SERVICE_ROLE_KEY);
+
+  const response = await fetch(`${supabaseUrl}/rest/v1/waitlist_signups?select=count`, {
+    method: "GET",
+    headers: {
+      apikey: serviceRoleKey,
+      Authorization: `Bearer ${serviceRoleKey}`,
+      "Prefer": "count=exact",
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to fetch count: ${response.status}`);
+  }
+
+  const contentRange = response.headers.get("content-range");
+  if (contentRange) {
+    const match = contentRange.match(/\/(\d+)$/);
+    if (match) {
+      const count = parseInt(match[1], 10);
+      setCachedCount(count);
+      return count;
+    }
+  }
+
+  const data = await response.json();
+  const count = Array.isArray(data) ? data.length : 0;
+  setCachedCount(count);
+  return count;
+}
+
 async function saveWaitlistSignup(email: string): Promise<"created" | "exists"> {
   const supabaseUrl = requireEnv("SUPABASE_URL", SUPABASE_URL);
   const serviceRoleKey = requireEnv("SUPABASE_SERVICE_ROLE_KEY", SUPABASE_SERVICE_ROLE_KEY);
@@ -496,6 +547,16 @@ async function sendWelcomeEmail(email: string) {
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  if (req.method === "GET") {
+    try {
+      const count = await getWaitlistCount();
+      return res.status(200).json({ count });
+    } catch (error) {
+      console.error("Waitlist count error:", error);
+      return res.status(200).json({ count: 0 });
+    }
+  }
+
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
