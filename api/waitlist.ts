@@ -356,71 +356,17 @@ async function sendWelcomeEmail(email: string) {
 
             <tr>
               <td class="body-cell" style="padding:28px 40px 36px 40px;background-color:#FFFFFF;">
-                <table
-                  role="presentation"
-                  class="intro-table"
-                  cellpadding="0"
-                  cellspacing="0"
-                  border="0"
-                  width="100%"
-                  style="border-radius:5px;overflow:hidden;margin-bottom:16px;background-color:#2A2A91;"
-                >
-                  <tr>
-                    <td
-                      class="intro-td"
-                      style="padding:40px 28px;background:#2A2A91 url('https://res.cloudinary.com/dentghiic/image/upload/v1776771304/doodle-bg_y6kf1j.png') center/cover repeat;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:22px;letter-spacing:0.3px;line-height:1.5;color:#FFFFFF;"
-                    >
-                      <p style="margin:0 0 20px;color:#FFFFFF;"><span style="font-weight:500;color:#FFFFFF;">Hey there</span>,</p>
-                      <p style="margin:0 0 20px;color:#FFFFFF;">You're officially in! 🎉</p>
-                      <p style="margin:0 0 20px;color:#FFFFFF;">If money disappears faster than it should, you're exactly where you need to be.</p>
-                      <p style="margin:0;color:#FFFFFF;">We're building Nero to help you stay in control without the stress.</p>
-                    </td>
-                  </tr>
-                </table>
-
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:22px;">
                   <tr>
-                    <td style="padding:0;font-size:0;line-height:0;">
-                      <div class="divider-line" style="width:100%;height:1px;background-color:#BABABA !important;font-size:0;line-height:0;"></div>
-                    </td>
-                  </tr>
-                </table>
-
-                <table
-                  role="presentation"
-                  cellpadding="0"
-                  cellspacing="0"
-                  border="0"
-                  width="100%"
-                  style="border-radius:5px;overflow:hidden;margin-bottom:16px;background:#2A2A91 url('https://res.cloudinary.com/dentghiic/image/upload/v1776771304/doodle-bg_y6kf1j.png') center/cover repeat;"
-                >
-                  <tr>
-                    <td
-                      style="padding:40px 28px;background:transparent;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#FFFFFF;"
-                    >
-                      <p
-                        style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;font-size:24px;text-transform:uppercase;margin:0 0 11px;color:#FFFFFF;letter-spacing:-0.3px;"
-                      >
-                        WHAT HAPPENS NEXT?
-                      </p>
-                      <p
-                        style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;margin:0 0 22px;color:#FFFFFF;font-size:22px;"
-                      >
-                        We'll send you early updates, first looks, and your invite when your spot is ready.
-                      </p>
-                      <p
-                        style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;margin:0;color:#FFFFFF;font-size:22px;"
-                      >
-                        While you wait, here are two quick things you can do:
-                      </p>
-                    </td>
-                  </tr>
-                </table>
-
-                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:22px;">
-                  <tr>
-                    <td style="padding:0;font-size:0;line-height:0;">
-                      <div class="divider-line" style="width:100%;height:1px;background-color:#BABABA !important;font-size:0;line-height:0;"></div>
+                    <td align="center" style="padding:0;">
+                      <a href="https://waitlist.neroapp.co" target="_blank" style="display:inline-block;">
+                        <img
+                          src="https://res.cloudinary.com/dentghiic/image/upload/v1776871014/card-1email_qpe4a4.png"
+                          alt="Join WhatsApp group"
+                          width="560"
+                          style="display:block;width:100%;max-width:560px;height:auto;border-radius:8px;"
+                        />
+                      </a>
                     </td>
                   </tr>
                 </table>
@@ -457,44 +403,15 @@ async function sendWelcomeEmail(email: string) {
 
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:22px;">
                   <tr>
-                    <td style="padding:0;font-size:0;line-height:0;">
-                      <div class="divider-line" style="width:100%;height:1px;background-color:#BABABA !important;font-size:0;line-height:0;"></div>
-                    </td>
-                  </tr>
-                </table>
-
-                <table
-                  role="presentation"
-                  cellpadding="0"
-                  cellspacing="0"
-                  border="0"
-                  width="100%"
-                  style="margin-bottom:16px;"
-                >
-                  <tr>
                     <td align="center" style="padding:0;">
-                      <table
-                        role="presentation"
-                        cellpadding="0"
-                        cellspacing="0"
-                        border="0"
-                        width="424"
-                        style="width:100%;max-width:424px;border-radius:5px;overflow:hidden;background-color:#2A2A91;"
-                      >
-                        <tr>
-                          <td
-                            style="padding:32px 24px;background:#2A2A91 url('https://res.cloudinary.com/dentghiic/image/upload/v1775344208/bottom-text_jobmyo.png') center/cover repeat;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;font-size:22px;letter-spacing:0.3px;line-height:1.5;color:#0A0A0A;min-height:208px;"
-                          >
-                            <p style="margin:0 0 20px;color:#0A0A0A;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">Thanks again for joining us early.</p>
-                            <p style="margin:0 0 20px;color:#0A0A0A;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">See you soon.</p>
-                            <p
-                              style="font-family:Arial,Helvetica,sans-serif;font-weight:400;font-size:22px;color:#0A0A0A;letter-spacing:-0.1px;line-height:1.5;margin:22px 0 0;"
-                            >
-                              — Worthy from nēro
-                            </p>
-                          </td>
-                        </tr>
-                      </table>
+                      <a href="https://waitlist.neroapp.co" target="_blank" style="display:inline-block;">
+                        <img
+                          src="https://res.cloudinary.com/dentghiic/image/upload/v1776871015/card3-email_j5p9ax.png"
+                          alt="Join WhatsApp group"
+                          width="560"
+                          style="display:block;width:100%;max-width:560px;height:auto;border-radius:8px;"
+                        />
+                      </a>
                     </td>
                   </tr>
                 </table>
