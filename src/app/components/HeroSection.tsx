@@ -191,7 +191,7 @@ function CounterComponent() {
   const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 
   useEffect(() => {
-    fetch("https://api.neroapp.co/waitlist")
+    fetch("https://nero-waitlist.vercel.app/api/waitlist")
       .then((res) => res.json())
       .then((data) => {
         if (data.count !== undefined) {
