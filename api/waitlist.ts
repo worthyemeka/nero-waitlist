@@ -492,7 +492,7 @@ async function sendWelcomeEmail(email: string) {
   </body>
 </html>
 `,
-  });
+  });//hi
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
