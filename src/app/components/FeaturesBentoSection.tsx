@@ -12,10 +12,11 @@ import monIcon from "../../assets/mon-icon.png";
 import opIcon from "../../assets/op-icon.png";
 import oneIcon from "../../assets/one-icon.png";
 import zenIcon from "../../assets/zen-icon.png";
-import abstractDesign from "../../assets/abstract-design.png";
+import bento3Img from "../../assets/bento3-img.png";
 import pipesLeft from "../../assets/svg-pipes-left.svg";
 import pipesRight from "../../assets/svg-pipes-right.svg";
 import bento4Mockup from "../../assets/bento4-mockup.png";
+import bento4Img from "../../assets/bento4-img.png";
 
 const revealTransition = {
     duration: 0.75,
@@ -56,7 +57,9 @@ export default function FeaturesBentoSection() {
                     </p>
                 </motion.div>
 
-                <div className="mt-8 grid grid-cols-1 gap-4 sm:gap-5 md:mt-10 xl:mt-14 xl:grid-cols-[730px_510px] xl:grid-rows-[480px_480px] xl:gap-6">
+                                <div className="mt-8 grid grid-cols-1 gap-4 sm:gap-5 md:mt-10 xl:mt-14
+                                    md:grid-cols-2 md:grid-rows-2 md:gap-6
+                                    xl:grid-cols-[730px_510px] xl:grid-rows-[480px_480px] xl:gap-6">
 
                     {/* Bento 1 */}
                     <motion.article
@@ -72,9 +75,12 @@ export default function FeaturesBentoSection() {
                         }}
                     >
                         {/* Text — top-left */}
-                        <div className="relative z-[6] max-w-[214px] pl-8 pt-10 md:max-w-[450px] md:pl-13 md:pt-11 xl:max-w-[384px] xl:pl-10 xl:pt-12">
-                            <h3 className="text-[16px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] md:text-[24px] xl:text-[22px]">
-                                Know what you can spend today
+                        <div className="relative z-[6] max-w-[214px] pl-8 pt-10 md:max-w-[350px] md:pl-7 md:pt-11 xl:max-w-[384px] xl:pl-10 xl:pt-12">
+                            <h3 className="text-[16px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] md:text-[22px] xl:text-[22px]">
+                                Know what you can
+                                <span className="inline sm:hidden"><br/></span>
+                                <span className="hidden sm:inline"> </span>
+                                spend today
                             </h3>
                             <p className="mt-0 text-[13px] font-[400] leading-[1.5] text-[#797C86] md:mt-2 md:text-[18px] xl:mt-4 xl:text-[20px]">
                                 nēro shows you exactly what you can spend today — so your money lasts the full cycle.
@@ -84,7 +90,7 @@ export default function FeaturesBentoSection() {
                         {/* Phone mockup — right side, blurred */}
                         <motion.div
                             style={{ y: phoneParallaxY }}
-                            className="pointer-events-none absolute right-[-75px] top-[20px] z-[2] md:right-[-40px] md:top-[28px] xl:right-[-40px] xl:top-[34.93px]"
+                            className="pointer-events-none absolute right-[-75px] top-[20px] z-[2] md:right-[-120px] md:top-[164px] xl:right-[-80px] xl:top-[34.93px]"
                         >
                             <img
                                 src={bento1Phone}
@@ -97,7 +103,7 @@ export default function FeaturesBentoSection() {
                         <motion.img
                             src={cardBento1}
                             alt="Today's spending target card"
-                            className="pointer-events-none absolute bottom-[40px] left-[-4px] z-[4] w-[340px] drop-shadow-xl md:bottom-[-6px] md:left-[-4px] md:w-[700px] xl:bottom-[10px] xl:left-[-12px] xl:w-[650px]"
+                            className="pointer-events-none absolute bottom-[40px] left-[5px] z-[4] w-[340px] drop-shadow-xl md:bottom-[16px] md:left-[-4px] md:w-[700px] xl:bottom-[10px] xl:left-[-12px] xl:w-[650px]"
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
@@ -138,7 +144,7 @@ export default function FeaturesBentoSection() {
 
                         {/* Purple pill button — overlapping bottom of visual */}
                         <motion.div
-                            className="relative z-[6] flex justify-center sm:w-[380px] -mt-[130px] sm:-mt-[40px] md:-mt-[190px] md:ml-[190px] xl:-mt-[180px] xl:-ml-[-80px]"
+                            className="relative z-[6] flex justify-center sm:w-[380px] -mt-[130px] sm:-mt-[40px] md:-mt-[170px] md:ml-[4px] xl:-mt-[180px] xl:-ml-[-80px]"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
@@ -147,151 +153,58 @@ export default function FeaturesBentoSection() {
                             <img
                                 src={b2Button}
                                 alt="Auto-Tracking spending"
-                                className="h-[110px] w-[250px] sm:h-[300px] sm:w-[200px] md:h-[120px] md:w-[580px] xl:h-[120px] xl:w-[270px] drop-shadow-lg"
+                                className="h-[110px] w-[250px] sm:h-[300px] sm:w-[200px] md:h-[120px] md:w-[270px] xl:h-[120px] xl:w-[270px] drop-shadow-lg"
                             />
                         </motion.div>
 
                         {/* Text — bottom */}
-                        <div className="absolute bottom-6 left-6 right-6 z-[6] sm:bottom-7 sm:left-7 sm:right-7 xl:bottom-10 xl:left-10 xl:right-10">
-                            <h3 className="text-[17px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] sm:text-[19px] md:text-[24px] xl:text-[22px]">
+                        <div className="absolute bottom-[30px] left-6 right-6 z-[6] sm:bottom-7 sm:left-7 sm:right-7 xl:bottom-10 xl:left-10 xl:right-10">
+                            <h3 className="text-[17px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] sm:text-[19px] md:text-[22px] xl:text-[22px]">
                                 We track everything for you
                             </h3>
-                            <p className="mt-2 text-[13px] font-normal leading-[1.4] text-[#797C86] sm:text-[14px] md:text-[18px] xl:text-[20px]">
+                            <p className="mt-2 text-[13px] font-normal leading-[1.4] text-[#797C86] sm:text-[14px] md:text-[16px] xl:text-[20px]">
                                 nēro reads your bank alerts and tracks every transaction automatically — no manual input.
                             </p>
                         </div>
                     </motion.article>
 
-                    {/* Bento 3 */}
+                    {/* Bento 3 — Redesigned, text top left, image bottom, gradient overlay */}
                     <motion.article
                         initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
                         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{ ...revealTransition, delay: 0.08 }}
                         whileHover={{ y: -6, transition: { type: "spring", stiffness: 400, damping: 15 } }}
-                        className="relative h-[360px] overflow-hidden rounded-[24px] sm:h-[400px] md:h-[440px] xl:col-[1/2] xl:row-[2/3] xl:h-[480px] xl:w-[510px] xl:justify-self-start"
+                        className="relative h-[360px] overflow-hidden rounded-[24px] sm:h-[400px] md:h-[440px] md:col-[1/2] md:row-[2/3] xl:col-[1/2] xl:row-[2/3] xl:h-[480px] xl:w-[510px] xl:justify-self-start bg-white"
                         style={{
                             background:
                                 "linear-gradient(90deg, rgba(242,242,242,0.37), rgba(242,242,242,0.37)), #ffffff",
                         }}
                     >
-                        {/* Dotted grid background */}
-                        <div className="pointer-events-none absolute inset-x-4 top-0 z-[1] h-[65%] sm:inset-x-8">
-                            <img
-                                src={abstractDesign}
-                                alt=""
-                                className="h-full w-full object-cover opacity-40"
-                            />
-                            <div
-                                className="absolute inset-x-0 bottom-0 h-[60%]"
-                                style={{ background: "linear-gradient(180deg, transparent 0%, rgba(248,248,248,0.95) 100%)" }}
-                            />
-                        </div>
-
-                        {/* Hub layout */}
-                        <div className="pointer-events-none absolute inset-x-0 top-0 z-[2]" style={{ height: "65%" }}>
-
-                            {/* Left pipes SVG — behind email icon */}
-                            <img
-                                src={pipesLeft}
-                                alt=""
-                                className="absolute z-[1] w-[110px] h-[120px] sm:w-[140px] sm:h-[155px] md:w-[160px] md:h-[175px]"
-                                style={{ top: "50%", right: "50%", transform: "translateY(-50%)" }}
-                            />
-                            {/* Right pipes SVG — behind email icon */}
-                            <img
-                                src={pipesRight}
-                                alt=""
-                                className="absolute z-[1] w-[110px] h-[120px] sm:w-[140px] sm:h-[155px] md:w-[160px] md:h-[175px]"
-                                style={{ top: "50%", left: "50%", transform: "translateY(-50%)" }}
-                            />
-
-                            {/* Center email icon — on top of pipes */}
-                            <motion.div
-                                className="absolute left-1/2 top-1/2 z-[4] -translate-x-1/2 -translate-y-1/2"
-                                initial={{ opacity: 0, scale: 0.7 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true, amount: 0.2 }}
-                                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-                            >
-                                <img
-                                    src={emailIcon}
-                                    alt="Email icon"
-                                    className="relative z-[5] h-[90px] w-[90px] sm:h-[110px] sm:w-[110px] md:h-[130px] md:w-[130px] xl:h-[136.97px] xl:w-[136.97px]"
-                                />
-                            </motion.div>
-
-                            {/* Left logos: Access (top), OneBank (middle), Zenith (bottom) */}
-                            <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[12%] left-[15%] md:left-[22%] xl:left-[12%]"
-                                initial={{ opacity: 0, scale: 0 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true, amount: 0.2 }}
-                                transition={{ duration: 0.5, type: "spring", stiffness: 300, damping: 18, delay: 0.2 }}
-                            >
-                                <img src={accIcon} alt="Access Bank" className="h-full w-full object-cover" />
-                            </motion.div>
-
-                            <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[38%] left-[23%] md:left-[30%] xl:left-[18%]"
-                                initial={{ opacity: 0, scale: 0 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true, amount: 0.2 }}
-                                transition={{ duration: 0.5, type: "spring", stiffness: 300, damping: 18, delay: 0.3 }}
-                            >
-                                <img src={oneIcon} alt="OneBank" className="h-full w-full object-cover" />
-                            </motion.div>
-
-                            <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[65%] left-[15%] md:left-[22%] xl:left-[12%]"
-                                initial={{ opacity: 0, scale: 0 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true, amount: 0.2 }}
-                                transition={{ duration: 0.5, type: "spring", stiffness: 300, damping: 18, delay: 0.4 }}
-                            >
-                                <img src={zenIcon} alt="Zenith" className="h-full w-full object-cover" />
-                            </motion.div>
-
-                            {/* Right logos: Moniepoint (top), Kuda (middle), OPay (bottom) */}
-                            <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[12%] right-[15%] md:right-[22%] xl:right-[12%]"
-                                initial={{ opacity: 0, scale: 0 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true, amount: 0.2 }}
-                                transition={{ duration: 0.5, type: "spring", stiffness: 300, damping: 18, delay: 0.25 }}
-                            >
-                                <img src={monIcon} alt="Moniepoint" className="h-full w-full object-cover" />
-                            </motion.div>
-
-                            <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[38%] right-[23%] md:right-[30%] xl:right-[18%]"
-                                initial={{ opacity: 0, scale: 0 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true, amount: 0.2 }}
-                                transition={{ duration: 0.5, type: "spring", stiffness: 300, damping: 18, delay: 0.35 }}
-                            >
-                                <img src={kudIcon} alt="Kuda" className="h-full w-full object-cover" />
-                            </motion.div>
-
-                            <motion.div
-                                className="absolute z-[5] overflow-hidden rounded-full border-[2px] border-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] h-[42px] w-[42px] sm:h-[56px] sm:w-[56px] md:h-[62px] md:w-[62px] xl:h-[70px] xl:w-[70px] top-[65%] right-[15%] md:right-[22%] xl:right-[12%]"
-                                initial={{ opacity: 0, scale: 0 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true, amount: 0.2 }}
-                                transition={{ duration: 0.5, type: "spring", stiffness: 300, damping: 18, delay: 0.45 }}
-                            >
-                                <img src={opIcon} alt="OPay" className="h-full w-full object-cover" />
-                            </motion.div>
-                        </div>
-
-                        {/* Text — bottom */}
-                        <div className="absolute bottom-6 left-6 right-6 z-[6] sm:bottom-7 sm:left-7 sm:right-7 xl:bottom-10 xl:left-10 xl:right-10">
-                            <h3 className="text-[17px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] sm:text-[19px] md:text-[24px] xl:text-[22px]">
-                                Connect your bank & email
+                        {/* Text content — top left */}
+                        <div className="relative z-[6] max-w-[324px] pl-8 pt-10 md:max-w-[324px] md:pl-7 md:pt-8 xl:max-w-[464px] xl:pl-10 xl:pt-12">
+                            <h3 className="text-[16px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] md:text-[22px] xl:text-[22px]">
+                                See your spending clearly
                             </h3>
-                            <p className="mt-2 text-[13px] font-normal leading-[1.4] text-[#797C86] sm:text-[14px] md:text-[18px] xl:text-[20px]">
-                                Link your account via email. This helps us track & keep up with your spending automatically. We will <span className="font-semibold text-[#000000]">never</span> ask you for any of your personal information.
+                            <p className="mt-2 text-[13px] font-[400] leading-[1.5] text-[#797C86] md:mt-2 md:text-[16px] xl:mt-4 xl:text-[20px]">
+                                nēro shows your daily and weekly spending patterns so you can understand where your money goes at a glance.
                             </p>
+                        </div>
+                        {/* Image grid — bottom center */}
+                        <div className="absolute left-0 right-0 bottom-[8px] z-[1] flex items-end justify-center w-full h-[55vw] min-h-[120px] max-h-[220px] sm:bottom-6 sm:h-[38vw] sm:max-h-[240px] md:bottom-10 md:h-[30vw] md:max-h-[260px] xl:h-[22vw] xl:bottom-0 xl:max-h-[320px]">
+                            <img
+                                src={bento3Img}
+                                alt="Spending patterns grid"
+                                className="w-auto h-full max-h-full object-contain"
+                                style={{ filter: "drop-shadow(0 4px 24px rgba(42,42,145,0.07))" }}
+                            />
+                            {/* Gradient overlay at bottom, larger on md */}
+                            <div
+                                className="pointer-events-none absolute left-0 right-0 bottom-0 h-[40px] sm:h-[80px] md:h-[120px] xl:h-[100px]"
+                                style={{
+                                    background: "linear-gradient(180deg, rgba(255,255,255,0) 0%, #F7F9FB 100%)",
+                                }}
+                            />
                         </div>
                     </motion.article>
 
@@ -302,35 +215,34 @@ export default function FeaturesBentoSection() {
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{ ...revealTransition, delay: 0.12 }}
                         whileHover={{ y: -6, transition: { type: "spring", stiffness: 400, damping: 15 } }}
-                        className="relative h-[360px] overflow-hidden rounded-[24px] sm:h-[400px] md:h-[440px] xl:col-[2/3] xl:row-[2/3] xl:h-[480px] xl:w-[730px] xl:justify-self-end"
+                        className="relative flex flex-col items-center justify-between h-[380px] overflow-hidden rounded-b-[32px] rounded-t-[24px] bg-white sm:h-[440px] md:h-[460px] md:col-[2/3] md:row-[2/3] xl:col-[2/3] xl:row-[2/3] xl:h-[480px] xl:w-[730px] xl:justify-self-end"
                         style={{
                             background:
-                                "linear-gradient(90deg, rgba(242,242,242,0.37), rgba(242,242,242,0.37)), #ffffff",
+                                "linear-gradient(90deg, rgba(242,242,242,0.37), rgba(242,242,242,0.37)), #fff",
                         }}
                     >
-                        {/* Text — top-left */}
-                        <div className="relative z-[6] max-w-[200px] pl-6 pt-8 sm:max-w-[260px] sm:pl-7 sm:pt-9 md:max-w-[340px] md:pl-8 md:pt-10 xl:max-w-[400px] xl:pl-10 xl:pt-12">
-                            <h3 className="text-[17px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] sm:text-[19px] md:text-[24px] xl:text-[22px]">
-                                See where your money goes
+                        {/* Visual — top, centered, large */}
+                        <div className="w-full flex justify-center pt-13 sm:pt-60 md:pt-10 xl:pt-[54.32]">
+                            <img
+                                src={bento4Img}
+                                alt="Cycle summary visual"
+                                className="w-[520px] sm:w-[520px] md:w-[400px] xl:w-[680px] max-w-full h-auto object-contain drop-shadow-lg"
+                                style={{ filter: "drop-shadow(0 4px 24px rgba(42,42,145,0.09))" }}
+                            />
+                        </div>
+
+                        {/* Text — bottom */}
+                        <div className="absolute bottom-[45px] left-6 right-6 z-[6] sm:bottom-7 sm:left-7 sm:right-7 xl:bottom-10 xl:left-10 xl:right-10">
+                            <h3 className="text-[20px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] sm:text-[19px] md:text-[22px] xl:text-[22px]">
+                                Your money, reviewed for you
                             </h3>
-                            <p className="mt-2 text-[13px] font-normal leading-[1.4] text-[#797C86] sm:text-[14px] md:text-[18px] xl:mt-3 xl:text-[20px]">
-                                Understand your spending patterns over time so you stay in control, catch patterns, and understand your behavior over time.
+                            <p className="mt-2 text-[16px] font-normal leading-[1.4] text-[#797C86] sm:text-[18px] md:text-[16px] xl:text-[20px]">
+                               Get simple weekly and full-cycle recaps that show how you spent, where you can improve, and how you’re progressing.
                             </p>
                         </div>
 
-                        {/* Phone mockup — right side */}
-                        <motion.img
-                            src={bento4Mockup}
-                            alt="Insights screen showing spending patterns"
-                            className="pointer-events-none absolute bottom-0 right-[-20px] z-[3] w-[260px] sm:right-[-10px] sm:w-[300px] md:right-0 md:w-[380px] xl:right-[-10px] xl:w-[460px]"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 0.2 }}
-                            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-                        />
-
                         {/* Bottom fade */}
-                        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[4] h-[180px] bg-gradient-to-t from-[#F2F3F2] via-[#F2F3F2]/50 to-transparent md:h-[200px] xl:h-[300px]" />
+                        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[4] h-[80px] bg-gradient-to-t from-[#F2F3F2] via-[#F2F3F2]/50 to-transparent md:h-[120px] xl:h-[140px]" />
                     </motion.article>
 
                 </div>

@@ -44,14 +44,14 @@ function Badge() {
 function Header() {
   return (
     <div
-      className="content-stretch flex flex-col items-center lg:items-start relative shrink-0 text-[30px] sm:text-[30px] md:text-[36px] lg:text-[48px] tracking-[-0.8px] md:tracking-[-1px] lg:tracking-[-1.5px] w-full text-center lg:text-left max-w-[320px] sm:max-w-[380px] md:max-w-[560px] lg:max-w-none"
+      className="content-stretch flex flex-col items-center lg:items-start relative shrink-0 text-[27px] sm:text-[30px] md:text-[36px] lg:text-[48px] tracking-[-0.8px] md:tracking-[-1px] lg:tracking-[-1.5px] w-full text-center lg:text-left max-w-[320px] sm:max-w-[380px] md:max-w-[560px] lg:max-w-none"
       data-name="Header"
     >
       <motion.div
         initial={{ opacity: 0, x: -40, y: 10 }}
         animate={{ opacity: 1, x: 0, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2, ease }}
-        className="flex flex-col font-['Satoshi:600',sans-serif] font-semibold justify-center not-italic relative shrink-0 text-[#12123d] w-auto leading-[1.08] sm:leading-[1.12] lg:leading-[1.15] text-center lg:text-left"
+        className="flex flex-col font-['Satoshi:600',sans-serif] font-semibold justify-center not-italic relative shrink-0 text-[#12123d] w-auto leading-[1.08] sm:leading-[1.12] sm:text-[36px] lg:leading-[1.15] text-center lg:text-left"
       >
         <p>Stop running out of money</p>
       </motion.div>
@@ -82,7 +82,9 @@ function HeaderParagraph() {
       >
         <p>
           Know exactly what you can spend today — so your money lasts
-          the full 30 days.
+          <span className="hidden sm:inline"><br/></span>
+          <span className="inline sm:hidden"> the full 30 days.</span>
+          <span className="hidden sm:inline">the full 30 days.</span>
         </p>
       </motion.div>
     </div>
