@@ -225,7 +225,7 @@ export default function TermsOfService() {
                                 Follow us:
                             </span>
                             <a
-                                href="https://www.instagram.com"
+                                href="https://www.instagram.com/nero.fin"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Instagram"
