@@ -185,8 +185,8 @@ function EmailForm({
 }
 
 function CounterComponent() {
-  const [count, setCount] = useState(120);
-
+  const [count, setCount] = useState(0);
+  const [target, setTarget] = useState(0);
   const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 
   useEffect(() => {
@@ -198,23 +198,38 @@ function CounterComponent() {
         if (!res.ok) {
           throw new Error(`Failed to fetch waitlist count: ${res.status}`);
         }
-
         const data = (await res.json()) as { count?: number };
         const fetchedCount = Number(data.count ?? 0);
         const safeCount = Number.isFinite(fetchedCount) ? Math.max(0, fetchedCount) : 0;
-        setCount(120 + safeCount);
+        setTarget(safeCount);
       } catch (err) {
         if (!controller.signal.aborted) {
           console.error("Fetch error:", err);
-          setCount(120);
+          setTarget(0);
         }
       }
     }
 
     fetchCount();
-
     return () => controller.abort();
   }, []);
+
+  useEffect(() => {
+    if (target === 0) return;
+    let current = 0;
+    const duration = 2000;
+    const increment = target / (duration / 16);
+    const interval = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        setCount(target);
+        clearInterval(interval);
+      } else {
+        setCount(Math.floor(current));
+      }
+    }, 16);
+    return () => clearInterval(interval);
+  }, [target]);
 
   return (
     <motion.div

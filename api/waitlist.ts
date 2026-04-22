@@ -145,15 +145,7 @@ async function sendWelcomeEmail(email: string) {
     <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no" />
     <title>You're in! — nēro</title>
 
-    <!--[if mso]>
-    <noscript>
-      <xml>
-        <o:OfficeDocumentSettings>
-          <o:PixelsPerInch>96</o:PixelsPerInch>
-        </o:OfficeDocumentSettings>
-      </xml>
-    </noscript>
-    <![endif]-->
+    <!--[if mso]> <noscript> <xml> <o:OfficeDocumentSettings> <o:PixelsPerInch>96</o:PixelsPerInch> </o:OfficeDocumentSettings> </xml> </noscript> <![endif]-->
 
     <style type="text/css">
       body, table, td, p, a, li, blockquote {
@@ -280,13 +272,8 @@ async function sendWelcomeEmail(email: string) {
       }
 
       .footer-bg-cell {
+        padding: 0 !important;
         background-color: #2A2A91 !important;
-        background-image: url('https://res.cloudinary.com/dentghiic/image/upload/v1776775967/footer-container_c5rbly.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        text-align: center;
-        padding: 48px 0 44px 0;
       }
 
       .footer-content {
@@ -335,8 +322,8 @@ async function sendWelcomeEmail(email: string) {
           line-height: 1.55 !important;
         }
 
-        .footer-bg-cell {
-          padding: 36px 0 32px 0 !important;
+        footer-bg-cell {
+          padding: 0 !important;
         }
 
         .footer-inner-pad {
@@ -353,7 +340,8 @@ async function sendWelcomeEmail(email: string) {
       aria-hidden="true"
       style="display:none !important;visibility:hidden !important;mso-hide:all !important;font-size:1px !important;line-height:1px !important;max-height:0 !important;max-width:0 !important;opacity:0 !important;overflow:hidden !important;"
     >
-      Be honest… your money dey disappear abi? 👀 You’re early for a reason.
+      Be honest… your money dey disappear abi? 👀 Get early access, join our WhatsApp group, and invite friends to nēro.
+      Control your spending. Fix your future.
     </div>
 
     <table
@@ -387,7 +375,8 @@ async function sendWelcomeEmail(email: string) {
                     href="https://tinyurl.com/browserview"
                     class="topbar-link"
                     style="color:#2A2A91;text-decoration:underline;"
-                  >View it in your browser</a>
+                    >View it in your browser</a
+                  >
                 </p>
               </td>
             </tr>
@@ -407,7 +396,14 @@ async function sendWelcomeEmail(email: string) {
 
             <tr>
               <td class="body-cell" style="padding:28px 40px 36px 40px;background-color:#FFFFFF;">
-                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:22px;">
+                <table
+                  role="presentation"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  width="100%"
+                  style="margin-bottom:22px;"
+                >
                   <tr>
                     <td align="center" style="padding:0;">
                       <a href="https://waitlist.neroapp.co" target="_blank" style="display:inline-block;">
@@ -422,7 +418,14 @@ async function sendWelcomeEmail(email: string) {
                   </tr>
                 </table>
 
-                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:22px;">
+                <table
+                  role="presentation"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  width="100%"
+                  style="margin-bottom:22px;"
+                >
                   <tr>
                     <td align="center" style="padding:0;">
                       <a href="https://waitlist.neroapp.co" target="_blank" style="display:inline-block;">
@@ -437,7 +440,14 @@ async function sendWelcomeEmail(email: string) {
                   </tr>
                 </table>
 
-                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:22px;">
+                <table
+                  role="presentation"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  width="100%"
+                  style="margin-bottom:22px;"
+                >
                   <tr>
                     <td align="center" style="padding:0;">
                       <a href="https://waitlist.neroapp.co" target="_blank" style="display:inline-block;">
@@ -452,7 +462,14 @@ async function sendWelcomeEmail(email: string) {
                   </tr>
                 </table>
 
-                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:22px;">
+                <table
+                  role="presentation"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  width="100%"
+                  style="margin-bottom:22px;"
+                >
                   <tr>
                     <td align="center" style="padding:0;">
                       <a href="https://waitlist.neroapp.co" target="_blank" style="display:inline-block;">
@@ -470,70 +487,58 @@ async function sendWelcomeEmail(email: string) {
             </tr>
 
             <tr>
-              <td class="footer-bg-cell" align="center" style="background:#2A2A91 url('https://res.cloudinary.com/dentghiic/image/upload/v1776775967/footer-container_c5rbly.png') center/cover no-repeat;padding:48px 0 44px 0;text-align:center;">
-                <table
-                  role="presentation"
-                  width="100%"
-                  border="0"
-                  class="footer-content"
-                  style="width:100%;margin:0 auto;"
-                >
-                  <tr>
-                    <td class="footer-inner-pad" align="center" style="padding:0 20px;">
-                      <img
-                        src="https://res.cloudinary.com/dentghiic/image/upload/v1775071417/Logo_hyr7r6.png"
-                        alt="nēro logo"
-                        width="60"
-                        style="display:block;margin:0 auto 12px;"
-                      />
+  <td
+    class="footer-bg-cell"
+    align="center"
+    style="padding:0;background-color:#2A2A91;"
+  >
+    <table
+      role="presentation"
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      border="0"
+      style="width:100%;border-collapse:collapse !important;"
+    >
+      <tr>
+        <td align="center" style="padding:0;line-height:0;font-size:0;">
+          <a
+            href="https://waitlist.neroapp.co"
+            target="_blank"
+            style="display:block;line-height:0;font-size:0;text-decoration:none;"
+          >
+            <img
+              src="https://res.cloudinary.com/dentghiic/image/upload/v1776898012/footer-1_apfygv.png"
+              alt="nēro footer top"
+              width="600"
+              style="display:block;width:100%;max-width:600px;height:auto;border:0;margin:0;padding:0;"
+            />
+          </a>
+        </td>
+      </tr>
 
-                      <p class="footer-motto" style="font-family:Helvetica,Arial,sans-serif;font-weight:700;font-size:12px;color:#FFFFFF !important;margin:0 0 22px;letter-spacing:-0.3px;">
-                        Control your spending. Fix your future.
-                      </p>
-
-                      <table width="60%" align="center" cellpadding="0" cellspacing="0" border="0">
-                        <tr>
-                          <td style="height:1px;background:rgba(255,255,255,0.18);"></td>
-                        </tr>
-                      </table>
-
-                      <p class="footer-copy" style="font-family:Helvetica,Arial,sans-serif;font-size:12px;color:#ffffff !important;margin:18px 0;line-height:1.5;">
-                        This is a system generated email. Please do not reply. <br/><br/>You're receiving this because you joined the nēro waitlist.<br />
-                        If this isn't for you, you can
-                        <a href="#" style="color:#FFFFFF !important;text-decoration:underline;">unsubscribe</a>
-                        anytime.
-                      </p>
-
-                      <div style="margin:14px 0;">
-                        <a href="https://instagram.com/nero.fin" style="margin:0 8px;display:inline-block;">
-                          <img
-                            src="https://res.cloudinary.com/dentghiic/image/upload/v1776776383/linkedin-logo_zaxtoa.png"
-                            alt="LinkedIn"
-                            width="20"
-                            height="20"
-                            style="display:block;"
-                          />
-                        </a>
-                        <a href="https://instagram.com/nero.fin" style="margin:0 8px;display:inline-block;">
-                          <img
-                            src="https://res.cloudinary.com/dentghiic/image/upload/v1776776429/instagram-logo_nns2wv.png"
-                            alt="Instagram"
-                            width="20"
-                            height="20"
-                            style="display:block;"
-                          />
-                        </a>
-                      </div>
-
-                      <p class="footer-small" style="font-family:Helvetica,Arial,sans-serif;font-size:10px;color:#ffffff !important;margin-top:10px;">
-                        © 2026 nēro. All rights reserved.
-                      </p>
-                    </td>
-                  </tr>
+      <tr>
+        <td align="center" style="padding:0;line-height:0;font-size:0;">
+          <a
+            href="https://instagram.com/nero.fin"
+            target="_blank"
+            style="display:block;line-height:0;font-size:0;text-decoration:none;"
+          >
+            <img
+              src="https://res.cloudinary.com/dentghiic/image/upload/v1776898012/footer-2_qfud3s.png"
+              alt="nēro footer bottom"
+              width="600"
+              style="display:block;width:100%;max-width:600px;height:auto;border:0;margin:0;padding:0;"
+            />
+          </a>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
                 </table>
               </td>
             </tr>
-
           </table>
         </td>
       </tr>

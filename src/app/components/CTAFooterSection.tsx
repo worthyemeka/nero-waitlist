@@ -54,30 +54,40 @@ export default function CTAFooterSection() {
 
   const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 
-  const [count, setCount] = useState(100);
+  const [count, setCount] = useState(0);
+  const [target, setTarget] = useState(0);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      let current = 100;
-      const target = 120;
-      const duration = 2000;
-      const increment = (target - current) / (duration / 16);
-
-      const interval = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-          setCount(target);
-          clearInterval(interval);
-        } else {
-          setCount(Math.floor(current));
-        }
-      }, 16);
-
-      return () => clearInterval(interval);
-    }, 1500);
-
-    return () => clearTimeout(timer);
+    async function fetchCount() {
+      try {
+        const res = await fetch("/api/waitlist");
+        if (!res.ok) throw new Error("Failed to fetch waitlist count");
+        const data = await res.json();
+        const fetchedCount = Number(data.count ?? 0);
+        setTarget(Number.isFinite(fetchedCount) ? Math.max(0, fetchedCount) : 0);
+      } catch {
+        setTarget(0);
+      }
+    }
+    fetchCount();
   }, []);
+
+  useEffect(() => {
+    if (target === 0) return;
+    let current = 0;
+    const duration = 2000;
+    const increment = target / (duration / 16);
+    const interval = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        setCount(target);
+        clearInterval(interval);
+      } else {
+        setCount(Math.floor(current));
+      }
+    }, 16);
+    return () => clearInterval(interval);
+  }, [target]);
 
   return (
 
