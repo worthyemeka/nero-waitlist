@@ -75,14 +75,12 @@ export default function FeaturesBentoSection() {
                         }}
                     >
                         {/* Text — top-left */}
-                        <div className="relative z-[6] max-w-[214px] pl-8 pt-10 md:max-w-[350px] md:pl-7 md:pt-11 xl:max-w-[384px] xl:pl-10 xl:pt-12">
-                            <h3 className="text-[16px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] md:text-[22px] xl:text-[22px]">
+                        <div className="relative z-[6] max-w-[324px] pl-8 pt-8 md:max-w-[324px] md:pl-7 md:pt-8 xl:max-w-[464px] xl:pl-10 xl:pt-12">
+                            <h3 className="text-[20px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] sm:text-[20px] md:text-[22px] xl:text-[22px]">
                                 Know what you can
-                                <span className="inline sm:hidden"><br/></span>
-                                <span className="hidden sm:inline"> </span>
                                 spend today
                             </h3>
-                            <p className="mt-0 text-[13px] font-[400] leading-[1.5] text-[#797C86] md:mt-2 md:text-[18px] xl:mt-4 xl:text-[20px]">
+                            <p className="mt-0 text-[16px] font-[400] leading-[1.5] text-[#797C86] md:mt-2 md:text-[18px] xl:mt-4 xl:text-[20px]">
                                 nēro shows you exactly what you can spend today — so your money lasts the full cycle.
                             </p>
                         </div>
@@ -90,7 +88,7 @@ export default function FeaturesBentoSection() {
                         {/* Phone mockup — right side, blurred */}
                         <motion.div
                             style={{ y: phoneParallaxY }}
-                            className="pointer-events-none absolute right-[-75px] top-[20px] z-[2] md:right-[-120px] md:top-[164px] xl:right-[-80px] xl:top-[34.93px]"
+                            className="pointer-events-none absolute right-[-10px] top-[120px] z-[2] md:right-[-120px] md:top-[164px] xl:right-[-80px] xl:top-[34.93px]"
                         >
                             <img
                                 src={bento1Phone}
@@ -103,7 +101,7 @@ export default function FeaturesBentoSection() {
                         <motion.img
                             src={cardBento1}
                             alt="Today's spending target card"
-                            className="pointer-events-none absolute bottom-[40px] left-[5px] z-[4] w-[340px] drop-shadow-xl md:bottom-[16px] md:left-[-4px] md:w-[700px] xl:bottom-[10px] xl:left-[-12px] xl:w-[650px]"
+                            className="pointer-events-none absolute bottom-[15px] left-[5px] z-[4] w-[340px] drop-shadow-xl md:bottom-[16px] md:left-[-4px] md:w-[700px] xl:bottom-[10px] xl:left-[-12px] xl:w-[650px]"
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
@@ -158,11 +156,11 @@ export default function FeaturesBentoSection() {
                         </motion.div>
 
                         {/* Text — bottom */}
-                        <div className="absolute bottom-[30px] left-6 right-6 z-[6] sm:bottom-7 sm:left-7 sm:right-7 xl:bottom-10 xl:left-10 xl:right-10">
-                            <h3 className="text-[17px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] sm:text-[19px] md:text-[22px] xl:text-[22px]">
+                        <div className="absolute bottom-[15px] left-6 right-6 z-[6] sm:bottom-7 sm:left-7 sm:right-7 xl:bottom-10 xl:left-10 xl:right-10">
+                            <h3 className="text-[20px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] sm:text-[20px] md:text-[22px] xl:text-[22px]">
                                 We track everything for you
                             </h3>
-                            <p className="mt-2 text-[13px] font-normal leading-[1.4] text-[#797C86] sm:text-[14px] md:text-[16px] xl:text-[20px]">
+                            <p className="mt-2 text-[16px] font-normal leading-[1.4] text-[#797C86] sm:text-[16px] md:text-[16px] xl:text-[20px]">
                                 nēro reads your bank alerts and tracks every transaction automatically — no manual input.
                             </p>
                         </div>
@@ -182,11 +180,11 @@ export default function FeaturesBentoSection() {
                         }}
                     >
                         {/* Text content — top left */}
-                        <div className="relative z-[6] max-w-[324px] pl-8 pt-10 md:max-w-[324px] md:pl-7 md:pt-8 xl:max-w-[464px] xl:pl-10 xl:pt-12">
-                            <h3 className="text-[16px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] md:text-[22px] xl:text-[22px]">
+                        <div className="relative z-[6] max-w-[324px] pl-8 pt-8 md:max-w-[324px] md:pl-7 md:pt-8 xl:max-w-[464px] xl:pl-10 xl:pt-12">
+                            <h3 className="text-[20px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] sm:text-[20px] md:text-[22px] xl:text-[22px]">
                                 See your spending clearly
                             </h3>
-                            <p className="mt-2 text-[13px] font-[400] leading-[1.5] text-[#797C86] md:mt-2 md:text-[16px] xl:mt-4 xl:text-[20px]">
+                            <p className="mt-2 text-[16px] font-[400] leading-[1.5] text-[#797C86] md:mt-2 md:text-[16px] xl:mt-4 xl:text-[20px]">
                                 nēro shows your daily and weekly spending patterns so you can understand where your money goes at a glance.
                             </p>
                         </div>
