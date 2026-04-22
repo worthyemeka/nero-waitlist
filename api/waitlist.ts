@@ -239,7 +239,7 @@ async function sendWelcomeEmail(email: string) {
       }
 
       .body-cell {
-        padding: 28px 40px 36px 40px;
+        padding: 20px 20px 20px 20px;
         background-color: #FFFFFF !important;
       }
 
@@ -340,8 +340,8 @@ async function sendWelcomeEmail(email: string) {
         }
 
         .footer-inner-pad {
-          padding-left: 20px !important;
-          padding-right: 20px !important;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
         }
       }
     </style>
@@ -353,7 +353,7 @@ async function sendWelcomeEmail(email: string) {
       aria-hidden="true"
       style="display:none !important;visibility:hidden !important;mso-hide:all !important;font-size:1px !important;line-height:1px !important;max-height:0 !important;max-width:0 !important;opacity:0 !important;overflow:hidden !important;"
     >
-      You're officially in! Get early access, join our WhatsApp group, and invite friends to nēro. Control your spending. Fix your future.
+      Be honest… your money dey disappear abi? 👀 You’re early for a reason.
     </div>
 
     <table
@@ -412,10 +412,10 @@ async function sendWelcomeEmail(email: string) {
                     <td align="center" style="padding:0;">
                       <a href="https://waitlist.neroapp.co" target="_blank" style="display:inline-block;">
                         <img
-                          src="https://res.cloudinary.com/dentghiic/image/upload/v1776871014/card-1email_qpe4a4.png"
-                          alt="Join WhatsApp group"
+                          src="https://res.cloudinary.com/dentghiic/image/upload/v1776874864/card-1email_pexak1.png"
+                          alt="Intro card"
                           width="560"
-                          style="display:block;width:100%;max-width:560px;height:auto;border-radius:8px;"
+                          style="display:block;width:100%;max-width:560px;height:auto;"
                         />
                       </a>
                     </td>
@@ -427,10 +427,10 @@ async function sendWelcomeEmail(email: string) {
                     <td align="center" style="padding:0;">
                       <a href="https://waitlist.neroapp.co" target="_blank" style="display:inline-block;">
                         <img
-                          src="https://res.cloudinary.com/dentghiic/image/upload/v1776769897/cta-1_hqj5j6.png"
-                          alt="Join nēro waitlist"
+                          src="https://res.cloudinary.com/dentghiic/image/upload/v1776874869/cta-1_d2xa8w.png"
+                          alt="Share nēro waitlist"
                           width="560"
-                          style="display:block;width:100%;max-width:560px;height:auto;border-radius:8px;"
+                          style="display:block;width:100%;max-width:560px;height:auto;"
                         />
                       </a>
                     </td>
@@ -442,10 +442,10 @@ async function sendWelcomeEmail(email: string) {
                     <td align="center" style="padding:0;">
                       <a href="https://waitlist.neroapp.co" target="_blank" style="display:inline-block;">
                         <img
-                          src="https://res.cloudinary.com/dentghiic/image/upload/v1776775511/cta-2_qkxtje.png"
+                          src="https://res.cloudinary.com/dentghiic/image/upload/v1776874866/cta-2_zzfhzl.png"
                           alt="Join WhatsApp group"
                           width="560"
-                          style="display:block;width:100%;max-width:560px;height:auto;border-radius:8px;"
+                          style="display:block;width:100%;max-width:560px;height:auto;"
                         />
                       </a>
                     </td>
@@ -457,10 +457,10 @@ async function sendWelcomeEmail(email: string) {
                     <td align="center" style="padding:0;">
                       <a href="https://waitlist.neroapp.co" target="_blank" style="display:inline-block;">
                         <img
-                          src="https://res.cloudinary.com/dentghiic/image/upload/v1776871015/card3-email_j5p9ax.png"
-                          alt="Join WhatsApp group"
+                          src="https://res.cloudinary.com/dentghiic/image/upload/v1776874864/card-3email_lznspe.png"
+                          alt="Closing card"
                           width="560"
-                          style="display:block;width:100%;max-width:560px;height:auto;border-radius:8px;"
+                          style="display:block;width:100%;max-width:560px;height:auto;"
                         />
                       </a>
                     </td>
@@ -474,11 +474,9 @@ async function sendWelcomeEmail(email: string) {
                 <table
                   role="presentation"
                   width="100%"
-                  cellpadding="0"
-                  cellspacing="0"
                   border="0"
                   class="footer-content"
-                  style="width:100%;max-width:600px;margin:0 auto;"
+                  style="width:100%;margin:0 auto;"
                 >
                   <tr>
                     <td class="footer-inner-pad" align="center" style="padding:0 20px;">
@@ -489,7 +487,7 @@ async function sendWelcomeEmail(email: string) {
                         style="display:block;margin:0 auto 12px;"
                       />
 
-                      <p class="footer-motto" style="font-family:Helvetica,Arial,sans-serif;font-weight:700;font-size:12px;color:#FFFFFF;margin:0 0 22px;letter-spacing:-0.3px;">
+                      <p class="footer-motto" style="font-family:Helvetica,Arial,sans-serif;font-weight:700;font-size:12px;color:#FFFFFF !important;margin:0 0 22px;letter-spacing:-0.3px;">
                         Control your spending. Fix your future.
                       </p>
 
@@ -499,10 +497,10 @@ async function sendWelcomeEmail(email: string) {
                         </tr>
                       </table>
 
-                      <p class="footer-copy" style="font-family:Helvetica,Arial,sans-serif;font-size:12px;color:rgba(248,247,247,0.85);margin:18px 0;line-height:1.5;">
-                        You're receiving this because you joined the nēro waitlist.<br />
+                      <p class="footer-copy" style="font-family:Helvetica,Arial,sans-serif;font-size:12px;color:#ffffff !important;margin:18px 0;line-height:1.5;">
+                        This is a system generated email. Please do not reply. <br/><br/>You're receiving this because you joined the nēro waitlist.<br />
                         If this isn't for you, you can
-                        <a href="#" style="color:#FFFFFF;text-decoration:underline;">unsubscribe</a>
+                        <a href="#" style="color:#FFFFFF !important;text-decoration:underline;">unsubscribe</a>
                         anytime.
                       </p>
 
@@ -527,7 +525,7 @@ async function sendWelcomeEmail(email: string) {
                         </a>
                       </div>
 
-                      <p class="footer-small" style="font-family:Helvetica,Arial,sans-serif;font-size:10px;color:rgba(248,247,247,0.65);margin-top:10px;">
+                      <p class="footer-small" style="font-family:Helvetica,Arial,sans-serif;font-size:10px;color:#ffffff !important;margin-top:10px;">
                         © 2026 nēro. All rights reserved.
                       </p>
                     </td>
