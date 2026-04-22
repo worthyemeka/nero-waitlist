@@ -21,36 +21,22 @@ export default function BreadcrumbHeader({ pageTitle }: { pageTitle: string }) {
       data-node-id="4305:381"
       data-name="breadcrumb"
     >
-      {/* Background layers */}
+      {/* Full background image, no purple overlay */}
       <div
         aria-hidden="true"
         style={{
           position: "absolute",
           inset: 0,
           pointerEvents: "none",
+          backgroundImage: `url('${breadcrumbBg}')`,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center center",
+          backgroundSize: "cover",
+          width: "100%",
+          height: "100%",
+          zIndex: 0,
         }}
-      >
-        <div style={{ position: "absolute", inset: 0, background: "#2a2a91" }} />
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            opacity: 0.03,
-            backgroundImage: `url('${breadcrumbBg}')`,
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "top left",
-            backgroundSize: "475.2px 558px",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage:
-              "linear-gradient(rgba(42, 42, 145, 0) 59.286%, rgb(42, 42, 145) 108.1%), linear-gradient(rgb(42, 42, 145) 28.214%, rgba(42, 42, 145, 0) 65.476%)",
-          }}
-        />
-      </div>
+      />
       {/* Content */}
       <div
         style={{

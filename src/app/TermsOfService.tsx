@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BreadcrumbHeader from "./BreadcrumbHeader";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -48,6 +48,18 @@ export default function TermsOfService() {
             setIsLoading(false);
         }
     };
+
+    // SEO: Set page title and meta description
+    useEffect(() => {
+        document.title = "nēro Terms of Service";
+        let metaDesc = document.querySelector('meta[name="description"]');
+        if (!metaDesc) {
+            metaDesc = document.createElement('meta');
+            metaDesc.setAttribute('name', 'description');
+            document.head.appendChild(metaDesc);
+        }
+        metaDesc.setAttribute('content', 'Read the Terms of Service for nēro. Understand your rights, responsibilities, and how we protect your data and experience.');
+    }, []);
     return (
         <div style={{ minHeight: "100vh", width: "100vw", fontFamily: "Satoshi, 'Helvetica Neue', Helvetica, Arial, sans-serif", background: "#fff", color: "#181818" }}>
             <BreadcrumbHeader pageTitle="Terms of Service" />
