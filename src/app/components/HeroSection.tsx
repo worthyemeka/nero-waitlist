@@ -186,52 +186,35 @@ function EmailForm({
 
 function CounterComponent() {
   const [count, setCount] = useState(120);
-  const [dbCount, setDbCount] = useState(0);
 
   const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 
   useEffect(() => {
-    fetch("https://nero-waitlist.vercel.app/api/waitlist")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("Fetched count:", data.count);
-        if (data.count !== undefined) {
-          setDbCount(data.count);
+    const controller = new AbortController();
+
+    async function fetchCount() {
+      try {
+        const res = await fetch("/api/waitlist", { signal: controller.signal });
+        if (!res.ok) {
+          throw new Error(`Failed to fetch waitlist count: ${res.status}`);
         }
-      })
-      .catch((err) => {
-        console.error("Fetch error:", err);
-      });
-  }, []);
 
-  useEffect(() => {
-    const target = 120 + dbCount;
-    
-    const timer = setTimeout(() => {
-      const duration = 2000;
-      const increment = dbCount > 0 ? dbCount / (duration / 16) : 0;
-
-      if (dbCount === 0) {
-        setCount(120);
-        return;
+        const data = (await res.json()) as { count?: number };
+        const fetchedCount = Number(data.count ?? 0);
+        const safeCount = Number.isFinite(fetchedCount) ? Math.max(0, fetchedCount) : 0;
+        setCount(120 + safeCount);
+      } catch (err) {
+        if (!controller.signal.aborted) {
+          console.error("Fetch error:", err);
+          setCount(120);
+        }
       }
+    }
 
-      const interval = setInterval(() => {
-        setCount((prev) => {
-          const next = prev + increment;
-          if (next >= target) {
-            clearInterval(interval);
-            return target;
-          }
-          return Math.floor(next);
-        });
-      }, 16);
+    fetchCount();
 
-      return () => clearInterval(interval);
-    }, 1500);
-
-    return () => clearTimeout(timer);
-  }, [dbCount]);
+    return () => controller.abort();
+  }, []);
 
   return (
     <motion.div
