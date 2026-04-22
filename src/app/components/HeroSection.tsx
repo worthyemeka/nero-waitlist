@@ -194,22 +194,27 @@ function CounterComponent() {
     fetch("https://nero-waitlist.vercel.app/api/waitlist")
       .then((res) => res.json())
       .then((data) => {
+        console.log("Fetched count:", data.count);
         if (data.count !== undefined) {
           setDbCount(data.count);
         }
       })
-      .catch(() => {
-        // Fallback: keep dbCount at 0
+      .catch((err) => {
+        console.error("Fetch error:", err);
       });
   }, []);
 
   useEffect(() => {
+    const target = 120 + dbCount;
+    
     const timer = setTimeout(() => {
-      const baseTarget = 120;
-      const target = baseTarget + dbCount;
       const duration = 2000;
-      const startCount = 120;
-      const increment = (target - startCount) / (duration / 16);
+      const increment = dbCount > 0 ? dbCount / (duration / 16) : 0;
+
+      if (dbCount === 0) {
+        setCount(120);
+        return;
+      }
 
       const interval = setInterval(() => {
         setCount((prev) => {
