@@ -450,7 +450,7 @@ async function sendWelcomeEmail(email: string) {
                 >
                   <tr>
                     <td align="center" style="padding:0;">
-                      <a href="https://waitlist.neroapp.co" target="_blank" style="display:inline-block;">
+                      <a href="https://chat.whatsapp.com/JYVG4hCC5gZ6q9MfluDOSo?mode=gi_t" target="_blank" style="display:inline-block;">
                         <img
                           src="https://res.cloudinary.com/dentghiic/image/upload/v1776874866/cta-2_zzfhzl.png"
                           alt="Join WhatsApp group"

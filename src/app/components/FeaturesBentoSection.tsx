@@ -37,7 +37,7 @@ export default function FeaturesBentoSection() {
     return (
         <section
             ref={sectionRef}
-            className="w-full bg-white px-6 pb-8 pt-1 md:px-8 md:pb-20 md:pt-14 lg:px-20 lg:pb-28 lg:pt-20"
+            className="w-full bg-white px-6 pb-8 pt-10 md:px-5 md:pb-20 md:pt-14 lg:px-5 lg:pb-28 lg:pt-20"
         >
             <div className="mx-auto w-full max-w-[1264px]">
                 {/* Header — left on mobile, centered on xl */}

@@ -54,22 +54,27 @@ export default function CTAFooterSection() {
 
   const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 
+  // Counter logic: fetch max id from Supabase, animate to 50 max
   const [count, setCount] = useState(0);
   const [target, setTarget] = useState(0);
 
   useEffect(() => {
-    async function fetchCount() {
+    async function fetchMaxId() {
       try {
-        const res = await fetch("/api/waitlist");
-        if (!res.ok) throw new Error("Failed to fetch waitlist count");
+        // Fetch the max id from the waitlist table
+        const res = await fetch("/api/waitlist?id=max");
+        if (!res.ok) throw new Error("Failed to fetch waitlist max id");
         const data = await res.json();
-        const fetchedCount = Number(data.count ?? 0);
-        setTarget(Number.isFinite(fetchedCount) ? Math.max(0, fetchedCount) : 0);
+        // If backend supports, use data.maxId, else fallback to count
+        let maxId = Number(data.maxId ?? data.count ?? 0);
+        if (!Number.isFinite(maxId)) maxId = 0;
+        // Clamp to 50
+        setTarget(Math.min(50, Math.max(0, maxId)));
       } catch {
         setTarget(0);
       }
     }
-    fetchCount();
+    fetchMaxId();
   }, []);
 
   useEffect(() => {
@@ -134,7 +139,7 @@ export default function CTAFooterSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ ...revealTransition, delay: 0.15 }}
-            className="font-['Satoshi:Regular',sans-serif] text-[#696969] text-[14px] sm:text-[15px] md:text-[17px] xl:text-[18px] leading-[1.55] mt-[16px] sm:mt-[20px] md:mt-[24px] max-w-[320px] sm:max-w-[400px] md:max-w-[480px]"
+            className="font-['Satoshi:Regular',sans-serif] text-[#696969] text-[18px] sm:text-[15px] md:text-[17px] xl:text-[20px] leading-[1.55] mt-[16px] sm:mt-[20px] md:mt-[24px] max-w-[320px] sm:max-w-[400px] md:max-w-[480px]"
           >
             Get early access to nēro and start spending with
             <br className="hidden sm:block" />
@@ -185,64 +190,60 @@ export default function CTAFooterSection() {
             </motion.p>
           )}
 
-          {/* Avatar counter */}
+          {/* Avatar counter (Hero style) */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ ...revealTransition, delay: 0.45 }}
-            className="flex flex-wrap items-center justify-center gap-[10px] mt-[20px] sm:mt-[24px] max-w-[360px] sm:max-w-none"
+            className="content-stretch flex gap-[8px] sm:gap-[12px] items-center justify-center relative shrink-0 w-full flex-nowrap mt-[20px] sm:mt-[24px]"
+            data-name="Counter"
           >
-            <div className="relative flex">
-              {avatars.map((avatar, i) => (
-                <div
-                  key={i}
-                  className="w-[28px] h-[28px] sm:w-[32px] sm:h-[32px] md:w-[36px] md:h-[36px] rounded-full border-2 border-white overflow-hidden bg-gray-200 shadow-sm flex-shrink-0"
-                  style={{ zIndex: 10 - i, marginLeft: i > 0 ? "-8px" : "0" }}
-                >
-                  <img
-                    alt=""
-                    src={avatar}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              ))}
+            <div
+              className="relative flex items-center h-[32px] sm:h-[36px] md:h-[40px] flex-shrink-0"
+              data-name="Image Block"
+            >
+              <div className="relative flex">
+                {avatars.map((avatar, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: 1.2 + index * 0.1 }}
+                    className="w-[22px] h-[22px] sm:w-[28px] sm:h-[28px] md:w-[40px] md:h-[40px] rounded-full border-2 border-white overflow-hidden bg-gray-200 relative shadow-md flex-shrink-0"
+                    style={{ zIndex: 50 - index, marginLeft: index > 0 ? "-6px" : "0" }}
+                    whileHover={{ scale: 1.08 }}
+                  >
+                    <img
+                      alt=""
+                      src={avatar}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = `data:image/svg+xml,${encodeURIComponent('<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="20" fill="#2a2a91"/></svg>')}`;
+                      }}
+                    />
+                  </motion.div>
+                ))}
+              </div>
             </div>
-            <p className="font-['Satoshi:Regular',sans-serif] text-[12px] sm:text-[13px] md:text-[14px] text-center sm:text-left">
-              <span className="font-['Satoshi:700',sans-serif] font-bold text-[#2a2a91]">
-                Join {count}+ people
-              </span>
-              <span className="text-[#696969]"> getting early access</span>
-            </p>
+            <div className="flex flex-col font-['Satoshi:Regular',sans-serif] justify-center leading-[1.35] relative shrink-0 text-[11px] sm:text-[13px] md:text-[15px] tracking-normal min-w-0">
+              <p className="not-italic whitespace-nowrap">
+                <span className="font-['Satoshi:700',sans-serif] font-bold text-[#2a2a91]">
+                  {count}+ people
+                </span>
+                <span className="font-['Satoshi:Regular',sans-serif] text-[#696969]">
+                  {` already signed up for our waitlist`}
+                </span>
+              </p>
+            </div>
           </motion.div>
         </div>
 
       {/* Footer */}
       <footer className="relative z-10 w-full border-t border-[rgba(255,255,255,0.15)]">
-        <div className="max-w-[1440px] mx-auto flex flex-col sm:flex-row items-center sm:items-center justify-between px-5 sm:px-8 md:px-12 xl:px-[80px] py-[18px] sm:py-[24px] gap-[14px] sm:gap-0">
-          {/* Left - Links */}
-          <div className="flex flex-wrap justify-center sm:justify-start gap-[14px] sm:gap-[20px] items-center order-2 sm:order-1">
-            <a
-              href="/terms-of-service"
-              className="font-['Satoshi:Regular',sans-serif] text-[13px] md:text-[14px] text-[#696969] hover:text-[#2a2a91] transition-colors"
-            >
-              Terms of Service
-            </a>
-            <a
-              href="/privacy-policy"
-              className="font-['Satoshi:Regular',sans-serif] text-[13px] md:text-[14px] text-[#696969] hover:text-[#2a2a91] transition-colors"
-            >
-              Privacy Policy
-            </a>
-          </div>
-
-          {/* Center - Copyright */}
-          <p className="font-['Satoshi:Regular',sans-serif] text-[13px] md:text-[14px] text-[#696969] order-1 sm:order-2 text-center">
-            @2026 nēro. All right's reserved.
-          </p>
-
-          {/* Right - Social */}
-          <div className="flex items-center gap-[10px] order-3">
+        <div className="max-w-[1440px] mx-auto flex flex-col sm:flex-row items-center justify-between px-5 sm:px-8 md:px-12 xl:px-[80px] py-[18px] sm:py-[24px] gap-[14px] sm:gap-0">
+          {/* Left - Social */}
+          <div className="flex items-center gap-[10px] order-1 w-full sm:w-auto justify-center sm:justify-start">
             <span className="font-['Satoshi:Regular',sans-serif] text-[13px] md:text-[14px] text-[#696969]">
               Follow us:
             </span>
@@ -265,6 +266,29 @@ export default function CTAFooterSection() {
                   fill="white"
                 />
               </svg>
+            </a>
+          </div>
+
+          {/* Center - Copyright */}
+          <p className="font-['Satoshi:Regular',sans-serif] text-[13px] md:text-[14px] text-[#696969] order-2 w-full sm:w-auto text-center">
+            @2026 nēro. All right's reserved.
+          </p>
+
+          {/* Right - Links */}
+          <div className="flex w-full sm:w-auto justify-between sm:justify-end items-center order-3 gap-0 sm:gap-[20px]">
+            <a
+              href="/terms-of-service"
+              className="font-['Satoshi:Regular',sans-serif] text-[13px] md:text-[14px] text-[#696969] hover:text-[#2a2a91] transition-colors"
+              style={{ minWidth: 'max-content' }}
+            >
+              Terms of Service
+            </a>
+            <a
+              href="/privacy-policy"
+              className="font-['Satoshi:Regular',sans-serif] text-[13px] md:text-[14px] text-[#696969] hover:text-[#2a2a91] transition-colors"
+              style={{ minWidth: 'max-content' }}
+            >
+              Privacy Policy
             </a>
           </div>
         </div>
