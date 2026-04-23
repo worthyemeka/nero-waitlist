@@ -17,8 +17,8 @@ export default function BrowserView() {
       <p>Join the testers GC for real-time drops, behind-the-scenes updates, and first dibs as we build.</p>
       <p>
         Join WhatsApp group:{' '}
-        <a href="https://chat.whatsapp.com/JYVG4hCC5gZ6q9MfluDOSo?mode=gi_t" target="_blank" rel="noopener noreferrer">
-          https://chat.whatsapp.com/JYVG4hCC5gZ6q9MfluDOSo?mode=gi_t
+        <a href="https://chat.whatsapp.com/GmIOkXzIITu8knz6QHo45m?mode=gi_t" target="_blank" rel="noopener noreferrer">
+          https://chat.whatsapp.com/GmIOkXzIITu8knz6QHo45m?mode=gi_t
         </a>
       </p>
       <p>Thanks again for joining us early.</p>
