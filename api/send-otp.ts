@@ -23,33 +23,120 @@ const transporter = nodemailer.createTransport({
 });
 
 function buildOtpEmailHtml(code: string): string {
-  return `<!DOCTYPE html>
+  const subject = "your verification code";
+
+  const html = `
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body style="margin: 0; padding: 0; background-color: #f5f5f5; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f5f5f5; padding: 24px;">
+
+<body style="margin:0;padding:0;background-color:#f6f6f8;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f6f6f8;padding:32px 16px;">
     <tr>
       <td align="center">
-        <table width="100%" style="max-width: 400px; background-color: #ffffff; border-radius: 8px; overflow: hidden;">
+
+        <table width="100%" cellpadding="0" cellspacing="0" style="max-width:420px;background:#ffffff;border-radius:18px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.04);">
+
+          <!-- Header -->
           <tr>
-            <td style="padding: 32px 24px; text-align: center;">
-              <h1 style="margin: 0 0 8px; font-size: 24px; font-weight: 600; color: #1a1a1a;">nero</h1>
-              <p style="margin: 0 0 24px; font-size: 14px; color: #666666;">enter this code to verify your email</p>
-              <div style="background-color: #f5f5f5; border-radius: 8px; padding: 24px; margin-bottom: 24px;">
-                <span style="font-size: 32px; font-weight: 700; letter-spacing: 8px; color: #1a1a1a;">${code}</span>
-              </div>
-              <p style="margin: 0; font-size: 13px; color: #999999;">this code expires in 2 minutes</p>
+            <td style="background:#2A2A91;padding:28px 24px;text-align:center;">
+
+              <img 
+                src="https://res.cloudinary.com/dentghiic/image/upload/v1776908442/nero-light-logo_icxpx3.png"
+                width="50"
+                style="display:block;margin:0 auto 0;"
+
+              />
+
             </td>
           </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding:36px 28px;text-align:center;">
+              <div style="font-size:26px;color:#0a0a0a;opacity:0.9; text-transform: capitalize; font-weight: 700; padding: 0 0 10px 0;">
+                verify your email
+              </div>
+              <div style="font-size:14px;color:#666666;margin-bottom:28px;line-height:1.5;">
+                enter the code below to continue
+              </div>
+
+              <!-- OTP Box -->
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:28px;">
+                <tr>
+                  <td align="center">
+
+                    <div style="
+                      background:#F4F4F6;
+                      border-radius:14px;
+                      padding:22px 16px;
+                      display:inline-block;
+                      min-width:260px;
+                    ">
+
+                      <span style="
+                        font-size:34px;
+                        font-weight:700;
+                        letter-spacing:10px;
+                        color:#111111;
+                      ">
+                        ${code}
+                      </span>
+
+                    </div>
+
+                  </td>
+                </tr>
+              </table>
+
+              <!-- CTA Button (rounded as requested) -->
+              <a href="#" style="
+                display:inline-block;
+                background:#2A2A91;
+                color:#FFFFFF;
+                font-size:13px;
+                font-weight:600;
+                text-decoration:none;
+                padding:12px 120px;
+                border-radius:999px;
+                margin-bottom:24px;
+              ">
+                Continue
+              </a>
+
+              <div style="font-size:12px;color:#999999;">
+                this code expires in 2 minutes
+              </div>
+
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding:20px;text-align:center;background:#fafafa;">
+
+              <div style="font-size:11px;color:#bbbbbb;line-height:1.5;">
+                if you didn't request this, you can ignore this email
+              </div>
+
+            </td>
+          </tr>
+
         </table>
+
       </td>
     </tr>
   </table>
+
 </body>
-</html>`;
+</html>
+`;
+
+  return html;
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -69,11 +156,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
+    const html = buildOtpEmailHtml(code);
     await transporter.sendMail({
       from: FROM_EMAIL,
       to: email,
       subject: "your verification code",
-      html: buildOtpEmailHtml(code),
+      html,
     });
 
     return res.status(200).json({ success: true, message: "Email sent" });
