@@ -37,11 +37,31 @@ export default function FeaturesBentoSection() {
     return (
         <section
             ref={sectionRef}
-            className="w-full bg-white px-6 pb-8 pt-10 md:px-5 md:pb-20 md:pt-14 lg:px-5 lg:pb-28 lg:pt-20"
+            className="w-full bg-white px-4 pb-8 pt-8 sm:px-6 sm:pb-10 sm:pt-10 md:px-5 md:pb-20 md:pt-14 lg:px-5 lg:pb-28 lg:pt-20 xl:px-0 xl:pb-15 xl:pt-10"
         >
+            <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-8 md:gap-12">
+                <motion.div
+                    initial={{ opacity: 0, y: 18, filter: "blur(10px)" }}
+                    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                    viewport={{ once: true, amount: 0.35 }}
+                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                    className="grid w-full gap-5 md:gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start lg:gap-16"
+                >
+                    <div className="flex flex-col items-start text-left lg:pr-8">
+                        <h2 className="w-full text-[26px] font-semibold leading-[1.2] tracking-[-1px] text-[#12123D] sm:text-[36px] sm:tracking-[-1.5px] md:text-[36px] md:tracking-[-2px] lg:text-[44px]">
+                            Here's how we help you stay on track
+                        </h2>
+                    </div>
+
+                    <p className="max-w-[640px] text-[14px] leading-6 text-[#8A8A8A] sm:text-[15px] sm:leading-7 md:text-[17px] md:leading-8 lg:text-[20px] lg:leading-[30px]">
+                        We've all been there… checking your balance, spending beyond your limits, and somehow hoping it lasts.
+                        That's why nēro was built: to give you clarity when budgeting, not stress.
+                    </p>
+                </motion.div>
+            </div>
             <div className="mx-auto w-full max-w-[1264px]">
                 {/* Header — left on mobile, centered on xl */}
-                <motion.div
+               {/*} <motion.div
                     style={{ y: headingParallaxY }}
                     initial={{ opacity: 0, y: 18, filter: "blur(12px)" }}
                     whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -55,9 +75,9 @@ export default function FeaturesBentoSection() {
                     <p className="mt-3 text-[14px] leading-6 text-[#8A8A8A] sm:mt-4 sm:text-[16px] sm:leading-7 md:text-[24px] xl:mt-5 xl:text-[20px] xl:leading-[30px]">
                         Set your budget once. nēro handles the rest — daily.
                     </p>
-                </motion.div>
+                </motion.div>*/}
 
-                                <div className="mt-8 grid grid-cols-1 gap-4 sm:gap-5 md:mt-10 xl:mt-14
+                <div className="mt-8 grid grid-cols-1 gap-4 sm:gap-5 md:mt-10 xl:mt-14
                                     md:grid-cols-2 md:grid-rows-2 md:gap-6
                                     xl:grid-cols-[730px_510px] xl:grid-rows-[480px_480px] xl:gap-6">
 
@@ -235,7 +255,7 @@ export default function FeaturesBentoSection() {
                                 Your money, reviewed for you
                             </h3>
                             <p className="mt-2 text-[16px] font-normal leading-[1.4] text-[#797C86] sm:text-[18px] md:text-[16px] xl:text-[20px]">
-                               Get simple weekly and full-cycle recaps that show how you spent, where you can improve, and how you’re progressing.
+                                Get simple weekly and full-cycle recaps that show how you spent, where you can improve, and how you’re progressing.
                             </p>
                         </div>
 

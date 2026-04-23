@@ -55,40 +55,6 @@ export default function AboutSection() {
             That's why nēro was built: to give you clarity when budgeting, not stress.
           </p>
         </motion.div>
-
-        <div className="grid gap-4 sm:gap-5 md:grid-cols-3 md:gap-5">
-          {cards.map((card, index) => {
-            const Icon = card.icon;
-            return (
-              <motion.article
-                key={card.title}
-                initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
-                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                viewport={{ once: true, amount: 0.25 }}
-                transition={{ duration: 0.7, delay: index * 0.1, ease: "easeOut" }}
-                className="w-full rounded-[24px] border border-black/10 bg-white p-5 md:min-h-[224px] md:p-6"
-              >
-                <motion.div
-                  initial={{ opacity: 0, y: 10, scale: 0.96, filter: "blur(6px)" }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-                  viewport={{ once: true, amount: 0.45 }}
-                  transition={{ duration: 0.6, delay: 0.1 + index * 0.1, ease: "easeOut" }}
-                  className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-[16px] bg-[#F2F2F2] md:mb-6 md:h-12 md:w-12 md:rounded-[18px]"
-                >
-                  <Icon className="h-6 w-6 text-[#12123D] md:h-7 md:w-7" />
-                </motion.div>
-
-                <h3 className="text-[16px] font-semibold leading-[1.25] tracking-[-0.32px] text-black sm:text-[17px] md:text-[20px]">
-                  {card.title}
-                </h3>
-
-                <p className="mt-3 text-[14px] leading-6 text-[#8A8A8A] sm:text-[15px] md:mt-4 md:text-[18px] md:leading-7">
-                  {card.description}
-                </p>
-              </motion.article>
-            );
-          })}
-        </div>
       </div>
     </motion.section>
   );
