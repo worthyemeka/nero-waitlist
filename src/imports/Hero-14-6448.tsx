@@ -209,7 +209,7 @@ function Counter() {
       <ImageBlock />
       <div className="flex flex-col font-['Instrument_Sans:Medium',sans-serif] font-medium justify-center leading-[0] relative shrink-0 text-[#2a2a91] text-[16px] tracking-[-0.32px] whitespace-nowrap" style={{ fontVariationSettings: "'wdth' 100" }}>
         <p className="not-italic">
-          <span className="font-['Satoshi:Bold',sans-serif] leading-[24px]">{count}+ people</span>
+          <span className="font-['Satoshi:Bold',sans-serif] leading-[24px]">{count} people</span>
           <span className="font-['Satoshi:Medium',sans-serif] leading-[24px]">{` `}</span>
           <span className="font-['Satoshi:Regular',sans-serif] leading-[24px] text-[#12123d]">already signed up for our waitlist</span>
         </p>

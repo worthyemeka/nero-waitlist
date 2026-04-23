@@ -199,7 +199,7 @@ export default function TermsOfService() {
                         </div>
                         <p className="font-['Satoshi:Regular',sans-serif] text-[12px] sm:text-[13px] md:text-[14px] text-center sm:text-left">
                             <span className="font-['Satoshi:700',sans-serif] font-bold text-[#2a2a91]">
-                                Join {count}+ people
+                                Join {count} people
                             </span>
                             <span className="text-[#696969]"> getting early access</span>
                         </p>

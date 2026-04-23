@@ -381,7 +381,7 @@ function Frame57() {
             animate={{ opacity: 1 }}
             className="font-['Satoshi:Bold',sans-serif] leading-[24px] inline-block"
           >
-            {count}+ people
+            {count} people
           </motion.span>
           <span className="font-['Satoshi:Medium',sans-serif] leading-[24px]">{` `}</span>
           <span className="font-['Satoshi:Regular',sans-serif] leading-[24px] text-[#12123d]">already signed up for our waitlist</span>

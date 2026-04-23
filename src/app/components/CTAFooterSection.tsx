@@ -229,7 +229,7 @@ export default function CTAFooterSection() {
             <div className="flex flex-col font-['Satoshi:Regular',sans-serif] justify-center leading-[1.35] relative shrink-0 text-[11px] sm:text-[13px] md:text-[15px] tracking-normal min-w-0">
               <p className="not-italic whitespace-nowrap">
                 <span className="font-['Satoshi:700',sans-serif] font-bold text-[#2a2a91]">
-                  {count}+ people
+                  {count} people
                 </span>
                 <span className="font-['Satoshi:Regular',sans-serif] text-[#696969]">
                   {` already signed up for our waitlist`}
