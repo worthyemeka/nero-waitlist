@@ -47,16 +47,19 @@ export default function FeaturesBentoSection() {
                     transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                     className="grid w-full gap-5 md:gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start lg:gap-16"
                 >
-                    <div className="flex flex-col items-start text-left lg:pr-8">
-                        <h2 className="w-full text-[26px] font-semibold leading-[1.2] tracking-[-1px] text-[#12123D] sm:text-[36px] sm:tracking-[-1.5px] md:text-[36px] md:tracking-[-2px] lg:text-[44px]">
-                            Here's how we help you stay on track
+                    <div className="flex flex-col items-center text-center lg:items-start lg:text-left lg:pr-8 w-full">
+                        <h2 className="w-full text-[36px] font-semibold leading-[1.2] tracking-[-1px] text-[#12123D] sm:text-[30px] sm:tracking-[-1.5px] md:text-[36px] md:tracking-[-2px] lg:text-[44px]">
+                            Here's how we help<br/> you stay on track
                         </h2>
+                        {/* Short description for tablet and mobile, long for desktop */}
+                        <p className="max-w-[640px] mt-3 text-[18px] leading-6 text-[#8A8A8A] block lg:hidden">
+                            Set your budget once. nēro <br/>handles the rest — daily.
+                        </p>
+                        <p className="max-w-[640px] mt-3 text-[18px] leading-6 text-[#8A8A8A] hidden lg:block lg:text-[20px] lg:leading-[30px]">
+                            We've all been there… checking your balance, spending beyond your limits, and somehow hoping it lasts.
+                            That's why nēro was built: to give you clarity when budgeting, not stress.
+                        </p>
                     </div>
-
-                    <p className="max-w-[640px] text-[14px] leading-6 text-[#8A8A8A] sm:text-[15px] sm:leading-7 md:text-[17px] md:leading-8 lg:text-[20px] lg:leading-[30px]">
-                        We've all been there… checking your balance, spending beyond your limits, and somehow hoping it lasts.
-                        That's why nēro was built: to give you clarity when budgeting, not stress.
-                    </p>
                 </motion.div>
             </div>
             <div className="mx-auto w-full max-w-[1264px]">
@@ -209,7 +212,7 @@ export default function FeaturesBentoSection() {
                             </p>
                         </div>
                         {/* Image grid — bottom center */}
-                        <div className="absolute left-0 right-0 bottom-[8px] z-[1] flex items-end justify-center w-full h-[55vw] min-h-[120px] max-h-[220px] sm:bottom-6 sm:h-[38vw] sm:max-h-[240px] md:bottom-10 md:h-[30vw] md:max-h-[260px] xl:h-[22vw] xl:bottom-0 xl:max-h-[320px]">
+                        <div className="absolute left-0 right-0 bottom-[8px] z-[1] flex items-end justify-center w-full h-[55vw] min-h-[120px] max-h-[220px] sm:bottom-0 sm:h-[38vw] sm:max-h-[240px] md:bottom-10 md:h-[30vw] md:max-h-[260px] xl:h-[22vw] xl:bottom-0 xl:max-h-[320px]">
                             <img
                                 src={bento3Img}
                                 alt="Spending patterns grid"
@@ -218,7 +221,7 @@ export default function FeaturesBentoSection() {
                             />
                             {/* Gradient overlay at bottom, larger on md */}
                             <div
-                                className="pointer-events-none absolute left-0 right-0 bottom-0 h-[40px] sm:h-[80px] md:h-[120px] xl:h-[100px]"
+                                className="pointer-events-none absolute left-0 right-0 bottom-0 h-[40px] sm:h-[180px] md:h-[120px] xl:h-[100px]"
                                 style={{
                                     background: "linear-gradient(180deg, rgba(255,255,255,0) 0%, #F7F9FB 100%)",
                                 }}
@@ -233,7 +236,7 @@ export default function FeaturesBentoSection() {
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{ ...revealTransition, delay: 0.12 }}
                         whileHover={{ y: -6, transition: { type: "spring", stiffness: 400, damping: 15 } }}
-                        className="relative flex flex-col items-center justify-between h-[380px] overflow-hidden rounded-b-[32px] rounded-t-[24px] bg-white sm:h-[440px] md:h-[460px] md:col-[2/3] md:row-[2/3] xl:col-[2/3] xl:row-[2/3] xl:h-[480px] xl:w-[730px] xl:justify-self-end"
+                        className="relative flex flex-col items-center justify-between h-[380px] overflow-hidden rounded-b-[32px] rounded-t-[24px] bg-white sm:h-[440px] md:h-[430px] md:col-[2/3] md:row-[2/3] xl:col-[2/3] xl:row-[2/3] xl:h-[480px] xl:w-[730px] xl:justify-self-end"
                         style={{
                             background:
                                 "linear-gradient(90deg, rgba(242,242,242,0.37), rgba(242,242,242,0.37)), #fff",
@@ -244,13 +247,13 @@ export default function FeaturesBentoSection() {
                             <img
                                 src={bento4Img}
                                 alt="Cycle summary visual"
-                                className="w-[520px] sm:w-[520px] md:w-[400px] xl:w-[680px] max-w-full h-auto object-contain drop-shadow-lg"
+                                className="w-[520px] sm:w-[520px] md:w-[600px] xl:w-[680px] max-w-full h-auto object-contain drop-shadow-lg"
                                 style={{ filter: "drop-shadow(0 4px 24px rgba(42,42,145,0.09))" }}
                             />
                         </div>
 
                         {/* Text — bottom */}
-                        <div className="absolute bottom-[45px] left-6 right-6 z-[6] sm:bottom-7 sm:left-7 sm:right-7 xl:bottom-10 xl:left-10 xl:right-10">
+                        <div className="absolute bottom-[45px] left-6 right-6 z-[6] sm:bottom-7 md:bottom-[40px] sm:left-7 sm:right-7 xl:bottom-10 xl:left-10 xl:right-10">
                             <h3 className="text-[20px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#000000] sm:text-[19px] md:text-[22px] xl:text-[22px]">
                                 Your money, reviewed for you
                             </h3>
@@ -260,7 +263,7 @@ export default function FeaturesBentoSection() {
                         </div>
 
                         {/* Bottom fade */}
-                        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[4] h-[80px] bg-gradient-to-t from-[#F2F3F2] via-[#F2F3F2]/50 to-transparent md:h-[120px] xl:h-[140px]" />
+                        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[4] h-[80px] bg-gradient-to-t from-[#F2F3F2] via-[#F2F3F2]/50 to-transparent md:h-[160px] xl:h-[140px]" />
                     </motion.article>
 
                 </div>
