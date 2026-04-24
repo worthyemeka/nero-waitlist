@@ -51,7 +51,7 @@ function Header() {
         initial={{ opacity: 0, x: -40, y: 10 }}
         animate={{ opacity: 1, x: 0, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2, ease }}
-        className="flex flex-col font-['Satoshi:600',sans-serif] font-semibold justify-center not-italic relative shrink-0 text-[#12123d] w-auto leading-[1.08] text-[22px] sm:text-[30px] md:text-[36px] lg:text-[48px] xl:text-[44px] text-center lg:text-left"
+        className="flex flex-col font-['Satoshi:600',sans-serif] font-semibold justify-center not-italic relative shrink-0 text-[#12123d] w-auto leading-[1.08] text-[25.6px] sm:text-[34px] md:text-[36px] lg:text-[48px] xl:text-[44px] text-center lg:text-left"
       >
         <p>Stop running out of money</p>
       </motion.div>
@@ -59,7 +59,7 @@ function Header() {
         initial={{ opacity: 0, x: -40, y: 10 }}
         animate={{ opacity: 1, x: 0, y: 0 }}
         transition={{ duration: 0.8, delay: 0.4, ease }}
-        className="flex flex-col font-['Satoshi:600',sans-serif] font-semibold justify-center italic relative shrink-0 text-[#2A2A91] w-auto leading-[1.08] text-[22px] sm:text-[30px] md:text-[36px] lg:text-[48px] xl:text-[44px] text-center lg:text-left"
+        className="flex flex-col font-['Satoshi:600',sans-serif] font-semibold justify-center italic relative shrink-0 text-[#2A2A91] w-auto leading-[1.08] text-[25.6px] sm:text-[34px] md:text-[36px] lg:text-[48px] xl:text-[44px] text-center lg:text-left"
       >
         <p>before the month ends</p>
       </motion.div>

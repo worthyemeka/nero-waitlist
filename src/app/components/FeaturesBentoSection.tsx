@@ -48,9 +48,9 @@ export default function FeaturesBentoSection() {
                     transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                     className="w-full"
                 >
-                    <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8 items-start">
+                    <div className="grid grid-cols-1 gap-2 lg:grid-cols-2 lg:gap-4 items-start">
                         <div className="flex flex-col items-center text-center lg:items-start lg:text-left w-full">
-                            <h2 className="w-full text-[36px] font-semibold leading-[1.2] tracking-[-1px] text-[#12123D] sm:text-[30px] sm:tracking-[-1.5px] md:text-[36px] md:tracking-[-2px] lg:text-[44px]">
+                            <h2 className="w-full text-[25.6px] font-semibold leading-[1.2] tracking-[-1px] text-[#12123D] sm:text-[25.6px] sm:tracking-[-1.5px] md:text-[36px] md:tracking-[-2px] lg:text-[44px]">
                                 Here's how we help<br/> you stay on track
                             </h2>
                         </div>
@@ -59,7 +59,7 @@ export default function FeaturesBentoSection() {
                             <p className="max-w-[640px] mt-3 text-[18px] leading-6 text-[#8A8A8A] block lg:hidden">
                                 Set your budget once. nēro <br/>handles the rest — daily.
                             </p>
-                            <p className="max-w-[640px] mt-3 text-[18px] leading-6 text-[#8A8A8A] hidden lg:block lg:text-[20px] lg:leading-[30px]">
+                            <p className="max-w-[640px] mt-0 text-[18px] leading-6 text-[#8A8A8A] hidden lg:block lg:text-[20px] lg:leading-[30px]">
                                 We've all been there… checking your balance, spending beyond your limits, and somehow hoping it lasts.
                                 That's why nēro was built: to give you clarity when budgeting, not stress.
                             </p>
