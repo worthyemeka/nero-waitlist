@@ -31,8 +31,8 @@ export default function BrowserView() {
       </p>
       <p>
         Instagram:{' '}
-        <a href="https://instagram.com/nero.fin" target="_blank" rel="noopener noreferrer">
-          https://instagram.com/nero.fin
+        <a href="https://instagram.com/getneroapp" target="_blank" rel="noopener noreferrer">
+          https://instagram.com/getneroapp
         </a>
       </p>
       <p>&copy; 2026 nero. All rights reserved.</p>

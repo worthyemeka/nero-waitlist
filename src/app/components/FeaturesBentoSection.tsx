@@ -40,25 +40,30 @@ export default function FeaturesBentoSection() {
             className="w-full bg-white px-4 pb-8 pt-8 sm:px-6 sm:pb-10 sm:pt-10 md:px-5 md:pb-20 md:pt-14 lg:px-5 lg:pb-28 lg:pt-20 xl:px-0 xl:pb-15 xl:pt-10"
         >
             <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-8 md:gap-12">
+                {/* On laptop (lg), use 2 columns for header/description */}
                 <motion.div
                     initial={{ opacity: 0, y: 18, filter: "blur(10px)" }}
                     whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                     viewport={{ once: true, amount: 0.35 }}
                     transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                    className="grid w-full gap-5 md:gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start lg:gap-16"
+                    className="w-full"
                 >
-                    <div className="flex flex-col items-center text-center lg:items-start lg:text-left lg:pr-8 w-full">
-                        <h2 className="w-full text-[36px] font-semibold leading-[1.2] tracking-[-1px] text-[#12123D] sm:text-[30px] sm:tracking-[-1.5px] md:text-[36px] md:tracking-[-2px] lg:text-[44px]">
-                            Here's how we help<br/> you stay on track
-                        </h2>
-                        {/* Short description for tablet and mobile, long for desktop */}
-                        <p className="max-w-[640px] mt-3 text-[18px] leading-6 text-[#8A8A8A] block lg:hidden">
-                            Set your budget once. nēro <br/>handles the rest — daily.
-                        </p>
-                        <p className="max-w-[640px] mt-3 text-[18px] leading-6 text-[#8A8A8A] hidden lg:block lg:text-[20px] lg:leading-[30px]">
-                            We've all been there… checking your balance, spending beyond your limits, and somehow hoping it lasts.
-                            That's why nēro was built: to give you clarity when budgeting, not stress.
-                        </p>
+                    <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8 items-start">
+                        <div className="flex flex-col items-center text-center lg:items-start lg:text-left w-full">
+                            <h2 className="w-full text-[36px] font-semibold leading-[1.2] tracking-[-1px] text-[#12123D] sm:text-[30px] sm:tracking-[-1.5px] md:text-[36px] md:tracking-[-2px] lg:text-[44px]">
+                                Here's how we help<br/> you stay on track
+                            </h2>
+                        </div>
+                        <div className="flex flex-col items-center text-center lg:items-start lg:text-left w-full">
+                            {/* Short description for tablet and mobile, long for desktop/laptop */}
+                            <p className="max-w-[640px] mt-3 text-[18px] leading-6 text-[#8A8A8A] block lg:hidden">
+                                Set your budget once. nēro <br/>handles the rest — daily.
+                            </p>
+                            <p className="max-w-[640px] mt-3 text-[18px] leading-6 text-[#8A8A8A] hidden lg:block lg:text-[20px] lg:leading-[30px]">
+                                We've all been there… checking your balance, spending beyond your limits, and somehow hoping it lasts.
+                                That's why nēro was built: to give you clarity when budgeting, not stress.
+                            </p>
+                        </div>
                     </div>
                 </motion.div>
             </div>

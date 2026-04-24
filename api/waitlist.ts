@@ -520,7 +520,7 @@ async function sendWelcomeEmail(email: string) {
       <tr>
         <td align="center" style="padding:0;line-height:0;font-size:0;">
           <a
-            href="https://instagram.com/nero.fin"
+            href="https://instagram.com/getneroapp"
             target="_blank"
             style="display:block;line-height:0;font-size:0;text-decoration:none;"
           >
