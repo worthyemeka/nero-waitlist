@@ -428,10 +428,10 @@ async function sendWelcomeEmail(email: string) {
                 >
                   <tr>
                     <td align="center" style="padding:0;">
-                      <a href="https://waitlist.neroapp.co" target="_blank" style="display:inline-block;">
+                      <a href="https://instagram.com/getneroapp" target="_blank" style="display:inline-block;">
                         <img
-                          src="https://res.cloudinary.com/dentghiic/image/upload/v1776874869/cta-1_d2xa8w.png"
-                          alt="Share nēro waitlist"
+                          src="https://res.cloudinary.com/dentghiic/image/upload/v1777484304/cta-1_tsrrmf.png"
+                          alt="Follow us on Instagram"
                           width="560"
                           style="display:block;width:100%;max-width:560px;height:auto;"
                         />
