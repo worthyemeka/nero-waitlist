@@ -12,46 +12,32 @@ export default function BrowserView() {
     >
       <h1>You're In!</h1>
 
+      <p>
+        <strong>Let's Build This Together.</strong>
+      </p>
+
       <p>Hey there,</p>
 
+      <p>We're really excited to have you here. 🥳</p>
+
       <p>
-        <strong>Welcome aboard the nēro train! 🥳</strong>
+        We're building something to help you spend with clarity on a daily basis
+        and stop wondering where all your money went halfway through the month.
       </p>
 
       <p>
-        First things first, thank you for joining us this early. It genuinely
-        means a lot.
+        For now, sit tight. We'll keep you updated as we build and let you know
+        the moment there's something new to see.
       </p>
 
-      <p>
-        We're working on something we believe can make managing money a little
-        less stressful and a lot more clear.
-      </p>
+      <h2>While you wait:</h2>
 
-      <h2>SO, WHAT NOW?</h2>
-
-      <p>
-        We're in the final stages of testing nēro, and we'd love for you to be
-        part of the journey.
-      </p>
-
-      <p>
-        Your feedback will help us build a better product for everyone. Here are
-        3 quick ways you can help:
-      </p>
-
-      <h3>1. Join Our WhatsApp Community</h3>
-
-      <p>
-        <strong>Don't miss the tea ☕</strong>
-      </p>
+      <h3>1. Join our WhatsApp community</h3>
 
       <p>
         Get early updates, testing invites, and first dibs on what's coming
         next.
-      </p>
-
-      <p>
+        {" "}
         <a
           href="https://chat.whatsapp.com/GmIOkXzIITu8knz6QHo45m?mode=gi_t"
           target="_blank"
@@ -61,53 +47,40 @@ export default function BrowserView() {
         </a>
       </p>
 
-      <h3>2. Follow Us On Instagram</h3>
+      <h3>2. Follow us on Instagram</h3>
 
       <p>
-        <strong>Watch nēro come to life.</strong>
-      </p>
-
-      <p>
-        Click here to follow our journey, sneak peeks, and the occasional money
-        reality check.
-      </p>
-
-      <p>
+        Watch nēro come to life.{" "}
         <a
           href="https://www.instagram.com/getneroapp/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Follow on Instagram
-        </a>
+          Click here
+        </a>{" "}
+        to follow our journey, get sneak peeks, and occasional money reality
+        checks.
       </p>
 
-      <h3>3. Follow Us On LinkedIn</h3>
+      <h3>3. Follow us on LinkedIn</h3>
 
       <p>
-        <strong>Catch the bigger picture.</strong>
-      </p>
-
-      <p>
-        Follow along as we build, learn, and share what it takes to create
-        nēro from the ground up.
-      </p>
-
-      <p>
+        Catch the bigger picture. Follow along as we build and share what it
+        takes to create nēro from the ground up.{" "}
         <a
           href="https://www.linkedin.com/company/neroapp-ltd/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Follow on LinkedIn
+          Click here.
         </a>
       </p>
 
       <hr />
 
-      <p>That's all for now.</p>
+      <p>We'll be in touch soon.</p>
 
-      <p>Talk soon.</p>
+      <p>Thanks for being one of the early believers.</p>
 
       <p>— The nēro team</p>
 
@@ -129,9 +102,9 @@ export default function BrowserView() {
       </p>
 
       <p>
-        X:{" "}
+        Instagram:{" "}
         <a
-          href="https://x.com/getneroapp?s=21"
+          href="https://www.instagram.com/getneroapp/"
           target="_blank"
           rel="noopener noreferrer"
         >
