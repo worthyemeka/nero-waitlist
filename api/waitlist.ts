@@ -131,13 +131,10 @@ async function sendWelcomeEmail(email: string) {
     },
     html: `
 <!DOCTYPE html>
-<html
-  lang="en"
-  xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:v="urn:schemas-microsoft-com:vml"
-  xmlns:o="urn:schemas-microsoft-com:office:office"
->
-  <head>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
+    xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -148,402 +145,311 @@ async function sendWelcomeEmail(email: string) {
     <!--[if mso]> <noscript> <xml> <o:OfficeDocumentSettings> <o:PixelsPerInch>96</o:PixelsPerInch> </o:OfficeDocumentSettings> </xml> </noscript> <![endif]-->
 
     <style type="text/css">
-      body, table, td, p, a, li, blockquote {
-        -webkit-text-size-adjust: 100% !important;
-        -ms-text-size-adjust: 100% !important;
-      }
+        body,
+        table,
+        td,
+        p,
+        a,
+        li,
+        blockquote {
+            -webkit-text-size-adjust: 100% !important;
+            -ms-text-size-adjust: 100% !important;
+        }
 
-      body {
-        margin: 0 !important;
-        padding: 0 !important;
-        width: 100% !important;
-        min-width: 100% !important;
-        background-color: #FFFFFF !important;
-      }
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            min-width: 100% !important;
+            background-color: #FFFFFF !important;
+        }
 
-      table {
-        border-collapse: collapse !important;
-        mso-table-lspace: 0pt !important;
-        mso-table-rspace: 0pt !important;
-      }
+        table {
+            border-collapse: collapse !important;
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
 
-      img {
-        border: 0 !important;
-        display: block !important;
-        line-height: 100% !important;
-        outline: none !important;
-        text-decoration: none !important;
-        -ms-interpolation-mode: bicubic !important;
-      }
+        img {
+            border: 0 !important;
+            display: block !important;
+            line-height: 100% !important;
+            outline: none !important;
+            text-decoration: none !important;
+            -ms-interpolation-mode: bicubic !important;
+        }
 
-      a {
-        text-decoration: none !important;
-      }
+        a {
+            text-decoration: none !important;
+        }
 
-      .preheader-ghost {
-        display: none !important;
-        visibility: hidden !important;
-        mso-hide: all !important;
-        font-size: 1px !important;
-        line-height: 1px !important;
-        max-height: 0 !important;
-        max-width: 0 !important;
-        opacity: 0 !important;
-        overflow: hidden !important;
-      }
+        .preheader-ghost {
+            display: none !important;
+            visibility: hidden !important;
+            mso-hide: all !important;
+            font-size: 1px !important;
+            line-height: 1px !important;
+            max-height: 0 !important;
+            max-width: 0 !important;
+            opacity: 0 !important;
+            overflow: hidden !important;
+        }
 
-      .email-outer {
-        width: 100%;
-        background-color: #FFFFFF !important;
-      }
+        .email-outer {
+            width: 100%;
+            background-color: #FFFFFF !important;
+        }
 
-      .email-wrapper {
-        width: 100%;
-        max-width: 600px;
-        margin: 0 auto;
-        background-color: #FFFFFF !important;
-      }
+        .email-wrapper {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #FFFFFF !important;
+        }
 
-      .topbar-cell {
-        text-align: center;
-        padding: 10px 20px;
-        background-color: #FFFFFF !important;
-      }
+        .topbar-cell {
+            text-align: center;
+            padding: 10px 20px;
+            background-color: #FFFFFF !important;
+        }
 
-      .topbar-text {
-        margin: 0;
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-size: 11px;
-        color: #777777;
-        letter-spacing: -0.2px;
-        line-height: 1.5;
-      }
+        .topbar-text {
+            margin: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 11px;
+            color: #777777;
+            letter-spacing: -0.2px;
+            line-height: 1.5;
+        }
 
-      .topbar-link {
-        color: #2A2A91;
-        text-decoration: underline !important;
-      }
+        .topbar-link {
+            color: #2A2A91;
+            text-decoration: underline !important;
+        }
 
-      .hero-cell {
-        background-color: #2A2A91;
-        font-size: 0;
-        line-height: 0;
-      }
+        .hero-cell {
+            background-color: #2A2A91;
+            font-size: 0;
+            line-height: 0;
+        }
 
-      .body-cell {
-        padding: 20px 20px 20px 20px;
-        background-color: #FFFFFF !important;
-      }
-
-      .intro-table {
-        border-radius: 5px;
-        overflow: hidden;
-        margin-bottom: 16px;
-        background-color: #2A2A91;
-      }
-
-      .intro-td {
-        padding: 40px 28px;
-        background-color: #2A2A91;
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-weight: 300;
-        font-size: 22px;
-        letter-spacing: 0.3px;
-        line-height: 1.5;
-        color: #FFFFFF;
-      }
-
-      .intro-td p {
-        margin: 0 0 20px;
-        color: #FFFFFF;
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      }
-
-      .intro-td p:last-child {
-        margin-bottom: 0;
-      }
-
-      .divider-line {
-        width: 100%;
-        height: 1px;
-        background-color: #BABABA !important;
-        font-size: 0;
-        line-height: 0;
-      }
-
-      .footer-bg-cell {
-        padding: 0 !important;
-        background-color: #2A2A91 !important;
-      }
-
-      .footer-content {
-        width: 100%;
-        max-width: 600px;
-        margin: 0 auto;
-      }
-
-      .footer-motto {
-        font-family: Helvetica, Arial, sans-serif;
-        font-weight: 700;
-        font-size: 12px;
-        color: #FFFFFF;
-        margin: 0 0 22px;
-        letter-spacing: -0.3px;
-      }
-
-      .footer-copy {
-        font-family: Helvetica, Arial, sans-serif;
-        font-size: 12px;
-        color: rgba(248,247,247,0.85);
-        margin: 18px 0;
-        line-height: 1.5;
-      }
-
-      .footer-copy a {
-        color: #FFFFFF !important;
-        text-decoration: underline !important;
-      }
-
-      .footer-small {
-        font-family: Helvetica, Arial, sans-serif;
-        font-size: 10px;
-        color: rgba(248,247,247,0.65);
-        margin-top: 10px;
-      }
-
-      @media only screen and (max-width: 599px) {
         .body-cell {
-          padding: 22px !important;
+            padding: 28px 40px 36px 40px;
+            background-color: #FFFFFF !important;
+        }
+
+        .intro-table {
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 16px;
+            background-color: #2A2A91;
         }
 
         .intro-td {
-          padding: 24px 18px !important;
-          font-size: 18px !important;
-          line-height: 1.55 !important;
+            padding: 40px 28px;
+            background-color: #2A2A91;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: 300;
+            font-size: 22px;
+            letter-spacing: 0.3px;
+            line-height: 1.5;
+            color: #FFFFFF;
         }
 
-        footer-bg-cell {
-          padding: 0 !important;
+        .intro-td p {
+            margin: 0 0 20px;
+            color: #FFFFFF;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         }
 
-        .footer-inner-pad {
-          padding-left: 0 !important;
-          padding-right: 0 !important;
+        .intro-td p:last-child {
+            margin-bottom: 0;
         }
-      }
+
+        .divider-line {
+            width: 100%;
+            height: 1px;
+            background-color: #BABABA !important;
+            font-size: 0;
+            line-height: 0;
+        }
+
+        .footer-bg-cell {
+            background-color: #2A2A91 !important;
+            background-image: url('https://res.cloudinary.com/dentghiic/image/upload/v1776775967/footer-container_c5rbly.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center;
+            padding: 48px 0 44px 0;
+        }
+
+        .footer-content {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-motto {
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+            color: #FFFFFF;
+            margin: 0 0 22px;
+            letter-spacing: -0.3px;
+        }
+
+        .footer-copy {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 12px;
+            color: rgba(248, 247, 247, 0.85);
+            margin: 18px 0;
+            line-height: 1.5;
+        }
+
+        .footer-copy a {
+            color: #FFFFFF !important;
+            text-decoration: underline !important;
+        }
+
+        .footer-small {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 10px;
+            color: rgba(248, 247, 247, 0.65);
+            margin-top: 10px;
+        }
+
+        @media only screen and (max-width: 599px) {
+            .body-cell {
+                padding: 22px !important;
+            }
+
+            .intro-td {
+                padding: 24px 18px !important;
+                font-size: 18px !important;
+                line-height: 1.55 !important;
+            }
+
+            .footer-bg-cell {
+                padding: 36px 0 32px 0 !important;
+            }
+
+            .footer-inner-pad {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+        }
     </style>
-  </head>
+</head>
 
-  <body style="margin:0;padding:0;background-color:#FFFFFF;">
-    <div
-      class="preheader-ghost"
-      aria-hidden="true"
-      style="display:none !important;visibility:hidden !important;mso-hide:all !important;font-size:1px !important;line-height:1px !important;max-height:0 !important;max-width:0 !important;opacity:0 !important;overflow:hidden !important;"
-    >
-      Be honest… your money dey disappear abi? 👀 Get early access, join our WhatsApp group, and invite friends to nēro.
-      Control your spending. Fix your future.
+<body style="margin:0;padding:0;background-color:#FFFFFF;">
+    <div class="preheader-ghost" aria-hidden="true"
+        style="display:none !important;visibility:hidden !important;mso-hide:all !important;font-size:1px !important;line-height:1px !important;max-height:0 !important;max-width:0 !important;opacity:0 !important;overflow:hidden !important;">
+        You're officially in! Get early access, join our WhatsApp group, and follow us on our socials.
     </div>
 
-    <table
-      role="presentation"
-      class="email-outer"
-      cellpadding="0"
-      cellspacing="0"
-      border="0"
-      width="100%"
-      style="width:100%;background-color:#FFFFFF;"
-    >
-      <tr>
-        <td align="center" style="padding:0;">
-          <table
-            role="presentation"
-            class="email-wrapper"
-            cellpadding="0"
-            cellspacing="0"
-            border="0"
-            width="600"
-            style="width:600px;max-width:600px;background-color:#FFFFFF;"
-          >
-            <tr>
-              <td class="topbar-cell" style="text-align:center;padding:10px 20px;background-color:#FFFFFF;">
-                <p
-                  class="topbar-text"
-                  style="margin:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;color:#777777;letter-spacing:-0.2px;line-height:1.5;"
-                >
-                  Having trouble viewing this email?
-                  <a
-                    href="https://tinyurl.com/browserview"
-                    class="topbar-link"
-                    style="color:#2A2A91;text-decoration:underline;"
-                    >View it in your browser</a
-                  >
-                </p>
-              </td>
-            </tr>
+    <table role="presentation" class="email-outer" cellpadding="0" cellspacing="0" border="0" width="100%"
+        style="width:100%;background-color:#FFFFFF;">
+        <tr>
+            <td align="center" style="padding:0;">
+                <table role="presentation" class="email-wrapper" cellpadding="0" cellspacing="0" border="0" width="600"
+                    style="width:600px;max-width:600px;background-color:#FFFFFF;">
+                    <tr>
+                        <td class="topbar-cell" style="text-align:center;padding:10px 20px;background-color:#FFFFFF;">
+                            <p class="topbar-text"
+                                style="margin:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;color:#777777;letter-spacing:-0.2px;line-height:1.5;">
+                                Having trouble viewing this email?
+                                <a href="https://tinyurl.com/browserview" class="topbar-link"
+                                    style="color:#2A2A91;text-decoration:underline;">View it in your browser</a>
+                            </p>
+                        </td>
+                    </tr>
 
-            <tr>
-              <td class="hero-cell" style="background-color:#2A2A91;font-size:0;line-height:0;">
-                <a href="https://waitlist.neroapp.co" style="display:block;font-size:0;line-height:0;">
-                  <img
-                    src="https://res.cloudinary.com/dentghiic/image/upload/v1775078555/hero-phone_v8xpux.png"
-                    alt="You're in! You're officially on the list."
-                    width="600"
-                    style="display:block;width:100%;max-width:600px;height:auto;"
-                  />
-                </a>
-              </td>
-            </tr>
+                    <tr>
+                        <td class="hero-cell" style="background-color:#2A2A91;font-size:0;line-height:0;">
+                            <a href="https://waitlist.neroapp.co" style="display:block;font-size:0;line-height:0;">
+                                <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780264049/Hero_2x_cikqit.png"
+                                    alt="You're in! You're officially on the list." width="600"
+                                    style="display:block;width:100%;max-width:600px;height:auto;" />
+                            </a>
+                        </td>
+                    </tr>
 
-            <tr>
-              <td class="body-cell" style="padding:28px 40px 36px 40px;background-color:#FFFFFF;">
-                <table
-                  role="presentation"
-                  cellpadding="0"
-                  cellspacing="0"
-                  border="0"
-                  width="100%"
-                  style="margin-bottom:22px;"
-                >
-                  <tr>
-                    <td align="center" style="padding:0;">
-                      <a href="https://waitlist.neroapp.co" target="_blank" style="display:inline-block;">
-                        <img
-                          src="https://res.cloudinary.com/dentghiic/image/upload/v1776874864/card-1email_pexak1.png"
-                          alt="Intro card"
-                          width="560"
-                          style="display:block;width:100%;max-width:560px;height:auto;"
-                        />
-                      </a>
-                    </td>
-                  </tr>
+                    <tr>
+                        <td class="hero-cell" style="background-color:#2A2A91;font-size:0;line-height:0;">
+                            <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780265017/Body_small_qtmo96.png"
+                                alt="." width="600" style="display:block;width:100%;max-width:600px;height:auto;" />
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="hero-cell"
+                            background="https://res.cloudinary.com/dentghiic/image/upload/v1780264016/Cards_bg_szjabs.png"
+                            style="
+      background-image:url('https://res.cloudinary.com/dentghiic/image/upload/v1780264016/Cards_bg_szjabs.png');
+      background-size:cover;
+      background-position:center top;
+      background-repeat:no-repeat;
+      padding:0 0 0 0;
+      font-size:0;
+      line-height:0;
+    ">
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                <tr>
+                                    <td align="center" style="padding:0 40px;">
+
+                                        <a href="https://chat.whatsapp.com/GmIOkXzIITu8knz6QHo45m?mode=gi_t"
+                                            target="_blank" style="text-decoration:none;">
+                                            <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780265018/feature_1_yv9qxt.png"
+                                                alt="Join our WhatsApp community" width="520"
+                                                style="display:block;width:100%;max-width:520px;height:auto;margin:0 0 28px 0;border:0;" />
+                                        </a>
+
+                                        <a href="https://www.instagram.com/getneroapp/" target="_blank"
+                                            style="text-decoration:none;">
+                                            <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780264005/feature_2_yqqx7n.png"
+                                                alt="Follow us on Instagram" width="520"
+                                                style="display:block;width:100%;max-width:520px;height:auto;margin:0 0 28px 0;border:0;" />
+                                        </a>
+
+                                        <a href="https://www.linkedin.com/company/neroapp-ltd/" target="_blank"
+                                            style="text-decoration:none;">
+                                            <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780264013/feature_3_atcsq4.png"
+                                                alt="Follow us on LinkedIn" width="520"
+                                                style="display:block;width:100%;max-width:520px;height:auto;margin:0 0 16px 0;border:0;" />
+                                        </a>
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="hero-cell" style="background-color:#2A2A91;font-size:0;line-height:0;">
+                            <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780265020/close_small_u70snv.png"
+                                alt="." width="600" style="display:block;width:100%;max-width:600px;height:auto;" />
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="hero-cell" style="background-color:#2A2A91;font-size:0;line-height:0;">
+                            <a href="https://x.com/getneroapp?s=21" target="_blank" style="text-decoration:none;">
+                                <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780266030/footer_small_u7eekn.png"
+                                    alt="Footer" width="520"
+                                    width="600" style="display:block;width:100%;max-width:600px;height:auto;" />
+                            </a>
+                        </td>
+                    </tr>
                 </table>
-
-                <table
-                  role="presentation"
-                  cellpadding="0"
-                  cellspacing="0"
-                  border="0"
-                  width="100%"
-                  style="margin-bottom:22px;"
-                >
-                  <tr>
-                    <td align="center" style="padding:0;">
-                      <a href="https://instagram.com/getneroapp" target="_blank" style="display:inline-block;">
-                        <img
-                          src="https://res.cloudinary.com/dentghiic/image/upload/v1777484304/cta-1_tsrrmf.png"
-                          alt="Follow us on Instagram"
-                          width="560"
-                          style="display:block;width:100%;max-width:560px;height:auto;"
-                        />
-                      </a>
-                    </td>
-                  </tr>
-                </table>
-
-                <table
-                  role="presentation"
-                  cellpadding="0"
-                  cellspacing="0"
-                  border="0"
-                  width="100%"
-                  style="margin-bottom:22px;"
-                >
-                  <tr>
-                    <td align="center" style="padding:0;">
-                      <a href="https://chat.whatsapp.com/GmIOkXzIITu8knz6QHo45m?mode=gi_t" target="_blank" style="display:inline-block;">
-                        <img
-                          src="https://res.cloudinary.com/dentghiic/image/upload/v1776874866/cta-2_zzfhzl.png"
-                          alt="Join WhatsApp group"
-                          width="560"
-                          style="display:block;width:100%;max-width:560px;height:auto;"
-                        />
-                      </a>
-                    </td>
-                  </tr>
-                </table>
-
-                <table
-                  role="presentation"
-                  cellpadding="0"
-                  cellspacing="0"
-                  border="0"
-                  width="100%"
-                  style="margin-bottom:22px;"
-                >
-                  <tr>
-                    <td align="center" style="padding:0;">
-                      <a href="https://waitlist.neroapp.co" target="_blank" style="display:inline-block;">
-                        <img
-                          src="https://res.cloudinary.com/dentghiic/image/upload/v1776874864/card-3email_lznspe.png"
-                          alt="Closing card"
-                          width="560"
-                          style="display:block;width:100%;max-width:560px;height:auto;"
-                        />
-                      </a>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-
-            <tr>
-  <td
-    class="footer-bg-cell"
-    align="center"
-    style="padding:0;background-color:#2A2A91;"
-  >
-    <table
-      role="presentation"
-      width="100%"
-      cellpadding="0"
-      cellspacing="0"
-      border="0"
-      style="width:100%;border-collapse:collapse !important;"
-    >
-      <tr>
-        <td align="center" style="padding:0;line-height:0;font-size:0;">
-          <a
-            href="https://waitlist.neroapp.co"
-            target="_blank"
-            style="display:block;line-height:0;font-size:0;text-decoration:none;"
-          >
-            <img
-              src="https://res.cloudinary.com/dentghiic/image/upload/v1776898012/footer-1_apfygv.png"
-              alt="nēro footer top"
-              width="600"
-              style="display:block;width:100%;max-width:600px;height:auto;border:0;margin:0;padding:0;"
-            />
-          </a>
-        </td>
-      </tr>
-
-      <tr>
-        <td align="center" style="padding:0;line-height:0;font-size:0;">
-          <a
-            href="https://instagram.com/getneroapp"
-            target="_blank"
-            style="display:block;line-height:0;font-size:0;text-decoration:none;"
-          >
-            <img
-              src="https://res.cloudinary.com/dentghiic/image/upload/v1776898012/footer-2_qfud3s.png"
-              alt="nēro footer bottom"
-              width="600"
-              style="display:block;width:100%;max-width:600px;height:auto;border:0;margin:0;padding:0;"
-            />
-          </a>
-        </td>
-      </tr>
+            </td>
+        </tr>
     </table>
-  </td>
-</tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
-  </body>
+</body>
+
+</html>
 </html>
 `,
   });//hi
