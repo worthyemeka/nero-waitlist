@@ -377,8 +377,8 @@ async function sendWelcomeEmail(email: string) {
 
                     <tr>
                         <td class="hero-cell" style="background-color:#2A2A91;font-size:0;line-height:0;">
-                            <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780265017/Body_small_qtmo96.png"
-                                alt="." width="600" style="display:block;width:100%;max-width:600px;height:auto;" />
+                            <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780271570/Body_buenuu.png"
+                                alt="." width="600" style="display:block;width:100%;max-width:600px;height:auto;margin:0 0 -16px 0;" />
                             </a>
                         </td>
                     </tr>
@@ -401,21 +401,21 @@ async function sendWelcomeEmail(email: string) {
 
                                         <a href="https://chat.whatsapp.com/GmIOkXzIITu8knz6QHo45m?mode=gi_t"
                                             target="_blank" style="text-decoration:none;">
-                                            <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780265018/feature_1_yv9qxt.png"
+                                            <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780271570/feature_1_iakvb7.png"
                                                 alt="Join our WhatsApp community" width="520"
                                                 style="display:block;width:100%;max-width:520px;height:auto;margin:0 0 28px 0;border:0;" />
                                         </a>
 
                                         <a href="https://www.instagram.com/getneroapp/" target="_blank"
                                             style="text-decoration:none;">
-                                            <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780264005/feature_2_yqqx7n.png"
+                                            <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780271571/feature_2_znjkfd.png"
                                                 alt="Follow us on Instagram" width="520"
                                                 style="display:block;width:100%;max-width:520px;height:auto;margin:0 0 28px 0;border:0;" />
                                         </a>
 
                                         <a href="https://www.linkedin.com/company/neroapp-ltd/" target="_blank"
                                             style="text-decoration:none;">
-                                            <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780264013/feature_3_atcsq4.png"
+                                            <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780271570/feature_3_pyd0ju.png"
                                                 alt="Follow us on LinkedIn" width="520"
                                                 style="display:block;width:100%;max-width:520px;height:auto;margin:0 0 16px 0;border:0;" />
                                         </a>
@@ -428,18 +428,8 @@ async function sendWelcomeEmail(email: string) {
 
                     <tr>
                         <td class="hero-cell" style="background-color:#2A2A91;font-size:0;line-height:0;">
-                            <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780265020/close_small_u70snv.png"
+                            <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780271571/close_brcfhf.png"
                                 alt="." width="600" style="display:block;width:100%;max-width:600px;height:auto;" />
-                            </a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="hero-cell" style="background-color:#2A2A91;font-size:0;line-height:0;">
-                            <a href="https://x.com/getneroapp?s=21" target="_blank" style="text-decoration:none;">
-                                <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780266030/footer_small_u7eekn.png"
-                                    alt="Footer" width="520"
-                                    width="600" style="display:block;width:100%;max-width:600px;height:auto;" />
                             </a>
                         </td>
                     </tr>
@@ -449,7 +439,6 @@ async function sendWelcomeEmail(email: string) {
     </table>
 </body>
 
-</html>
 </html>
 `,
   });//hi
