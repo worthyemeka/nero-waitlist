@@ -3,395 +3,388 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 const SMTP_HOST = process.env.SMTP_HOST ?? "smtp.zoho.com";
 const SMTP_PORT = Number(process.env.SMTP_PORT ?? 465);
-const SMTP_SECURE =
-  (process.env.SMTP_SECURE ?? "true").toLowerCase() === "true";
-
+const SMTP_SECURE = (process.env.SMTP_SECURE ?? "true").toLowerCase() === "true";
 const SMTP_USER = process.env.SMTP_USER;
 const SMTP_PASS = process.env.SMTP_PASS;
+const FROM_EMAIL = process.env.FROM_EMAIL ?? "Nero <noreply@neroapp.co>";
 
-const FROM_EMAIL = process.env.FROM_EMAIL ?? "nēro <hello@neroapp.co>";
-const REPLY_TO_EMAIL = process.env.REPLY_TO_EMAIL ?? SMTP_USER;
-const BROWSER_VIEW_URL =
-  process.env.BROWSER_VIEW_URL ?? "https://waitlist.neroapp.co/browser-view";
-const UNSUBSCRIBE_URL =
-  process.env.UNSUBSCRIBE_URL ?? "https://waitlist.neroapp.co/unsubscribe";
+    const SUPABASE_URL = process.env.SUPABASE_URL;
+    const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-const SUPABASE_URL = process.env.SUPABASE_URL;
-const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-const transporter = nodemailer.createTransport({
-  host: SMTP_HOST,
-  port: SMTP_PORT,
-  secure: SMTP_SECURE,
-  auth: {
+    const transporter = nodemailer.createTransport({
+    host: SMTP_HOST,
+    port: SMTP_PORT,
+    secure: SMTP_SECURE,
+    auth: {
     user: SMTP_USER,
     pass: SMTP_PASS,
-  },
-  connectionTimeout: 10_000,
-  greetingTimeout: 10_000,
-  socketTimeout: 20_000,
-  tls: {
+    },
+    connectionTimeout: 10_000,
+    greetingTimeout: 10_000,
+    socketTimeout: 20_000,
+    tls: {
     minVersion: "TLSv1.2",
-  },
-});
+    },
+    });
 
-function requireEnv(name: string, value?: string): string {
-  if (!value) {
+    function requireEnv(name: string, value?: string): string {
+    if (!value) {
     throw new Error(`Missing required environment variable: ${name}`);
-  }
+    }
+    return value;
+    }
 
-  return value;
-}
+    let cachedCount: { count: number; expires: number } | null = null;
 
-let cachedCount: { count: number; expires: number } | null = null;
-
-function getCachedCount(): number | null {
-  if (cachedCount && cachedCount.expires > Date.now()) {
+    function getCachedCount(): number | null {
+    if (cachedCount && cachedCount.expires > Date.now()) {
     return cachedCount.count;
-  }
+    }
+    return null;
+    }
 
-  return null;
-}
+    function setCachedCount(count: number): void {
+    cachedCount = { count, expires: Date.now() + 5 * 60 * 1000 };
+    }
 
-function setCachedCount(count: number): void {
-  cachedCount = {
-    count,
-    expires: Date.now() + 5 * 60 * 1000,
-  };
-}
+    async function getWaitlistCount(): Promise<number> {
+        const cached = getCachedCount();
+        if (cached !== null) {
+        return cached;
+        }
 
-async function getWaitlistCount(): Promise<number> {
-  const cached = getCachedCount();
+        const supabaseUrl = requireEnv("SUPABASE_URL", SUPABASE_URL);
+        const serviceRoleKey = requireEnv("SUPABASE_SERVICE_ROLE_KEY", SUPABASE_SERVICE_ROLE_KEY);
 
-  if (cached !== null) {
-    return cached;
-  }
-
-  const supabaseUrl = requireEnv("SUPABASE_URL", SUPABASE_URL);
-  const serviceRoleKey = requireEnv(
-    "SUPABASE_SERVICE_ROLE_KEY",
-    SUPABASE_SERVICE_ROLE_KEY,
-  );
-
-  const response = await fetch(
-    `${supabaseUrl}/rest/v1/waitlist_signups?select=count`,
-    {
-      method: "GET",
-      headers: {
+        const response = await fetch(`${supabaseUrl}/rest/v1/waitlist_signups?select=count`, {
+        method: "GET",
+        headers: {
         apikey: serviceRoleKey,
         Authorization: `Bearer ${serviceRoleKey}`,
-        Prefer: "count=exact",
-      },
-    },
-  );
+        "Prefer": "count=exact",
+        },
+        });
 
-  if (!response.ok) {
-    throw new Error(`Failed to fetch count: ${response.status}`);
-  }
+        if (!response.ok) {
+        throw new Error(`Failed to fetch count: ${response.status}`);
+        }
 
-  const contentRange = response.headers.get("content-range");
+        const contentRange = response.headers.get("content-range");
+        if (contentRange) {
+        const match = contentRange.match(/\/(\d+)$/);
+        if (match) {
+        const count = parseInt(match[1], 10);
+        setCachedCount(count);
+        return count;
+        }
+        }
 
-  if (contentRange) {
-    const match = contentRange.match(/\/(\d+)$/);
+        const data = await response.json();
+        const count = Array.isArray(data) ? data.length : 0;
+        setCachedCount(count);
+        return count;
+        }
 
-    if (match) {
-      const count = parseInt(match[1], 10);
-      setCachedCount(count);
-      return count;
-    }
-  }
+        async function saveWaitlistSignup(email: string): Promise<"created" | "exists"> {
+            const supabaseUrl = requireEnv("SUPABASE_URL", SUPABASE_URL);
+            const serviceRoleKey = requireEnv("SUPABASE_SERVICE_ROLE_KEY", SUPABASE_SERVICE_ROLE_KEY);
 
-  const data = await response.json();
-  const count = Array.isArray(data) ? data.length : 0;
+            const response = await fetch(`${supabaseUrl}/rest/v1/waitlist_signups`, {
+            method: "POST",
+            headers: {
+            apikey: serviceRoleKey,
+            Authorization: `Bearer ${serviceRoleKey}`,
+            "Content-Type": "application/json",
+            Prefer: "return=minimal",
+            },
+            body: JSON.stringify({
+            email,
+            source: "landing-page",
+            }),
+            });
 
-  setCachedCount(count);
+            if (response.ok) {
+            return "created";
+            }
 
-  return count;
-}
+            if (response.status === 409) {
+            return "exists";
+            }
 
-async function saveWaitlistSignup(email: string): Promise<"created" | "exists"> {
-  const supabaseUrl = requireEnv("SUPABASE_URL", SUPABASE_URL);
-  const serviceRoleKey = requireEnv(
-    "SUPABASE_SERVICE_ROLE_KEY",
-    SUPABASE_SERVICE_ROLE_KEY,
-  );
+            const details = await response.text();
+            throw new Error(`Supabase insert failed (${response.status}): ${details}`);
+            }
 
-  const response = await fetch(`${supabaseUrl}/rest/v1/waitlist_signups`, {
-    method: "POST",
-    headers: {
-      apikey: serviceRoleKey,
-      Authorization: `Bearer ${serviceRoleKey}`,
-      "Content-Type": "application/json",
-      Prefer: "return=minimal",
-    },
-    body: JSON.stringify({
-      email,
-      source: "landing-page",
-    }),
-  });
+            async function sendWelcomeEmail(email: string) {
+            const smtpUser = requireEnv("SMTP_USER", SMTP_USER);
+            requireEnv("SMTP_PASS", SMTP_PASS);
 
-  if (response.ok) {
-    cachedCount = null;
-    return "created";
-  }
+            await transporter.sendMail({
+            from: FROM_EMAIL,
+            to: email,
+            replyTo: smtpUser,
+            subject: "You're on the nēro waitlist 🎉",
+            headers: {
+            "X-Entity-Ref-ID": "nero-waitlist",
+            },
+            html: `
+            <!DOCTYPE html>
+            <html lang="en">
 
-  if (response.status === 409) {
-    return "exists";
-  }
+            <head>
+                <meta charset="UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                <meta name="x-apple-disable-message-reformatting" />
+                <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no" />
+                <title>You're in! — nēro</title>
 
-  const details = await response.text();
+                <style>
+                    body {
+                        margin: 0 !important;
+                        padding: 0 !important;
+                        width: 100% !important;
+                        background: #ffffff !important;
+                        -webkit-text-size-adjust: 100%;
+                        -ms-text-size-adjust: 100%;
+                    }
 
-  throw new Error(`Supabase insert failed (${response.status}): ${details}`);
-}
+                    table {
+                        border-collapse: collapse !important;
+                        mso-table-lspace: 0pt !important;
+                        mso-table-rspace: 0pt !important;
+                    }
 
-function buildPlainTextEmail(): string {
-  return `
-You're in!
+                    img {
+                        border: 0 !important;
+                        display: block !important;
+                        outline: none !important;
+                        text-decoration: none !important;
+                        -ms-interpolation-mode: bicubic !important;
+                    }
 
-Let's build this together.
+                    a {
+                        text-decoration: none;
+                    }
 
-Hey there,
+                    .preheader {
+                        display: none !important;
+                        visibility: hidden !important;
+                        opacity: 0 !important;
+                        overflow: hidden !important;
+                        max-height: 0 !important;
+                        max-width: 0 !important;
+                        mso-hide: all !important;
+                        font-size: 1px !important;
+                        line-height: 1px !important;
+                    }
 
-We're really excited to have you here.
+                    @media only screen and (max-width: 600px) {
+                        .wrapper {
+                            width: 100% !important;
+                            max-width: 100% !important;
+                        }
 
-We're building something to help you spend with clarity on a daily basis and stop wondering where all your money went halfway through the month.
+                        .cards-pad {
+                            padding-left: 27px !important;
+                            padding-right: 27px !important;
+                        }
+                    }
+                </style>
+            </head>
 
-For now, sit tight. We'll keep you updated as we build and let you know the moment there's something new to see.
+            <body style="margin:0;padding:0;background:#ffffff;">
+                <div class="preheader">
+                    You're on the nēro waitlist. We’ll keep you updated as we build.
+                </div>
 
-While you wait:
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                    style="background:#ffffff;">
+                    <tr>
+                        <td align="center" style="padding:0;">
 
-1. Join our WhatsApp community
-Get early updates, testing invites, and first dibs on what's coming next.
-https://chat.whatsapp.com/GmIOkXzIITu8knz6QHo45m?mode=gi_t
+                            <table role="presentation" class="wrapper" width="600" cellpadding="0" cellspacing="0"
+                                border="0" style="width:600px;max-width:600px;background:#05030d;">
 
-2. Follow us on Instagram
-Watch nēro come to life.
-https://www.instagram.com/getneroapp/
+                                <tr>
+                                    <td align="center" style="padding:0;font-size:0;line-height:0;background:#05030d;">
+                                        <a href="https://waitlist.neroapp.co" target="_blank" style="display:block;">
+                                            <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780265023/Hero_small_i9jljt.png"
+                                                width="600" alt="You're in! Let's build this together."
+                                                style="width:100%;max-width:600px;height:auto;" />
+                                        </a>
+                                    </td>
+                                </tr>
 
-3. Follow us on LinkedIn
-Catch the bigger picture.
-https://www.linkedin.com/company/neroapp-ltd/
+                                <tr>
+                                    <td align="center" style="padding:0;font-size:0;line-height:0;background:#05030d;">
+                                        <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780271570/Body_buenuu.png"
+                                            width="600" alt="Welcome to nēro"
+                                            style="width:100%;max-width:600px;height:auto;" />
+                                    </td>
+                                </tr>
 
-We'll be in touch soon.
+                                <tr>
+                                    <td align="center"
+                                        background="https://res.cloudinary.com/dentghiic/image/upload/v1780264016/Cards_bg_szjabs.png"
+                                        style="
+                padding:0;
+                background-color:#05030d;
+                background-image:url('https://res.cloudinary.com/dentghiic/image/upload/v1780264016/Cards_bg_szjabs.png');
+                background-size:cover;
+                background-position:center top;
+                background-repeat:no-repeat;
+              ">
+                                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+                                            border="0">
+                                            <tr>
+                                                <td class="cards-pad" align="center" style="padding:0 44px 0 44px;">
 
-Thanks for being one of the early believers.
+                                                    <a href="https://chat.whatsapp.com/GmIOkXzIITu8knz6QHo45m?mode=gi_t"
+                                                        target="_blank" style="display:block;">
+                                                        <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780264006/feature_1_h424lx.png"
+                                                            width="512" alt="Join our WhatsApp community"
+                                                            style="width:100%;max-width:512px;height:auto;margin:0 0 22px 0;" />
+                                                    </a>
 
-The nēro team
+                                                    <a href="https://instagram.com/getneroapp" target="_blank"
+                                                        style="display:block;">
+                                                        <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780264005/feature_2_yqqx7n.png"
+                                                            width="512" alt="Follow us on Instagram"
+                                                            style="width:100%;max-width:512px;height:auto;margin:0 0 22px 0;" />
+                                                    </a>
 
-You are receiving this because you joined the nēro waitlist.
-Unsubscribe: ${UNSUBSCRIBE_URL}
+                                                    <a href="https://www.linkedin.com/company/neroapp" target="_blank"
+                                                        style="display:block;">
+                                                        <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780264013/feature_3_atcsq4.png"
+                                                            width="512" alt="Follow us on LinkedIn"
+                                                            style="width:100%;max-width:512px;height:auto;margin:0;" />
+                                                    </a>
 
-© 2026 nēro. All rights reserved.
-`.trim();
-}
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
 
-function buildWelcomeHtmlEmail(): string {
-  return `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>You're in! — nēro</title>
-</head>
+                                <tr>
+                                    <td align="center" style="padding:0;font-size:0;line-height:0;background:#05030d;">
+                                        <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780271571/close_brcfhf.png"
+                                            width="600" alt="We'll be in touch soon"
+                                            style="width:100%;max-width:600px;height:auto;margin:0 0 -36px 0;" />
+                                    </td>
+                                </tr>
 
-<body style="margin:0;padding:0;background-color:#FFFFFF;">
-  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#FFFFFF;">
-    <tr>
-      <td align="center">
-        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="width:600px;max-width:600px;background-color:#0A0A0A;">
+                                <tr>
 
-          <tr>
-            <td style="text-align:center;padding:10px 20px;background-color:#FFFFFF;">
-              <p style="margin:0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#777777;line-height:1.5;">
-                Having trouble viewing this email?
-                <a href="${BROWSER_VIEW_URL}" style="color:#2A2A91;text-decoration:underline;">
-                  View it in your browser
-                </a>
-              </p>
-            </td>
-          </tr>
+                                    <td
+                                        style="background-color:#0A0A0A;padding:28px 40px 36px 40px;text-align:center;font-family:Helvetica,Arial,sans-serif;">
 
-          <tr>
-            <td style="background-color:#0A0A0A;font-size:0;line-height:0;">
-              <a href="https://waitlist.neroapp.co" target="_blank" style="display:block;text-decoration:none;">
-                <img
-                  src="https://res.cloudinary.com/dentghiic/image/upload/v1780264049/Hero_2x_cikqit.png"
-                  alt="You're in! Let's build this together."
-                  width="600"
-                  style="display:block;width:100%;max-width:600px;height:auto;border:0;"
-                />
-              </a>
-            </td>
-          </tr>
+                                        <p
+                                            style="margin:0 0 10px 0;font-size:12px;line-height:1.6;color:rgba(255,255,255,0.72);">
 
-          <tr>
-            <td style="background-color:#0A0A0A;font-size:0;line-height:0;">
-              <img
-                src="https://res.cloudinary.com/dentghiic/image/upload/v1780271570/Body_buenuu.png"
-                alt="Hey there. We're really excited to have you here."
-                width="600"
-                style="display:block;width:100%;max-width:600px;height:auto;margin:0 0 -16px 0;border:0;"
-              />
-            </td>
-          </tr>
+                                            You are receiving this because you joined the nēro waitlist.
 
-          <tr>
-            <td
-              background="https://res.cloudinary.com/dentghiic/image/upload/v1780264016/Cards_bg_szjabs.png"
-              style="background-color:#0A0A0A;background-image:url('https://res.cloudinary.com/dentghiic/image/upload/v1780264016/Cards_bg_szjabs.png');background-size:cover;background-position:center top;background-repeat:no-repeat;padding:0;font-size:0;line-height:0;"
-            >
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td align="center" style="padding:0 40px;">
+                                        </p>
 
-                    <a href="https://chat.whatsapp.com/GmIOkXzIITu8knz6QHo45m?mode=gi_t" target="_blank" style="text-decoration:none;display:block;">
-                      <img
-                        src="https://res.cloudinary.com/dentghiic/image/upload/v1780271570/feature_1_iakvb7.png"
-                        alt="Join our WhatsApp community"
-                        width="520"
-                        style="display:block;width:100%;max-width:520px;height:auto;margin:0 0 28px 0;border:0;"
-                      />
-                    </a>
+                                        <p
+                                            style="margin:0 0 18px 0;font-size:12px;line-height:1.6;color:rgba(255,255,255,0.72);">
 
-                    <a href="https://www.instagram.com/getneroapp/" target="_blank" style="text-decoration:none;display:block;">
-                      <img
-                        src="https://res.cloudinary.com/dentghiic/image/upload/v1780271571/feature_2_znjkfd.png"
-                        alt="Follow us on Instagram"
-                        width="520"
-                        style="display:block;width:100%;max-width:520px;height:auto;margin:0 0 28px 0;border:0;"
-                      />
-                    </a>
+                                            If this is not for you, you can
 
-                    <a href="https://www.linkedin.com/company/neroapp-ltd/" target="_blank" style="text-decoration:none;display:block;">
-                      <img
-                        src="https://res.cloudinary.com/dentghiic/image/upload/v1780271570/feature_3_pyd0ju.png"
-                        alt="Follow us on LinkedIn"
-                        width="520"
-                        style="display:block;width:100%;max-width:520px;height:auto;margin:0 0 16px 0;border:0;"
-                      />
-                    </a>
+                                            <a href="${UNSUBSCRIBE_URL}"
+                                                style="color:#FFFFFF;text-decoration:underline;">
 
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
+                                                unsubscribe
 
-          <tr>
-            <td style="background-color:#0A0A0A;font-size:0;line-height:0;">
-              <img
-                src="https://res.cloudinary.com/dentghiic/image/upload/v1780271571/close_brcfhf.png"
-                alt="We'll be in touch soon. Thanks for being one of the early believers. The nēro team."
-                width="600"
-                style="display:block;width:100%;max-width:600px;height:auto;border:0;"
-              />
-            </td>
-          </tr>
+                                            </a>
 
-          <tr>
-            <td style="background-color:#0A0A0A;padding:28px 40px 36px 40px;text-align:center;font-family:Helvetica,Arial,sans-serif;">
-              <p style="margin:0 0 10px 0;font-size:12px;line-height:1.6;color:rgba(255,255,255,0.72);">
-                You are receiving this because you joined the nēro waitlist.
-              </p>
+                                            anytime.
 
-              <p style="margin:0 0 18px 0;font-size:12px;line-height:1.6;color:rgba(255,255,255,0.72);">
-                If this is not for you, you can
-                <a href="${UNSUBSCRIBE_URL}" style="color:#FFFFFF;text-decoration:underline;">
-                  unsubscribe
-                </a>
-                anytime.
-              </p>
+                                        </p>
 
-              <p style="margin:0 0 10px 0;font-size:12px;line-height:1.6;color:rgba(255,255,255,0.72);">
-                <a href="https://www.instagram.com/getneroapp/" style="color:#FFFFFF;text-decoration:underline;">Instagram</a>
-                &nbsp;•&nbsp;
-                <a href="https://www.linkedin.com/company/neroapp-ltd/" style="color:#FFFFFF;text-decoration:underline;">LinkedIn</a>
-              </p>
+                                        <p
+                                            style="margin:0 0 10px 0;font-size:12px;line-height:1.6;color:rgba(255,255,255,0.72);">
 
-              <p style="margin:0;font-size:11px;line-height:1.6;color:rgba(255,255,255,0.52);">
-                © 2026 nēro. All rights reserved.
-              </p>
-            </td>
-          </tr>
+                                            <a href="https://www.instagram.com/getneroapp/"
+                                                style="color:#FFFFFF;text-decoration:underline;">Instagram</a>
 
-        </table>
-      </td>
-    </tr>
-  </table>
-</body>
-</html>
-`;
-}
+                                            &nbsp;•&nbsp;
 
-async function sendWelcomeEmail(email: string): Promise<void> {
-  const smtpUser = requireEnv("SMTP_USER", SMTP_USER);
-  requireEnv("SMTP_PASS", SMTP_PASS);
+                                            <a href="https://www.linkedin.com/company/neroapp-ltd/"
+                                                style="color:#FFFFFF;text-decoration:underline;">LinkedIn</a>
 
-  await transporter.sendMail({
-    from: FROM_EMAIL,
-    to: email,
-    replyTo: REPLY_TO_EMAIL || smtpUser,
-    subject: "Welcome to nēro",
-    text: buildPlainTextEmail(),
-    html: buildWelcomeHtmlEmail(),
-    headers: {
-      "X-Entity-Ref-ID": "nero-waitlist",
-      "List-Unsubscribe": `<${UNSUBSCRIBE_URL}>`,
-    },
-  });
-}
+                                        </p>
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
-  if (req.method === "GET") {
-    try {
-      const count = await getWaitlistCount();
-      return res.status(200).json({ count });
-    } catch (error) {
-      console.error("Waitlist count error:", error);
-      return res.status(200).json({ count: 0 });
-    }
-  }
+                                        <p
+                                            style="margin:0;font-size:11px;line-height:1.6;color:rgba(255,255,255,0.52);">
 
-  if (req.method !== "POST") {
-    return res.status(405).json({
-      error: "Method not allowed",
-    });
-  }
+                                            © 2026 nēro. All rights reserved.
 
-  const { email } = req.body as { email?: string };
-  const normalizedEmail = email?.trim().toLowerCase();
+                                        </p>
 
-  if (!normalizedEmail || !EMAIL_PATTERN.test(normalizedEmail)) {
-    return res.status(400).json({
-      error: "Invalid email address",
-    });
-  }
+                                    </td>
 
-  try {
-    const state = await saveWaitlistSignup(normalizedEmail);
+                                </tr>
 
-    if (state === "exists") {
-      return res.status(200).json({
-        message: "You're already on the waitlist. We'll keep you posted.",
-      });
-    }
+                            </table>
 
-    try {
-      await sendWelcomeEmail(normalizedEmail);
-    } catch (mailError) {
-      console.error("SMTP send error:", mailError);
-    }
+                        </td>
+                    </tr>
+                </table>
+            </body>
 
-    return res.status(200).json({
-      message: "You're on the waitlist! Check your inbox.",
-    });
-  } catch (error) {
-    console.error("Waitlist handler error:", error);
-    return res.status(500).json({
-      error: "Failed to send confirmation email. Please try again.",
-    });
-  }
-}
+            </html>
+            `,
+            });//hi
+            }
+
+            export default async function handler(req: VercelRequest, res: VercelResponse) {
+            if (req.method === "GET") {
+            try {
+            const count = await getWaitlistCount();
+            return res.status(200).json({ count });
+            } catch (error) {
+            console.error("Waitlist count error:", error);
+            return res.status(200).json({ count: 0 });
+            }
+            }
+
+            if (req.method !== "POST") {
+            return res.status(405).json({ error: "Method not allowed" });
+            }
+
+            const { email } = req.body as { email?: string };
+            const normalizedEmail = email?.trim().toLowerCase();
+
+            if (!normalizedEmail || !EMAIL_PATTERN.test(normalizedEmail)) {
+            return res.status(400).json({ error: "Invalid email address" });
+            }
+
+            try {
+            const state = await saveWaitlistSignup(normalizedEmail);
+
+            if (state === "exists") {
+            return res.status(200).json({
+            message: "You're already on the waitlist. We'll keep you posted.",
+            });
+            }
+
+            try {
+            await sendWelcomeEmail(normalizedEmail);
+            } catch (mailError) {
+            console.error("SMTP send error:", mailError);
+            }
+
+            return res.status(200).json({
+            message: "You're on the waitlist! Check your inbox.",
+            });
+            } catch (error) {
+            console.error("Waitlist handler error:", error);
+            return res.status(500).json({
+            error: "Failed to send confirmation email. Please try again.",
+            });
+            }
+            }
