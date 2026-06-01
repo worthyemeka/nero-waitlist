@@ -203,16 +203,6 @@ function buildWelcomeHtmlEmail(): string {
   <meta name="supported-color-schemes" content="light dark" />
   <title>You're in! — nēro</title>
 
-  <!--[if mso]>
-  <noscript>
-    <xml>
-      <o:OfficeDocumentSettings>
-        <o:PixelsPerInch>96</o:PixelsPerInch>
-      </o:OfficeDocumentSettings>
-    </xml>
-  </noscript>
-  <![endif]-->
-
   <style type="text/css">
     body,
     table,
