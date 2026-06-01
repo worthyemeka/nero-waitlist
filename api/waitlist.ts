@@ -6,7 +6,7 @@ const SMTP_PORT = Number(process.env.SMTP_PORT ?? 465);
 const SMTP_SECURE = (process.env.SMTP_SECURE ?? "true").toLowerCase() === "true";
 const SMTP_USER = process.env.SMTP_USER;
 const SMTP_PASS = process.env.SMTP_PASS;
-const FROM_EMAIL = process.env.FROM_EMAIL ?? "Nero <noreply@neroapp.co>";
+const FROM_EMAIL = process.env.FROM_EMAIL ?? "The nēro team <no-reply@neroapp.co>";
 
     const SUPABASE_URL = process.env.SUPABASE_URL;
     const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
