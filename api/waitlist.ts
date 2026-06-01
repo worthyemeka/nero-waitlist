@@ -290,22 +290,6 @@ const FROM_EMAIL = process.env.FROM_EMAIL ?? "The nēro team <no-reply@neroapp.c
                                         </p>
 
                                         <p
-                                            style="margin:0 0 18px 0;font-size:12px;line-height:1.6;color:rgba(255,255,255,0.72);">
-
-                                            If this is not for you, you can
-
-                                            <a href="${UNSUBSCRIBE_URL}"
-                                                style="color:#FFFFFF;text-decoration:underline;">
-
-                                                unsubscribe
-
-                                            </a>
-
-                                            anytime.
-
-                                        </p>
-
-                                        <p
                                             style="margin:0 0 10px 0;font-size:12px;line-height:1.6;color:rgba(255,255,255,0.72);">
 
                                             <a href="https://www.instagram.com/getneroapp/"
@@ -338,7 +322,7 @@ const FROM_EMAIL = process.env.FROM_EMAIL ?? "The nēro team <no-reply@neroapp.c
 
             </html>
             `,
-            });//hi
+            });
             }
 
             export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -372,11 +356,7 @@ const FROM_EMAIL = process.env.FROM_EMAIL ?? "The nēro team <no-reply@neroapp.c
             });
             }
 
-            try {
             await sendWelcomeEmail(normalizedEmail);
-            } catch (mailError) {
-            console.error("SMTP send error:", mailError);
-            }
 
             return res.status(200).json({
             message: "You're on the waitlist! Check your inbox.",
