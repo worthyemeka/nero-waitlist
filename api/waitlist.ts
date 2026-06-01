@@ -211,7 +211,7 @@ const FROM_EMAIL = process.env.FROM_EMAIL ?? "The nēro team <no-reply@neroapp.c
                                 <tr>
                                     <td align="center" style="padding:0;font-size:0;line-height:0;background:#05030d;">
                                         <a href="https://waitlist.neroapp.co" target="_blank" style="display:block;">
-                                            <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780265023/Hero_small_i9jljt.png"
+                                            <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780351410/Hero_2x_udeubh.webp"
                                                 width="600" alt="You're in! Let's build this together."
                                                 style="width:100%;max-width:600px;height:auto;" />
                                         </a>
@@ -220,7 +220,7 @@ const FROM_EMAIL = process.env.FROM_EMAIL ?? "The nēro team <no-reply@neroapp.c
 
                                 <tr>
                                     <td align="center" style="padding:0;font-size:0;line-height:0;background:#05030d;">
-                                        <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780271570/Body_buenuu.png"
+                                        <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780351408/Body_afsllk.webp"
                                             width="600" alt="Welcome to nēro"
                                             style="width:100%;max-width:600px;height:auto;" />
                                     </td>
@@ -228,7 +228,7 @@ const FROM_EMAIL = process.env.FROM_EMAIL ?? "The nēro team <no-reply@neroapp.c
 
                                 <tr>
                                     <td align="center"
-                                        background="https://res.cloudinary.com/dentghiic/image/upload/v1780264016/Cards_bg_szjabs.png"
+                                        background="https://res.cloudinary.com/dentghiic/image/upload/v1780351409/Cards_bg_fantxy.webp"
                                         style="
                 padding:0;
                 background-color:#05030d;
@@ -244,21 +244,21 @@ const FROM_EMAIL = process.env.FROM_EMAIL ?? "The nēro team <no-reply@neroapp.c
 
                                                     <a href="https://chat.whatsapp.com/GmIOkXzIITu8knz6QHo45m?mode=gi_t"
                                                         target="_blank" style="display:block;">
-                                                        <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780264006/feature_1_h424lx.png"
+                                                        <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780351409/feature_1_oio7zp.webp"
                                                             width="512" alt="Join our WhatsApp community"
                                                             style="width:100%;max-width:512px;height:auto;margin:0 0 22px 0;" />
                                                     </a>
 
                                                     <a href="https://instagram.com/getneroapp" target="_blank"
                                                         style="display:block;">
-                                                        <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780264005/feature_2_yqqx7n.png"
+                                                        <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780351409/feature_2_p18g9t.webp"
                                                             width="512" alt="Follow us on Instagram"
                                                             style="width:100%;max-width:512px;height:auto;margin:0 0 22px 0;" />
                                                     </a>
 
                                                     <a href="https://www.linkedin.com/company/neroapp" target="_blank"
                                                         style="display:block;">
-                                                        <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780264013/feature_3_atcsq4.png"
+                                                        <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780351409/feature_3_gkplkf.webp"
                                                             width="512" alt="Follow us on LinkedIn"
                                                             style="width:100%;max-width:512px;height:auto;margin:0;" />
                                                     </a>
@@ -271,7 +271,7 @@ const FROM_EMAIL = process.env.FROM_EMAIL ?? "The nēro team <no-reply@neroapp.c
 
                                 <tr>
                                     <td align="center" style="padding:0;font-size:0;line-height:0;background:#05030d;">
-                                        <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780271571/close_brcfhf.png"
+                                        <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780351409/close_vrkzuf.webp"
                                             width="600" alt="We'll be in touch soon"
                                             style="width:100%;max-width:600px;height:auto;margin:0 0 -36px 0;" />
                                     </td>
