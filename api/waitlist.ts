@@ -130,7 +130,7 @@ async function sendWelcomeEmail(email: string) {
       "X-Entity-Ref-ID": "nero-waitlist",
     },
     html: `
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
     xmlns:o="urn:schemas-microsoft-com:office:office">
 
@@ -433,6 +433,14 @@ async function sendWelcomeEmail(email: string) {
                             </a>
                         </td>
                     </tr>
+
+                    <tr>
+                        <td class="hero-cell" style="background-color:#2A2A91;font-size:0;line-height:0;">
+                            <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780320098/waitlist_footer_sy5kjf.png"
+                                alt="." width="600" style="display:block;width:100%;max-width:600px;height:auto;" />
+                            </a>
+                        </td>
+                    </tr>
                 </table>
             </td>
         </tr>
@@ -441,7 +449,7 @@ async function sendWelcomeEmail(email: string) {
 
 </html>
 `,
-  });//hi
+  });
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
