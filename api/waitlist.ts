@@ -334,18 +334,10 @@ function buildWelcomeHtmlEmail(): string {
                     <tr>
                         <td class="hero-cell" style="background-color:#2A2A91;font-size:0;line-height:0;">
                             <a href="https://waitlist.neroapp.co" style="display:block;font-size:0;line-height:0;">
-                                <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780264049/Hero_2x_cikqit.png"
+                                <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780335281/Email-handb_iqowvk.png"
                                     alt="You're in! You're officially on the list." width="600"
                                     style="display:block;width:100%;max-width:600px;height:auto;border:0;" />
                             </a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="hero-cell" style="background-color:#2A2A91;font-size:0;line-height:0;">
-                            <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780271570/Body_buenuu.png"
-                                alt="Welcome to nēro. We are excited to have you here." width="600"
-                                style="display:block;width:100%;max-width:600px;height:auto;margin:0 0 -16px 0;border:0;" />
                         </td>
                     </tr>
 
