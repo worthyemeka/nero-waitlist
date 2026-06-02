@@ -197,7 +197,7 @@ const FROM_EMAIL = process.env.FROM_EMAIL ?? "The nēro team <no-reply@neroapp.c
 
             <body style="margin:0;padding:0;background:#ffffff;">
                 <div class="preheader">
-                    You're on the nēro waitlist. We’ll keep you updated as we build.
+                    Thank you for signing up for our waitlist. Please read this email as it contains the next steps for you to follow.
                 </div>
 
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
