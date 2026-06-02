@@ -12,6 +12,28 @@ const FROM_EMAIL = process.env.FROM_EMAIL ?? "nēro <no-reply@neroapp.co>";
     const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
     const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const ALLOWED_EMAIL_DOMAINS = new Set([
+    "gmail.com",
+    "googlemail.com",
+    "yahoo.com",
+    "yahoo.co.uk",
+    "yahoo.com.au",
+    "outlook.com",
+    "hotmail.com",
+    "live.com",
+    "msn.com",
+    "icloud.com",
+    "me.com",
+    "mac.com",
+    "proton.me",
+    "protonmail.com",
+    "protonmail.ch",
+    "pm.me",
+    "aol.com",
+    "gmx.com",
+    "gmx.net",
+    "gmx.us",
+    ]);
 
     const transporter = nodemailer.createTransport({
     host: SMTP_HOST,
@@ -47,6 +69,11 @@ const FROM_EMAIL = process.env.FROM_EMAIL ?? "nēro <no-reply@neroapp.co>";
 
     function setCachedCount(count: number): void {
     cachedCount = { count, expires: Date.now() + 5 * 60 * 1000 };
+    }
+
+    function isAllowedEmailAddress(email: string): boolean {
+    const domain = email.split("@")[1]?.toLowerCase();
+    return Boolean(domain && ALLOWED_EMAIL_DOMAINS.has(domain));
     }
 
     async function getWaitlistCount(): Promise<number> {
@@ -368,6 +395,10 @@ const FROM_EMAIL = process.env.FROM_EMAIL ?? "nēro <no-reply@neroapp.co>";
 
             if (!normalizedEmail || !EMAIL_PATTERN.test(normalizedEmail)) {
             return res.status(400).json({ error: "Invalid email address" });
+            }
+
+            if (!isAllowedEmailAddress(normalizedEmail)) {
+            return res.status(400).json({ error: "not valid email" });
             }
 
             try {
