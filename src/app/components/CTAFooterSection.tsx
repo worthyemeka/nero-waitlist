@@ -59,22 +59,22 @@ export default function CTAFooterSection() {
   const [target, setTarget] = useState(0);
 
   useEffect(() => {
-    async function fetchMaxId() {
+    const controller = new AbortController();
+
+    async function fetchCount() {
       try {
-        // Fetch the max id from the waitlist table
-        const res = await fetch("/api/waitlist?id=max");
-        if (!res.ok) throw new Error("Failed to fetch waitlist max id");
+        const res = await fetch("/api/waitlist", { signal: controller.signal });
+        if (!res.ok) throw new Error(`Failed to fetch waitlist count: ${res.status}`);
         const data = await res.json();
-        // If backend supports, use data.maxId, else fallback to count
-        let maxId = Number(data.maxId ?? data.count ?? 0);
-        if (!Number.isFinite(maxId)) maxId = 0;
-        // Clamp to 50
-        setTarget(Math.min(50, Math.max(0, maxId)));
+        const fetchedCount = Number(data.count ?? 0);
+        const safeCount = Number.isFinite(fetchedCount) ? Math.max(0, fetchedCount) : 0;
+        setTarget(safeCount);
       } catch {
         setTarget(0);
       }
     }
-    fetchMaxId();
+    fetchCount();
+    return () => controller.abort();
   }, []);
 
   useEffect(() => {

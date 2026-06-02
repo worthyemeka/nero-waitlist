@@ -10,7 +10,7 @@ SMTP_PORT=465
 SMTP_SECURE=true
 SMTP_USER=noreply@neroapp.co
 SMTP_PASS=...
-FROM_EMAIL=Nero <noreply@neroapp.co>
+FROM_EMAIL=nēro <noreply@neroapp.co>
 ```
 
 Paid Zoho SMTP host: `smtppro.zoho.com`.

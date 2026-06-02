@@ -6,7 +6,7 @@ const SMTP_PORT = Number(process.env.SMTP_PORT ?? 465);
 const SMTP_SECURE = (process.env.SMTP_SECURE ?? "true").toLowerCase() === "true";
 const SMTP_USER = process.env.SMTP_USER;
 const SMTP_PASS = process.env.SMTP_PASS;
-const FROM_EMAIL = process.env.FROM_EMAIL ?? "The nēro team <no-reply@neroapp.co>";
+const FROM_EMAIL = process.env.FROM_EMAIL ?? "nēro <no-reply@neroapp.co>";
 
     const SUPABASE_URL = process.env.SUPABASE_URL;
     const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -91,7 +91,7 @@ const FROM_EMAIL = process.env.FROM_EMAIL ?? "The nēro team <no-reply@neroapp.c
             const supabaseUrl = requireEnv("SUPABASE_URL", SUPABASE_URL);
             const serviceRoleKey = requireEnv("SUPABASE_SERVICE_ROLE_KEY", SUPABASE_SERVICE_ROLE_KEY);
 
-            const response = await fetch(`${supabaseUrl}/rest/v1/waitlist_signups`, {
+        const response = await fetch(`${supabaseUrl}/rest/v1/waitlist_signups`, {
             method: "POST",
             headers: {
             apikey: serviceRoleKey,
@@ -115,6 +115,29 @@ const FROM_EMAIL = process.env.FROM_EMAIL ?? "The nēro team <no-reply@neroapp.c
 
             const details = await response.text();
             throw new Error(`Supabase insert failed (${response.status}): ${details}`);
+            }
+
+            async function waitlistSignupExists(email: string): Promise<boolean> {
+            const supabaseUrl = requireEnv("SUPABASE_URL", SUPABASE_URL);
+            const serviceRoleKey = requireEnv("SUPABASE_SERVICE_ROLE_KEY", SUPABASE_SERVICE_ROLE_KEY);
+
+            const response = await fetch(
+            `${supabaseUrl}/rest/v1/waitlist_signups?select=id&email=eq.${encodeURIComponent(email)}&limit=1`,
+            {
+            method: "GET",
+            headers: {
+            apikey: serviceRoleKey,
+            Authorization: `Bearer ${serviceRoleKey}`,
+            },
+            }
+            );
+
+            if (!response.ok) {
+            throw new Error(`Failed to check existing signup: ${response.status}`);
+            }
+
+            const data = (await response.json()) as Array<{ id: number }>;
+            return Array.isArray(data) && data.length > 0;
             }
 
             async function sendWelcomeEmail(email: string) {
@@ -348,6 +371,16 @@ const FROM_EMAIL = process.env.FROM_EMAIL ?? "The nēro team <no-reply@neroapp.c
             }
 
             try {
+            const exists = await waitlistSignupExists(normalizedEmail);
+
+            if (exists) {
+            return res.status(200).json({
+            message: "You're already on the waitlist. We'll keep you posted.",
+            });
+            }
+
+            await sendWelcomeEmail(normalizedEmail);
+
             const state = await saveWaitlistSignup(normalizedEmail);
 
             if (state === "exists") {
@@ -356,15 +389,13 @@ const FROM_EMAIL = process.env.FROM_EMAIL ?? "The nēro team <no-reply@neroapp.c
             });
             }
 
-            await sendWelcomeEmail(normalizedEmail);
-
             return res.status(200).json({
             message: "You're on the waitlist! Check your inbox.",
             });
             } catch (error) {
             console.error("Waitlist handler error:", error);
             return res.status(500).json({
-            error: "Failed to send confirmation email. Please try again.",
+            error: "Failed to complete waitlist signup. Please try again.",
             });
             }
             }
