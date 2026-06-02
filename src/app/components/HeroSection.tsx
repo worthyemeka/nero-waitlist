@@ -194,7 +194,7 @@ function CounterComponent() {
 
     async function fetchCount() {
       try {
-        const res = await fetch("/api/waitlist", { signal: controller.signal });
+        const res = await fetch("/api/waitlist-resend", { signal: controller.signal });
         if (!res.ok) {
           throw new Error(`Failed to fetch waitlist count: ${res.status}`);
         }
@@ -844,7 +844,7 @@ export default function HeroSection() {
     setStatus("idle");
 
     try {
-      const response = await fetch("/api/waitlist", {
+      const response = await fetch("/api/waitlist-resend", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
