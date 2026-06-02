@@ -306,7 +306,7 @@ const FROM_EMAIL = process.env.FROM_EMAIL ?? "nēro <no-reply@neroapp.co>";
                                                             style="width:100%;max-width:512px;height:auto;margin:0 0 22px 0;" />
                                                     </a>
 
-                                                    <a href="https://www.linkedin.com/company/neroapp" target="_blank"
+                                                    <a href="https://www.linkedin.com/company/neroapp-ltd/" target="_blank"
                                                         style="display:block;">
                                                         <img src="https://res.cloudinary.com/dentghiic/image/upload/v1780351409/feature_3_gkplkf.webp"
                                                             width="512" alt="Follow us on LinkedIn"
