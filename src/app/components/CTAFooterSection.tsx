@@ -290,9 +290,15 @@ export default function CTAFooterSection() {
           </div>
 
           {/* Center - Copyright */}
-          <p className="font-['Satoshi:Regular',sans-serif] text-[13px] md:text-[14px] text-[#696969] order-2 w-full sm:w-auto text-center">
-            @2026 nēro. All right's reserved.
-          </p>
+<div className="order-2 w-full sm:w-auto text-center">
+  <p className="font-['Satoshi:Regular',sans-serif] text-[13px] md:text-[14px] text-[#696969]">
+    © 2026 nēro. All rights reserved.
+  </p>
+
+  <p className="font-['Satoshi:Regular',sans-serif] text-[11px] md:text-[12px] text-[#696969] mt-[4px] leading-[1.5]">
+    nēro is a product of NERO SYSTEM LIMITED • RC: 9470791
+  </p>
+</div>
 
           {/* Right - Links */}
           <div className="flex w-full sm:w-auto justify-between sm:justify-end items-center order-3 gap-0 sm:gap-[20px]">
