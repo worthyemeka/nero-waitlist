@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import BreadcrumbHeader from "./BreadcrumbHeader";
 import { motion } from "framer-motion";
