@@ -248,7 +248,7 @@ export default function CTAFooterSection() {
               Follow us:
             </span>
             <a
-              href="https://www.instagram.com/getneroapp"
+              href="https://www.instagram.com/getneroapp_"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
